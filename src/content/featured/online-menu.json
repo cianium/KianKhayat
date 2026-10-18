@@ -1,0 +1,19 @@
+{
+  "slug": "online-menu",
+  "order": 10,
+  "title": "Online-Menu",
+  "summary": ".........",
+  "url": "https://cianium.github.io/Online-Menu/",
+  "emoji": "⭐",
+  "published": true,
+  "translations": {
+    "fa": {
+      "title": "bb",
+      "summary": "ɓbbbbbnn"
+    },
+    "de": {
+      "title": "bbb",
+      "summary": "bbbbbbbbbb"
+    }
+  }
+}
