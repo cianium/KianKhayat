@@ -1,0 +1,29 @@
+{
+  "slug": "goethe-zertifikat-a2",
+  "order": 0,
+  "featured": false,
+  "translations": {
+    "de": {
+      "emoji": "🇩🇪",
+      "name": "Goethe-Zertifikat A2",
+      "issuer": "Goethe Institut",
+      "date": "Jan. 2024",
+      "category": "goethe",
+      "description": "Offizielles Deutschzertifikat auf dem Niveau A2."
+    },
+    "fa": {
+      "emoji": "🇩🇪",
+      "name": "Goethe-Zertifikat A2",
+      "issuer": "Goethe Institut",
+      "date": "ژانویه ۲۰۲۴",
+      "category": "goethe",
+      "description": "مدرک رسمی زبان آلمانی در سطح A2."
+    }
+  },
+  "name": "Goethe-Zertifikat A2",
+  "issuer": "Goethe Institut",
+  "date": "Jan 2024",
+  "category": "goethe",
+  "description": "Official German language certification at the A2 level.",
+  "emoji": "🇩🇪"
+}

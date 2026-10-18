@@ -1,0 +1,43 @@
+---
+import {getCollection,type CollectionEntry} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import {siteLanguage} from '../../data/sites';
+import {ui} from '../../data/interface';
+import {articlePath,localizeArticle,articleDate,articleOutline,articleDirection} from '../../data/articles';
+export async function getStaticPaths() {
+  return (await getCollection('articles',({data})=>!data.draft)).map(article=>({params:{slug:article.data.slug},props:{article}}));
+}
+interface Props {article:CollectionEntry<'articles'>}
+const source=Astro.props.article.data;
+const article=localizeArticle(source,siteLanguage);
+const outline=articleOutline(article.body);
+const others=(await getCollection('articles',({data})=>!data.draft&&data.slug!==source.slug)).sort((a,b)=>a.data.order-b.data.order);
+---
+<Layout page="articles" title={article.seoTitle||article.title} description={article.seoDescription||article.summary} image={source.cover}
+  article={{headline:article.title,publishedAt:source.publishedAt,categories:article.categories,language:article.language,updatedAt:article.updatedAt}}>
+  <main id="page-article" class="page active">
+    <article class="container article-detail" data-no-translate lang={article.language} dir={articleDirection(article)}>
+      <a class="project-link" href="/articles/"><span aria-hidden="true">{siteLanguage==='fa'?'→':'←'}</span> {ui('allArticles',siteLanguage)}</a>
+      <header class="article-detail-header">
+        <div class="article-cats">{article.categories.map(category=><span class="article-cat">{category}</span>)}</div>
+        <h1>{article.title}</h1>
+        <p class="article-deck">{article.summary}</p>
+        <div class="article-meta"><span>Kian Khayat</span><time datetime={articleDate(source)}>{article.date}</time><span>{article.readTime}</span></div>
+        {source.cover && <img class="article-cover" src={source.cover} alt={article.coverAlt||article.title} width="1440" height="810"/>}
+      </header>
+      {article.toc && outline.headings.length>0 && <nav class="article-toc" aria-label={article.language==='fa'?'فهرست مطالب':article.language==='de'?'Inhalt':'Contents'}>
+        <h2>{article.language==='fa'?'فهرست مطالب':article.language==='de'?'Inhalt':'Contents'}</h2>
+        <ol>{outline.headings.map((heading:{id:string;text:string;level:number})=><li><a href={`#${heading.id}`}>{heading.text}</a></li>)}</ol>
+      </nav>}
+      <section class="article-prose" aria-labelledby="article-body-heading">
+        <h2 id="article-body-heading" class="visually-hidden">{ui('articleBody',siteLanguage)}</h2>
+        <div class="article-content" set:html={outline.html}/>
+      </section>
+      <nav class="more-articles" aria-labelledby="more-articles-heading">
+        <h2 id="more-articles-heading">{ui('moreArticles',siteLanguage)}</h2>
+        <ul>{others.map(({data})=><li lang={data.language} dir={articleDirection(data)}><a href={articlePath(data.slug)}>{localizeArticle(data).title}</a></li>)}</ul>
+        <a class="feed-link project-link" href="/rss.xml">{ui('feed',siteLanguage)}</a>
+      </nav>
+    </article>
+  </main>
+</Layout>

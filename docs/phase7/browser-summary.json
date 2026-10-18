@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "scenarios": 19,
+  "initialPasses": 18,
+  "initialFailures": 1,
+  "recheckedPasses": 1,
+  "note": "The PDF-only test initially exceeded the 5-second loader wait. Its readiness timeout now accommodates the preserved 8-second loader fallback plus exit transition; the targeted recheck passed. Hosted CMS login and commits remain untested."
+}

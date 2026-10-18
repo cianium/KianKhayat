@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "pages": 54,
+  "localReferences": 1422,
+  "checks": [
+    "script hash CSP",
+    "no inline event handlers",
+    "local link and asset existence",
+    "security headers",
+    "no packaged source maps, private keys or test files"
+  ],
+  "liveDeploymentVerified": false
+}

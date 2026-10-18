@@ -1,0 +1,15 @@
+---
+import {getCollection} from 'astro:content';
+import {siteLanguage} from '../data/sites';
+import {ui} from '../data/interface';
+import {articlePath,localizeArticle,articleDirection} from '../data/articles';
+const articles=(await getCollection('articles',({data})=>!data.draft)).sort((a,b)=>a.data.order-b.data.order).map(a=>localizeArticle(a.data));
+---
+{articles.map((a,i)=><article class="article-card fade-up" data-no-translate lang={a.language} dir={articleDirection(a)}>
+  <div class="article-num">{String(i+1).padStart(2,'0')}</div>
+  <div class="article-main"><div class="article-cats">{a.categories.map((c:string)=><span class="article-cat">{c}</span>)}</div>
+    <h2 class="article-title"><a href={articlePath(a.slug)}>{a.title}</a></h2><div class="article-summary">{a.summary}</div><div class="article-meta"><span>{a.date}</span><span>{a.readTime}</span></div>
+    <button type="button" class="quick-read project-link" data-article={a.slug} lang={siteLanguage}>{ui('quickRead',siteLanguage)}</button>
+  </div><div class="article-arrow" aria-hidden="true">→</div>
+</article>)}
+<script type="application/json" id="article-data" set:html={JSON.stringify(articles).replace(/</g,'\\u003c')} />

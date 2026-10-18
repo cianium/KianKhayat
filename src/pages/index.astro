@@ -1,0 +1,219 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Skills from "../components/Skills.astro";
+import HeroPhoto from "../components/HeroPhoto.astro";
+import Featured from '../components/Featured.astro';
+---
+<Layout page="home">
+<main class="page active" id="page-home">
+
+<section aria-label="Introduction" class="hero" style="position:relative;">
+<div class="hero-bg">
+<div class="hero-orb orb-1"></div>
+<div class="hero-orb orb-2"></div>
+</div>
+<div class="container hero-wrap">
+<div class="hero-inner">
+<div class="hero-content">
+<div class="hero-eyebrow">
+<span>📍</span> Iran · Building in public
+          </div>
+<h1 class="hero-name" dir="ltr">Kian Khayat<span class="accent">.</span></h1>
+<p class="hero-bio">
+            I build intelligent systems and study the craft of software engineering with full discipline. Somewhere between code and curiosity, I'm constructing the foundation for a career at the frontier of AI.
+          </p>
+<div class="hero-location">
+<span></span> Currently focused on: Python mastery, AI fundamentals &amp; German B2
+          </div>
+<div aria-label="Social links" class="hero-socials" role="list">
+<a aria-label="GitHub profile" class="social-btn" href="https://github.com/cianium" rel="noopener" role="listitem" target="_blank" title="GitHub">
+<svg aria-hidden="true" fill="currentColor" focusable="false" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</a>
+<a aria-label="Instagram profile" class="social-btn" href="https://instagram.com/empersiian" rel="noopener" role="listitem" target="_blank" title="Instagram">
+<svg aria-hidden="true" fill="none" focusable="false" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><g> <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path> <path d="M12 15.5C13.933 15.5 15.5 13.933 15.5 12C15.5 10.067 13.933 8.5 12 8.5C10.067 8.5 8.5 10.067 8.5 12C8.5 13.933 10.067 15.5 12 15.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path> <path d="M17.6361 7H17.6477" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path> </g></svg>
+</a>
+<a aria-label="WhatsApp contact" class="social-btn" href="https://wa.me/989051017028" rel="noopener" role="listitem" target="_blank" title="WhatsApp">
+<svg aria-hidden="true" fill="currentColor" focusable="false" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+</a>
+<a aria-label="X profile" class="social-btn" href="https://x.com/empersiian" rel="noopener" role="listitem" target="_blank" title="X">
+<svg aria-hidden="true" fill="currentColor" focusable="false" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"></path></svg>
+</a>
+<a aria-label="LinkedIn profile" class="social-btn" href="https://www.linkedin.com/in/kian-khayat-5a41b4439?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" rel="noopener" role="listitem" target="_blank" title="LinkedIn">
+<svg aria-hidden="true" fill="currentColor" focusable="false" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M1 2.838A1.84 1.84 0 0 1 2.838 1H21.16A1.837 1.837 0 0 1 23 2.838V21.16A1.84 1.84 0 0 1 21.161 23H2.838A1.84 1.84 0 0 1 1 21.161zm8.708 6.55h2.979v1.496c.43-.86 1.53-1.634 3.183-1.634c3.169 0 3.92 1.713 3.92 4.856v5.822h-3.207v-5.106c0-1.79-.43-2.8-1.522-2.8c-1.515 0-2.145 1.089-2.145 2.8v5.106H9.708zm-5.5 10.403h3.208V9.25H4.208zM7.875 5.812a2.063 2.063 0 1 1-4.125 0a2.063 2.063 0 0 1 4.125 0" fill="currentColor" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+<div class="hero-avatar-wrap">
+<div class="hero-avatar">
+<div class="avatar-ring"></div>
+<div class="avatar-ring-inner"></div>
+<div aria-label="Kian's profile photo" class="avatar-img">
+<HeroPhoto />
+</div>
+<div aria-label="Currently building and learning" class="avatar-status">
+<span class="status-dot"></span>
+              Building &amp; learning
+            </div>
+</div>
+</div>
+</div>
+</div>
+
+<div aria-hidden="true" class="scroll-hint">
+<span>scroll</span>
+<span class="scroll-line"></span>
+</div>
+</section>
+<div class="divider"></div>
+
+<Featured />
+<section aria-label="Skills" class="section">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow">Skills</div>
+<h2 class="section-title h2">Capability Map</h2>
+<p class="section-desc">A transparent assessment of current skill levels. Click any card to explore deeper.</p>
+</div>
+<div class="skills-track-wrap at-start" id="skills-track-wrap">
+<div aria-label="Skills, scroll horizontally to see more" class="skills-grid stagger" id="skills-grid" role="group" tabindex="0"><Skills />
+
+</div>
+</div>
+<div aria-hidden="true" class="skills-scroll-hint">
+<span>Swipe to explore</span>
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+</div>
+</div>
+</section>
+<div class="divider"></div>
+
+<section aria-label="About Kian" class="section">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow">README.md</div>
+<h2 class="section-title h2">Who is Kian?</h2>
+<p class="section-desc">A structured introduction — the way serious builders document themselves.</p>
+</div>
+<div class="readme-grid stagger">
+<div class="readme-card fade-up" tabindex="0">
+<div class="card-icon">👤</div>
+<div class="card-label">identity</div>
+<h3 class="card-title">Who I Am</h3>
+<p class="card-body">I'm Kian — full name Kian Khayat — a disciplined self-learner obsessed with the intersection of software engineering and artificial intelligence. I don't follow the average path. I build systems, study deeply, and think in decades, not semesters.</p>
+</div>
+<div class="readme-card fade-up" tabindex="0">
+<div class="card-icon">🎯</div>
+<div class="card-label">current focus</div>
+<h3 class="card-title">What I'm Doing Now</h3>
+<p class="card-body">Mastering Python for data science and AI tooling. Studying German toward B2 fluency. Building small but meaningful software projects. Reading everything at the intersection of intelligence, language, and systems.</p>
+
+<div class="now-block">
+<div class="now-row"><span class="now-tag">building</span><span class="now-val">First open-source AI tool</span></div>
+<div class="now-row"><span class="now-tag">studying</span><span class="now-val">German B2 · Goethe Institut track</span></div>
+</div>
+</div>
+<div class="readme-card fade-up" tabindex="0">
+<div class="card-icon">📚</div>
+<div class="card-label">journey</div>
+<h3 class="card-title">Learning Journey</h3>
+<p class="card-body">Self-directed study across Python, web development, Linux administration, and machine learning concepts. Every skill compounds deliberately — no shortcuts, no fluff. The discipline of learning is itself the skill.</p>
+</div>
+<div class="readme-card fade-up" tabindex="0">
+<div class="card-icon">⚙️</div>
+<div class="card-label">tech stack</div>
+<h3 class="card-title">Technologies</h3>
+<p class="card-body">The tools I use and study daily:</p>
+<div class="tech-pills">
+<span class="tech-pill">Python</span>
+<span class="tech-pill">HTML/CSS</span>
+<span class="tech-pill">JavaScript</span>
+<span class="tech-pill">Linux</span>
+<span class="tech-pill">Git</span>
+<span class="tech-pill">AI/ML</span>
+<span class="tech-pill">German (B1)</span>
+</div>
+</div>
+<div class="readme-card wide fade-up" tabindex="0">
+<div class="card-icon">🔭</div>
+<div class="card-label">vision</div>
+<h3 class="card-title">Future Vision</h3>
+<p class="card-body">I'm building toward becoming an elite software engineer who ships AI-native products. Not just a developer who uses AI tools — a founder who understands intelligence deeply and constructs systems that matter. The goal is to one day contribute to frontier AI and build products used by millions. This website is the first artifact of that journey. Everything public, everything intentional, everything documented.</p>
+</div>
+<div class="readme-card fade-up" tabindex="0">
+<div class="card-icon">🧭</div>
+<div class="card-label">philosophy</div>
+<h3 class="card-title">Personal Philosophy</h3>
+<p class="card-body">Discipline over motivation. Systems over goals. Depth over breadth. The compound interest of daily effort is the only unfair advantage available to anyone.</p>
+</div>
+<div class="readme-card fade-up" tabindex="0">
+<div class="card-icon">📡</div>
+<div class="card-label">transparency</div>
+<h3 class="card-title">Building in Public</h3>
+<p class="card-body">Every project, every article, every certificate — documented openly. I believe the process is the portfolio. What you see here is a live record of someone building toward something real.</p>
+</div>
+
+<div class="readme-card wide fade-up" tabindex="0">
+<div class="card-icon">🔥</div>
+<div class="card-label">building streak</div>
+<h3 class="card-title">Activity Log</h3>
+<p class="card-body" style="margin-bottom:14px;">Live contribution history, pulled directly from GitHub.</p>
+<div id="heatmap-wrap">
+<div class="heatmap-status" id="heatmap-loading">Loading activity…</div>
+<div aria-label="GitHub contribution heatmap" class="heatmap-grid" id="heatmap-grid" style="display:none;"></div>
+<div class="heatmap-legend" id="heatmap-legend" style="display:none;">
+<span>Less</span>
+<span class="heatmap-cell" data-level="0"></span>
+<span class="heatmap-cell" data-level="1"></span>
+<span class="heatmap-cell" data-level="2"></span>
+<span class="heatmap-cell" data-level="3"></span>
+<span class="heatmap-cell" data-level="4"></span>
+<span>More</span>
+<a class="heatmap-link" href="https://github.com/cianium" rel="noopener" target="_blank">View on GitHub →</a>
+</div>
+<div class="heatmap-status" id="heatmap-fallback" style="display:none;">
+              Couldn't load live data right now. <a href="https://github.com/cianium" rel="noopener" style="color:var(--primary);" target="_blank">See activity on GitHub →</a>
+</div>
+</div>
+</div>
+<div class="readme-card wide fade-up" tabindex="0">
+<div class="card-icon">🗺️</div>
+<div class="card-label">roadmap</div>
+<h3 class="card-title">2025–2026 Roadmap</h3>
+<div class="roadmap-list">
+<div class="roadmap-item">
+<div aria-label="Completed" class="ri-status done">✓</div>
+<span class="ri-text">Launch personal website</span>
+<span class="ri-label">Done</span>
+</div>
+<div class="roadmap-item">
+<div aria-label="Completed" class="ri-status done">✓</div>
+<span class="ri-text">Python fundamentals &amp; intermediate concepts</span>
+<span class="ri-label">Done</span>
+</div>
+<div class="roadmap-item">
+<div aria-label="In progress" class="ri-status progress">◐</div>
+<span class="ri-text">German language B2 certification</span>
+<span class="ri-label">In progress</span>
+</div>
+<div class="roadmap-item">
+<div aria-label="In progress" class="ri-status progress">◐</div>
+<span class="ri-text">Build first open-source AI tool</span>
+<span class="ri-label">In progress</span>
+</div>
+<div class="roadmap-item">
+<div aria-label="Planned" class="ri-status planned">○</div>
+<span class="ri-text">Complete full-stack web development track</span>
+<span class="ri-label">Planned</span>
+</div>
+<div class="roadmap-item">
+<div aria-label="Planned" class="ri-status planned">○</div>
+<span class="ri-text">Ship first SaaS product</span>
+<span class="ri-label">Planned</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</Layout>

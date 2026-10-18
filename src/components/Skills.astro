@@ -1,0 +1,8 @@
+---
+import skills from '../data/skills.json';
+const emoji: Record<string,string> = {Python:'🐍',English:'🇬🇧',German:'🇩🇪',HTML:'🌐',CSS:'🎨',JavaScript:'⚡',Linux:'🐧',Git:'🔀','AI/ML':'🤖','Problem Solving':'🧩','Self Discipline':'🔥','Frontend Dev':'💻'};
+---
+{skills.map((skill, i) => <div class="skill-card fade-up" role="button" tabindex="0" data-skill={i} aria-label={`${skill.name}: ${skill.pct}% — click to see details`}>
+  <div class="story-ring"><div class="story-avatar" aria-hidden="true">{emoji[skill.name]}</div></div>
+  <div class="skill-name">{skill.name}</div>
+</div>)}

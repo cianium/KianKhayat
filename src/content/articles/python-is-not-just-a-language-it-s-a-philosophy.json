@@ -1,0 +1,42 @@
+{
+  "slug": "python-is-not-just-a-language-it-s-a-philosophy",
+  "order": 2,
+  "featured": false,
+  "translations": {
+    "de": {
+      "title": "Python ist nicht nur eine Sprache — es ist eine Philosophie",
+      "summary": "Der Zen of Python fasst eine Denkweise über Software zusammen, die über Syntax hinausgeht. Ein Essay darüber, was Pythons Designprinzipien über gute Ingenieurskunst verraten.",
+      "categories": [
+        "Python",
+        "Softwareentwicklung"
+      ],
+      "date": "März 2025",
+      "readTime": "7 Min. Lesezeit",
+      "body": "<h3>Einleitung</h3><p>Die meisten Programmierer lernen Python wegen seiner Syntax als erste Sprache. Die ernsthaften entdecken irgendwann, dass sein wahrer Wert philosophisch ist.</p><blockquote>„Es sollte einen — und vorzugsweise nur einen — offensichtlichen Weg geben, es zu tun.“ — Der Zen of Python</blockquote><div class=\"article-ref\">Quellen: Google-Research-Papiere zu ML Engineering · Harvard-CS50-Lehrplan</div>"
+    },
+    "fa": {
+      "title": "پایتون فقط یک زبان نیست — یک فلسفه است",
+      "summary": "ذنِ پایتون شیوه‌ای از فکر کردن درباره‌ی نرم‌افزار را در خود دارد که فراتر از نحو است. مقاله‌ای درباره‌ی این‌که اصول طراحی پایتون چه چیزی از مهندسی خوب نشان می‌دهد.",
+      "categories": [
+        "پایتون",
+        "مهندسی"
+      ],
+      "date": "مارس ۲۰۲۵",
+      "readTime": "۷ دقیقه مطالعه",
+      "body": "<h3>مقدمه</h3><p>بیشتر برنامه‌نویسان پایتون را به‌خاطر نحوش به‌عنوان اولین زبان یاد می‌گیرند. جدی‌ترها سرانجام کشف می‌کنند ارزش واقعی آن فلسفی است.</p><blockquote>«باید یک راه — و ترجیحاً فقط یک راه — بدیهی برای انجام هر کار وجود داشته باشد.» — ذنِ پایتون</blockquote><div class=\"article-ref\">منابع: مقالات مهندسی یادگیری ماشین گوگل ریسرچ · برنامه‌ی درسی CS50 هاروارد</div>"
+    }
+  },
+  "title": "Python Is Not Just a Language — It's a Philosophy",
+  "summary": "The Zen of Python encodes a way of thinking about software that transcends syntax. An essay on what Python's design principles reveal about good engineering.",
+  "date": "March 2025",
+  "categories": [
+    "Python",
+    "Engineering"
+  ],
+  "body": "<h3>Introduction</h3><p>Most programmers learn Python as a first language for its syntax. The serious ones eventually discover that its true value is philosophical.</p><blockquote>\"There should be one — and preferably only one — obvious way to do it.\" — The Zen of Python</blockquote><div class=\"article-ref\">References: Google Research ML Engineering Papers · Harvard CS50 Curriculum</div>",
+  "draft": false,
+  "readTime": "7 min read",
+  "language": "en",
+  "readingTimeMode": "manual",
+  "toc": true
+}

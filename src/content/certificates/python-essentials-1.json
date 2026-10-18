@@ -1,0 +1,29 @@
+{
+  "slug": "python-essentials-1",
+  "order": 2,
+  "featured": false,
+  "translations": {
+    "de": {
+      "emoji": "🐍",
+      "name": "Python Essentials 1",
+      "issuer": "Cisco NetAcad / PCEP",
+      "date": "März 2023",
+      "category": "python",
+      "description": "Grundlegendes Python-Zertifikat: Syntax, Datentypen, Kontrollfluss und Funktionen."
+    },
+    "fa": {
+      "emoji": "🐍",
+      "name": "Python Essentials 1",
+      "issuer": "Cisco NetAcad / PCEP",
+      "date": "مارس ۲۰۲۳",
+      "category": "python",
+      "description": "مدرک پایه‌ی پایتون شامل نحو، انواع داده، کنترل جریان و توابع."
+    }
+  },
+  "name": "Python Essentials 1",
+  "issuer": "Cisco NetAcad / PCEP",
+  "date": "Mar 2023",
+  "category": "python",
+  "description": "Foundational Python certification covering syntax, data types, control flow, and functions.",
+  "emoji": "🐍"
+}

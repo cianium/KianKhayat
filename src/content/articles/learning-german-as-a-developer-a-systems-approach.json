@@ -1,0 +1,42 @@
+{
+  "slug": "learning-german-as-a-developer-a-systems-approach",
+  "order": 1,
+  "featured": false,
+  "translations": {
+    "de": {
+      "title": "Deutsch lernen als Entwickler: ein systemischer Ansatz",
+      "summary": "Die meisten Sprachlernenden optimieren das Falsche. Dieser Essay überträgt Prinzipien der Softwareentwicklung — Komponierbarkeit, Tests, Iteration — auf den Spracherwerb.",
+      "categories": [
+        "Deutsch",
+        "Lernen"
+      ],
+      "date": "April 2025",
+      "readTime": "11 Min. Lesezeit",
+      "body": "<h3>Einleitung</h3><p>Spracherwerb und Softwareentwicklung teilen eine grundlegende Architektur: Beides sind hierarchische Systeme, aufgebaut aus kombinierbaren Grundbausteinen.</p><blockquote>Eine Sprache wird nicht auswendig gelernt — sie wird kompiliert: durch Kontakt, Iteration und bewusste Anwendung.</blockquote><div class=\"article-ref\">Quellen: UNESCO-Berichte zum Sprachenlernen · Methodikforschung des Goethe-Instituts</div>"
+    },
+    "fa": {
+      "title": "یادگیری آلمانی به‌عنوان توسعه‌دهنده: رویکردی سیستمی",
+      "summary": "بیشتر زبان‌آموزان چیز اشتباهی را بهینه می‌کنند. این مقاله اصول مهندسی نرم‌افزار — ترکیب‌پذیری، تست و تکرار — را به یادگیری زبان تعمیم می‌دهد.",
+      "categories": [
+        "آلمانی",
+        "یادگیری"
+      ],
+      "date": "آوریل ۲۰۲۵",
+      "readTime": "۱۱ دقیقه مطالعه",
+      "body": "<h3>مقدمه</h3><p>یادگیری زبان و مهندسی نرم‌افزار معماری بنیادینی مشترک دارند: هر دو سیستم‌هایی سلسله‌مراتبی هستند که از اجزای ترکیب‌پذیر ساخته می‌شوند.</p><blockquote>زبان حفظ نمی‌شود — کامپایل می‌شود؛ از راه مواجهه، تکرار و تولید آگاهانه.</blockquote><div class=\"article-ref\">منابع: گزارش‌های یونسکو درباره‌ی یادگیری زبان · پژوهش‌های روش‌شناسی مؤسسه گوته</div>"
+    }
+  },
+  "title": "Learning German as a Developer: A Systems Approach",
+  "summary": "Most language learners optimize for the wrong thing. This essay applies software engineering principles — composability, testing, iteration — to language acquisition.",
+  "date": "April 2025",
+  "categories": [
+    "German",
+    "Learning"
+  ],
+  "body": "<h3>Introduction</h3><p>Language acquisition and software engineering share a fundamental architecture: both are hierarchical systems built from composable primitives.</p><blockquote>A language is not memorized — it is compiled, through exposure, iteration, and deliberate output.</blockquote><div class=\"article-ref\">References: UNESCO Language Learning Reports · Goethe Institut Methodology Research</div>",
+  "draft": false,
+  "readTime": "11 min read",
+  "language": "en",
+  "readingTimeMode": "manual",
+  "toc": true
+}

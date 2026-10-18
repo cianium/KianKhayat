@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-10-15T10:18:08.504Z",
+  "mode": "local-preview",
+  "passed": true,
+  "results": [
+    {
+      "lang": "en",
+      "origin": "http://127.0.0.1:4322",
+      "passed": true,
+      "checks": [
+        {
+          "name": "Home language, canonical and security headers",
+          "passed": true
+        },
+        {
+          "name": "Sitemap and RSS",
+          "passed": true
+        },
+        {
+          "name": "Admin is excluded from indexing",
+          "passed": true
+        },
+        {
+          "name": "Missing page returns 404",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "lang": "de",
+      "origin": "http://127.0.0.1:4323",
+      "passed": true,
+      "checks": [
+        {
+          "name": "Home language, canonical and security headers",
+          "passed": true
+        },
+        {
+          "name": "Sitemap and RSS",
+          "passed": true
+        },
+        {
+          "name": "Admin is excluded from indexing",
+          "passed": true
+        },
+        {
+          "name": "Missing page returns 404",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "lang": "fa",
+      "origin": "http://127.0.0.1:4324",
+      "passed": true,
+      "checks": [
+        {
+          "name": "Home language, canonical and security headers",
+          "passed": true
+        },
+        {
+          "name": "Sitemap and RSS",
+          "passed": true
+        },
+        {
+          "name": "Admin is excluded from indexing",
+          "passed": true
+        },
+        {
+          "name": "Missing page returns 404",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Does not test EmailJS delivery, CMS authentication, editing, or search indexing.",
+    "HTTP smoke checks do not constitute a complete security audit."
+  ]
+}

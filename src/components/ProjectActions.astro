@@ -1,0 +1,10 @@
+---
+import {siteLanguage} from '../data/sites';
+import {ui} from '../data/interface';
+interface Props {liveUrl?: string; githubUrl?: string}
+const {liveUrl, githubUrl} = Astro.props;
+---
+<div class="project-actions" data-no-translate>
+  {liveUrl && <a class="project-link primary" href={liveUrl} target="_blank" rel="noopener">{ui('live',siteLanguage)} <span aria-hidden="true">↗</span></a>}
+  {githubUrl && <a class="project-link" href={githubUrl} target="_blank" rel="noopener">{ui('github',siteLanguage)} <span aria-hidden="true">↗</span></a>}
+</div>

@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-10-17T23:16:59.185Z",
+  "node": "v22.16.0",
+  "projectRoot": ".",
+  "sourceJS": 26,
+  "contentEntries": 21,
+  "collections": {
+    "projects": 7,
+    "certificates": 8,
+    "articles": 4,
+    "featured": 2
+  },
+  "checks": 23,
+  "failures": [],
+  "warnings": [
+    "Undici engine requirement in lockfile: >=22.19.0. Set Node 24 explicitly on your build host.",
+    "CI validates and uploads an artifact; it does not deploy to production. Configure host Git integration separately."
+  ],
+  "notes": [
+    "This is source preflight, not dependency vulnerability scanning, Astro type-checking or browser testing.",
+    "Media signature and HTML sanitizer tests require npm dependencies.",
+    "Public Git history, CMS OAuth and live HTTP security were not assessed."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "original_files": 203,
+  "retained_identical_files": 200,
+  "modified": [
+    "package-lock.json",
+    "package.json",
+    "README.md"
+  ],
+  "missing": [],
+  "added": [
+    ".node-version",
+    "docs/debug/hosting-deployment-fa.md",
+    "docs/debug/secret-scan.json",
+    "docs/debug/security-and-debug-audit-fa.md",
+    "docs/debug/source-preflight.json",
+    "scripts/debug-local.mjs",
+    "scripts/debug-preflight.mjs"
+  ],
+  "original_src_files_identical": 82,
+  "original_content_json_identical": 21,
+  "content_comparison_pass": true,
+  "source_code_comparison_pass": true
+}

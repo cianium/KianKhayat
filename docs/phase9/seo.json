@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "pages": 48,
+  "translatedNodes": 1208,
+  "collectionFields": 57,
+  "checks": [
+    "static translations",
+    "single H1",
+    "canonical article language or self-canonical page",
+    "reciprocal hreflang and x-default",
+    "localized social metadata",
+    "Persian site metadata; original-language article metadata",
+    "structured data",
+    "language navigation",
+    "per-language sitemap, robots, CNAME and manifest",
+    "noindex 404"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "source": "KianKhayat-main.zip, supplied 2026-10-09",
+  "normalization": "HTML formatting whitespace only; punctuation, wording and field values are compared exactly.",
+  "counts": {
+    "skills": 12,
+    "projects": 7,
+    "certificates": 8,
+    "articles": 4,
+    "staticTextNodes": 184,
+    "accessibleAttributes": 52,
+    "translationEntries": {
+      "de": 290,
+      "fa": 298
+    }
+  },
+  "unapprovedDifferences": [],
+  "approvedDisplayExceptions": [
+    "In Persian UI only: کیان خیاط → Kian Khayat; کیان → Kian. The original translation dictionary is retained verbatim."
+  ],
+  "functionalAdditions": [
+    "Localized delivery-failure message in EN/DE/FA; shown only when EmailJS fails."
+  ],
+  "unchangedReadingTimes": true,
+  "translationSearchSites": "Phase 4: prerendered EN/DE/FA builds with domain links; original dictionaries and content preserved."
+}

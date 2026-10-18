@@ -1,0 +1,48 @@
+{
+  "name": "kian-khayat-portfolio",
+  "version": "9.0.0-phase9",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "dev:fa": "SITE_LANG=fa astro dev",
+    "dev:de": "SITE_LANG=de astro dev",
+    "build": "node scripts/check-media.mjs && node scripts/optimize-images.mjs && astro check && node scripts/clean-dist.mjs && npm run build:en && npm run build:de && npm run build:fa && node scripts/harden-output.mjs en de fa && npm run check:release && npm run check:editorial",
+    "build:en": "node scripts/check-media.mjs && SITE_LANG=en astro build && node scripts/harden-output.mjs en",
+    "build:de": "node scripts/check-media.mjs && SITE_LANG=de astro build && node scripts/harden-output.mjs de",
+    "build:fa": "node scripts/check-media.mjs && SITE_LANG=fa astro build && node scripts/harden-output.mjs fa",
+    "preview": "node scripts/test-server.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "test:e2e": "playwright test",
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:articles": "node scripts/check-articles.mjs",
+    "check:cms": "node scripts/check-cms.mjs",
+    "generate:cms": "node scripts/generate-cms.mjs",
+    "verify": "npm run check:cms && npm run test:security && npm run test:editorial && npm run build && npm run check:content && npm run check:seo && npm run check:articles && npm run check:release && npm run test:e2e",
+    "audit:design": "node scripts/audit-design.mjs",
+    "test:security": "node --test tests/security.test.mjs",
+    "check:release": "node scripts/check-release.mjs",
+    "check:live": "node scripts/check-live.mjs",
+    "check:editorial": "node scripts/check-editorial.mjs",
+    "test:editorial": "node --test tests/editorial.test.mjs",
+    "debug:preflight": "node scripts/debug-preflight.mjs",
+    "debug:local": "node scripts/debug-local.mjs"
+  },
+  "dependencies": {
+    "astro": "7.3.8",
+    "sanitize-html": "2.18.0",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "1.56.1",
+    "@types/sanitize-html": "2.16.2",
+    "linkedom": "0.18.12",
+    "typescript": "5.9.3",
+    "yaml": "2.9.1"
+  }
+}

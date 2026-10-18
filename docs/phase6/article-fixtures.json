@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "articlePages": 15,
+  "feeds": 3,
+  "draftsExcluded": 1,
+  "checks": [
+    "original localized body and summary",
+    "preserved reading times",
+    "real index links",
+    "Article structured data",
+    "RSS discovery",
+    "localized full-content RSS and stable GUIDs",
+    "no invented publication dates",
+    "draft exclusion"
+  ]
+}

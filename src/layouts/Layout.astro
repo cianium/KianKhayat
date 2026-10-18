@@ -1,0 +1,40 @@
+---
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Loader from '../components/Loader.astro';
+import Modals from '../components/Modals.astro';
+import {siteLanguage} from '../data/sites';
+import '../styles/loader.css';
+import '../styles/base.css';
+import '../styles/foundation.css';
+import '../styles/design.css';
+import '../styles/work.css';
+import '../styles/articles.css';
+interface Props { page: string; title?: string; description?: string; image?: string; article?: {headline:string;publishedAt?:string;categories:string[];language?:string;updatedAt?:string} }
+const {page,title,description,image,article} = Astro.props;
+---
+<!doctype html>
+<html lang={siteLanguage} dir={siteLanguage === 'fa' ? 'rtl' : 'ltr'} data-theme="light">
+  <head>
+    <Head page={page} title={title} description={description} image={image} article={article}/>
+    <noscript><style is:inline>#page-loader,.quick-read {display:none}</style></noscript>
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem('theme');
+        document.documentElement.dataset.theme = theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      } catch { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    </script>
+  </head>
+  <body data-page={page}>
+    <Loader />
+    <Header page={page}/>
+    <slot />
+    <Footer />
+    <Modals />
+    <script>
+      import '../scripts/loader.js';
+      import '../scripts/app.ts';
+    </script>
+  </body>
+</html>

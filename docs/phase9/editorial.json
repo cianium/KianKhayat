@@ -1,0 +1,138 @@
+[
+  {
+    "slug": "learning-german-as-a-developer-a-systems-approach",
+    "language": "en",
+    "words": 38,
+    "minutes": 1,
+    "label": "1 min read",
+    "title": "Learning German as a Developer: A Systems Approach",
+    "description": "Most language learners optimize for the wrong thing. This essay applies software engineering principles — composability, testing, iteration — to language acquisition.",
+    "checks": [
+      {
+        "name": "عنوان سئو کوتاه و توصیفی",
+        "ok": true,
+        "note": "۶۵ نویسه فقط راهنمای نگارش است؛ حد قطعی گوگل نیست."
+      },
+      {
+        "name": "توضیح نتیجهٔ جست‌وجو",
+        "ok": true,
+        "note": "توضیح روشن و مستقل بنویس؛ گوگل ممکن است آن را بازنویسی کند."
+      },
+      {
+        "name": "ساختار بخش‌ها",
+        "ok": true
+      },
+      {
+        "name": "توضیح تصاویر داخل متن",
+        "ok": true,
+        "note": "برای تصویر تزئینی alt خالی مجاز است."
+      },
+      {
+        "name": "توضیح تصویر روی جلد",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "slug": "python-is-not-just-a-language-it-s-a-philosophy",
+    "language": "en",
+    "words": 47,
+    "minutes": 1,
+    "label": "1 min read",
+    "title": "Python Is Not Just a Language — It's a Philosophy",
+    "description": "The Zen of Python encodes a way of thinking about software that transcends syntax. An essay on what Python's design principles reveal about good engineering.",
+    "checks": [
+      {
+        "name": "عنوان سئو کوتاه و توصیفی",
+        "ok": true,
+        "note": "۶۵ نویسه فقط راهنمای نگارش است؛ حد قطعی گوگل نیست."
+      },
+      {
+        "name": "توضیح نتیجهٔ جست‌وجو",
+        "ok": true,
+        "note": "توضیح روشن و مستقل بنویس؛ گوگل ممکن است آن را بازنویسی کند."
+      },
+      {
+        "name": "ساختار بخش‌ها",
+        "ok": true
+      },
+      {
+        "name": "توضیح تصاویر داخل متن",
+        "ok": true,
+        "note": "برای تصویر تزئینی alt خالی مجاز است."
+      },
+      {
+        "name": "توضیح تصویر روی جلد",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "slug": "the-case-for-building-in-public-at-17",
+    "language": "en",
+    "words": 42,
+    "minutes": 1,
+    "label": "1 min read",
+    "title": "The Case for Building in Public at 17",
+    "description": "There has never been a better time to build publicly as a young developer. This essay argues for radical transparency in learning journeys.",
+    "checks": [
+      {
+        "name": "عنوان سئو کوتاه و توصیفی",
+        "ok": true,
+        "note": "۶۵ نویسه فقط راهنمای نگارش است؛ حد قطعی گوگل نیست."
+      },
+      {
+        "name": "توضیح نتیجهٔ جست‌وجو",
+        "ok": true,
+        "note": "توضیح روشن و مستقل بنویس؛ گوگل ممکن است آن را بازنویسی کند."
+      },
+      {
+        "name": "ساختار بخش‌ها",
+        "ok": true
+      },
+      {
+        "name": "توضیح تصاویر داخل متن",
+        "ok": true,
+        "note": "برای تصویر تزئینی alt خالی مجاز است."
+      },
+      {
+        "name": "توضیح تصویر روی جلد",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "slug": "why-discipline-is-the-ultimate-ai-advantage",
+    "language": "en",
+    "words": 131,
+    "minutes": 1,
+    "label": "1 min read",
+    "title": "Why Discipline Is the Ultimate AI Advantage",
+    "description": "As AI tools proliferate, the scarcest resource isn't intelligence — it's the ability to direct sustained effort. An exploration of why self-regulation outperforms raw talent.",
+    "checks": [
+      {
+        "name": "عنوان سئو کوتاه و توصیفی",
+        "ok": true,
+        "note": "۶۵ نویسه فقط راهنمای نگارش است؛ حد قطعی گوگل نیست."
+      },
+      {
+        "name": "توضیح نتیجهٔ جست‌وجو",
+        "ok": false,
+        "note": "توضیح روشن و مستقل بنویس؛ گوگل ممکن است آن را بازنویسی کند."
+      },
+      {
+        "name": "ساختار بخش‌ها",
+        "ok": true
+      },
+      {
+        "name": "توضیح تصاویر داخل متن",
+        "ok": true,
+        "note": "برای تصویر تزئینی alt خالی مجاز است."
+      },
+      {
+        "name": "توضیح تصویر روی جلد",
+        "ok": true
+      }
+    ]
+  }
+]

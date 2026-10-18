@@ -1,0 +1,11 @@
+{
+  "favicon.svg": true,
+  "favicon.ico": true,
+  "favicon-48x48.png": true,
+  "favicon-96x96.png": true,
+  "icon-192.png": true,
+  "icon-512.png": true,
+  "apple-touch-icon.png": true,
+  "logo-mark.svg": true,
+  "site.webmanifest": true
+}

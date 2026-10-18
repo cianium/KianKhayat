@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "originalRecords": 19,
+  "allOriginalFieldsUnchanged": true,
+  "skillsAndTranslationDictionariesByteIdentical": true,
+  "newArticleSettings": [
+    "language",
+    "readingTimeMode",
+    "toc"
+  ],
+  "oldArticleTranslationsStoredButNotDisplayed": true
+}

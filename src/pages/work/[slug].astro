@@ -1,0 +1,43 @@
+---
+import {getCollection, type CollectionEntry} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProjectCover from '../../components/ProjectCover.astro';
+import ProjectActions from '../../components/ProjectActions.astro';
+import {siteLanguage} from '../../data/sites';
+import {displayName} from '../../data/translate';
+import {ui} from '../../data/interface';
+import {seo} from '../../data/seo';
+export async function getStaticPaths() {
+  return (await getCollection('projects')).map(project=>({params:{slug:project.data.slug},props:{project}}));
+}
+interface Props {project: CollectionEntry<'projects'>}
+const source=Astro.props.project.data;
+const translation=siteLanguage==='en'?undefined:source.translations[siteLanguage];
+const project={...source,...translation};
+const title=displayName(project.title,siteLanguage);
+const seoName=translation?.seoTitle??project.title;
+const metaTitle=`${seoName} | ${seo.name}`;
+const metaDescription=siteLanguage==='fa'?`معرفی، فناوری‌ها، مستندات و پیوندهای پروژهٔ ${seoName} از کیان خیاط.`:project.summary;
+const documentation=translation?.documentation ?? source.documentation;
+---
+<Layout page="work" title={metaTitle} description={metaDescription} image={source.thumbnail}>
+  <main class="page active" id="page-project">
+    <article class="container project-detail" data-no-translate>
+      <a class="project-link" href="/work/"><span aria-hidden="true">{siteLanguage==='fa'?'→':'←'}</span> {ui('back',siteLanguage)}</a>
+      <header class="project-detail-heading">
+        <span class="section-eyebrow">{ui('project',siteLanguage)}</span>
+        <h1>{title}</h1>
+        <p class="project-intro">{displayName(project.summary,siteLanguage)}</p>
+        <span class="tag-primary">{project.status}</span>
+      </header>
+      {source.thumbnail && <ProjectCover thumbnail={source.thumbnail} title={title} emoji={source.emoji} eager/>}
+      <ProjectActions liveUrl={source.liveUrl} githubUrl={source.githubUrl}/>
+      <section class="project-documentation" aria-label={ui('documentation',siteLanguage)}>
+        <h2>{ui('technologies',siteLanguage)}</h2>
+        <ul class="project-tech-list">{project.tags.map(tag=><li class="project-tag">{tag}</li>)}</ul>
+        {documentation?.trim() && <div class="project-prose"><h2>{ui('documentation',siteLanguage)}</h2>{documentation.split(/\n\s*\n/).filter(Boolean).map(paragraph=><p>{paragraph}</p>)}</div>}
+        <div class="project-original-links">{project.links.map(link=><a class="project-link" href={link.url} target="_blank" rel="noopener">{link.label}</a>)}</div>
+      </section>
+    </article>
+  </main>
+</Layout>

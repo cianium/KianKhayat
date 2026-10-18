@@ -1,0 +1,17 @@
+---
+import {localized} from "../data/localized";
+import {getCollection} from 'astro:content';
+const months:Record<string,number>={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+const dateValue=(s:string)=>{const [month,year]=s.split(' ');return Number(year)*12+months[month]};
+const certs=(await getCollection('certificates')).sort((a,b)=>dateValue(a.data.date)-dateValue(b.data.date));
+const labels:Record<string,string>={goethe:'🇩🇪 Goethe',python:'🐍 Python',linux:'🐧 Linux',web:'🌐 Web Dev'};
+---
+{certs.map(({data:c},i)=><>
+  {(i===0 || c.date.split(' ')[1]!==certs[i-1].data.date.split(' ')[1]) && <div class="cert-year-marker" data-year={c.date.split(' ')[1]}>{c.date.split(' ')[1]}</div>}
+  <div class="cert-card fade-up" data-cat={c.category} data-name={c.name.toLowerCase()} data-year={c.date.split(' ')[1]} data-cert={c.slug} tabindex="0" role="button" aria-label={`View certificate: ${c.name}`}>
+    <div class="cert-thumb">{c.image?<img src={c.image} alt="" loading="lazy" width="108" height="124"/>:<span>{c.pdf?'PDF':c.emoji}</span>}</div>
+    <div class="cert-body"><div class="cert-cat-label">{labels[c.category] || c.category}</div><div class="cert-name" data-localized={localized(c.name,c.translations.de?.name,c.translations.fa?.name)}>{c.name}</div><div class="cert-issuer" data-localized={localized(c.issuer,c.translations.de?.issuer,c.translations.fa?.issuer)}>{c.issuer}</div></div>
+    <div class="cert-footer"><div class="cert-date" data-localized={localized(c.date,c.translations.de?.date,c.translations.fa?.date)}>{c.date}</div></div>
+  </div>
+</>)}
+<script type="application/json" id="cert-data" set:html={JSON.stringify(certs.map(c=>c.data)).replace(/</g,'\\u003c')} />

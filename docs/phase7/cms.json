@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "collections": 3,
+  "records": 19,
+  "fieldChecks": 581,
+  "mediaSources": 4,
+  "preservesUnmanagedKeys": true,
+  "hostedLoginTested": false
+}

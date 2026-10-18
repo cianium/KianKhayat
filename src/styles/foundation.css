@@ -1,0 +1,14 @@
+/* Progressive enhancement and shared visibility rules. */
+[hidden] { display: none !important; }
+.fade-up { opacity: 1; transform: none; }
+html.motion-ready .fade-up { opacity: 0; transform: translateY(24px); }
+html.motion-ready .fade-up.visible { opacity: 1; transform: none; }
+:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
+#hero-photo { display: block; width: 100%; height: 100%; }
+#form-error { color: var(--text); border-inline-start: 3px solid #ef4444; padding-inline-start: 12px; }
+.cert-lb-btn:disabled { opacity: .55; cursor: not-allowed; }
+[data-theme="dark"] .loader { --loader-bg: #2B1E16; --loader-line: #F7F4EF; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-iteration-count: 1 !important; }
+}

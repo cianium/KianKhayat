@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "articlePages": 12,
+  "feeds": 3,
+  "draftsExcluded": 0,
+  "checks": [
+    "original-language body and summary on every site",
+    "automatic or legacy manual reading times",
+    "real index links",
+    "Article structured data",
+    "RSS discovery",
+    "original-language RSS and canonical GUIDs",
+    "no invented publication dates",
+    "draft exclusion"
+  ]
+}

@@ -1,0 +1,7 @@
+---
+interface Props {thumbnail?: string; title: string; emoji: string; eager?: boolean}
+const {thumbnail,title,emoji,eager=false}=Astro.props;
+---
+<div class:list={['project-cover',{'has-thumbnail':!!thumbnail}]}>
+  {thumbnail ? <img src={thumbnail} alt={title} width="1440" height="810" loading={eager?'eager':'lazy'} decoding="async"/> : <span class="project-symbol" aria-hidden="true">{emoji}</span>}
+</div>

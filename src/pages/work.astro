@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Projects from "../components/Projects.astro";
+import Certificates from "../components/Certificates.astro";
+---
+<Layout page="work">
+<main class="page active" id="page-work">
+<div class="section" style="padding-top: 120px;">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow">Proof of Work</div>
+<h1 class="section-title h1">Kian's Work</h1>
+<p class="section-desc">Projects shipped and credentials earned — two kinds of evidence for the same journey.</p>
+</div>
+
+<div aria-label="Work sections" class="work-tabs" role="tablist">
+<button aria-controls="work-panel-projects" aria-selected="true" class="work-tab active" id="tab-projects" data-tab="projects" role="tab">
+<span>🛠</span> Projects
+        </button>
+<button aria-controls="work-panel-certificates" aria-selected="false" class="work-tab" id="tab-certificates" data-tab="certificates" role="tab">
+<span>🏅</span> Certificates
+        </button>
+</div>
+
+<div aria-labelledby="tab-projects" class="work-panel active" id="work-panel-projects" role="tabpanel">
+<div class="projects-grid stagger" id="projects-grid"><Projects /></div>
+</div>
+
+<div aria-labelledby="tab-certificates" class="work-panel" id="work-panel-certificates" role="tabpanel">
+<div class="certs-controls">
+<div class="search-box" role="search">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+<input aria-label="Search certificates" id="cert-search" data-cert-search placeholder="Search certificates…" type="text"/>
+</div>
+<button aria-pressed="true" class="cert-filter-btn active" data-filter="all">All</button>
+<button aria-pressed="false" class="cert-filter-btn" data-filter="goethe">🇩🇪 Goethe</button>
+<button aria-pressed="false" class="cert-filter-btn" data-filter="python">🐍 Python</button>
+<button aria-pressed="false" class="cert-filter-btn" data-filter="linux">🐧 Linux</button>
+<button aria-pressed="false" class="cert-filter-btn" data-filter="web">🌐 Web Dev</button>
+</div>
+<div class="cert-timeline stagger" id="certs-grid"><Certificates /></div>
+</div>
+</div>
+</div>
+</main>
+</Layout>

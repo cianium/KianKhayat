@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import {editorialReview} from '../src/data/article-tools.mjs';
+const articles=fs.readdirSync('src/content/articles').filter(file=>file.endsWith('.json')).map(file=>JSON.parse(fs.readFileSync('src/content/articles/'+file,'utf8')));
+const report=articles.map(editorialReview);
+const escape=text=>String(text).replace(/[\\`*_[\]<>#|]/g,char=>'\\'+char).replace(/[\r\n]+/g,' ');
+const markdown='# بررسی نگارشی و سئوی مقاله‌ها\n\nاین موارد راهنمای نویسنده‌اند؛ نمره یا تضمین رتبهٔ گوگل نیستند. هشدارها انتشار را متوقف نمی‌کنند.\n\n'+report.map(item=>`## ${escape(item.title)}\n\nزبان: ${escape(item.language)} | واژه: ${item.words} | زمان تقریبی: ${item.minutes} دقیقه\n\n${item.checks.map(check=>`- ${check.ok?'✓':'بررسی شود:'} ${escape(check.name)}${check.note?' — '+escape(check.note):''}`).join('\n')}\n`).join('\n');
+fs.mkdirSync('docs/phase9',{recursive:true});
+fs.writeFileSync('docs/phase9/editorial.json',JSON.stringify(report,null,2)+'\n');
+fs.writeFileSync('docs/phase9/editorial.md',markdown);
+if(process.env.GITHUB_STEP_SUMMARY)fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,markdown);
+console.log(`Editorial feedback generated for ${report.length} articles. See docs/phase9/editorial.md or the GitHub Actions summary.`);

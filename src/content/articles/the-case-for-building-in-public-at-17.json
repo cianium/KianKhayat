@@ -1,0 +1,42 @@
+{
+  "slug": "the-case-for-building-in-public-at-17",
+  "order": 3,
+  "featured": false,
+  "translations": {
+    "de": {
+      "title": "Plädoyer für öffentliches Bauen mit 17",
+      "summary": "Es gab nie einen besseren Zeitpunkt, als junger Entwickler öffentlich zu bauen. Dieser Essay plädiert für radikale Transparenz auf dem Lernweg.",
+      "categories": [
+        "Karriere",
+        "Community"
+      ],
+      "date": "Februar 2025",
+      "readTime": "6 Min. Lesezeit",
+      "body": "<h3>Einleitung</h3><p>Der Instinkt, mit dem Teilen der eigenen Arbeit zu warten, bis man „gut genug“ ist, ist verständlich — und kontraproduktiv.</p><blockquote>Du baust nicht öffentlich, um Menschen zu beeindrucken. Du baust öffentlich, um dich selbst an einem Standard zu messen, der beeindruckend wäre.</blockquote><div class=\"article-ref\">Quellen: Stanford-d.school-Forschung · MIT Open Learning Initiative</div>"
+    },
+    "fa": {
+      "title": "دلیل‌هایی برای ساختن در ملأ عام در ۱۷ سالگی",
+      "summary": "هرگز زمان بهتری برای ساختن علنی به‌عنوان یک توسعه‌دهنده‌ی جوان نبوده است. این مقاله از شفافیت رادیکال در مسیر یادگیری دفاع می‌کند.",
+      "categories": [
+        "مسیر شغلی",
+        "جامعه"
+      ],
+      "date": "فوریه ۲۰۲۵",
+      "readTime": "۶ دقیقه مطالعه",
+      "body": "<h3>مقدمه</h3><p>غریزه‌ی صبر کردن تا «به‌قدر کافی خوب» شوید و بعد کارتان را به اشتراک بگذارید قابل درک است — اما نتیجه‌ی معکوس می‌دهد.</p><blockquote>در ملأ عام نمی‌سازید تا دیگران را تحت تأثیر قرار دهید؛ در ملأ عام می‌سازید تا خودتان را به معیاری متعهد کنید که ارزش تحسین داشته باشد.</blockquote><div class=\"article-ref\">منابع: پژوهش‌های d.school استنفورد · ابتکار یادگیری باز MIT</div>"
+    }
+  },
+  "title": "The Case for Building in Public at 17",
+  "summary": "There has never been a better time to build publicly as a young developer. This essay argues for radical transparency in learning journeys.",
+  "date": "February 2025",
+  "categories": [
+    "Career",
+    "Community"
+  ],
+  "body": "<h3>Introduction</h3><p>The instinct to wait until you're \"good enough\" before sharing your work is understandable — and counterproductive.</p><blockquote>You don't build in public to impress people. You build in public to hold yourself to a standard worth impressing.</blockquote><div class=\"article-ref\">References: Stanford d.school Research · MIT Open Learning Initiative</div>",
+  "draft": false,
+  "readTime": "6 min read",
+  "language": "en",
+  "readingTimeMode": "manual",
+  "toc": true
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "tests": 4,
+  "failures": 0,
+  "command": "npm run test:security",
+  "checkedDate": "2026-10-15",
+  "scenarios": [
+    "original article bodies unchanged",
+    "malicious article HTML rejected",
+    "safe article formatting accepted",
+    "media validation"
+  ]
+}

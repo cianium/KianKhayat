@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Python",
+    "pct": 72,
+    "desc": "Scripting, automation, data processing",
+    "category": "programming",
+    "details": {
+      "level": "Intermediate",
+      "years": "2+ years",
+      "projects": "8 projects",
+      "focus": "AI & Data"
+    },
+    "path": "Started with fundamentals, moved through OOP and functional programming. Currently studying data science libraries and ML frameworks."
+  },
+  {
+    "name": "English",
+    "pct": 90,
+    "desc": "Professional proficiency (C1)",
+    "category": "language",
+    "details": {
+      "level": "C1",
+      "years": "Fluent",
+      "projects": "Daily use",
+      "focus": "Technical"
+    },
+    "path": "Native-level comprehension. Used for all technical reading, documentation, and communication."
+  },
+  {
+    "name": "German",
+    "pct": 52,
+    "desc": "Active study toward B2 (B1 current)",
+    "category": "language",
+    "details": {
+      "level": "B1→B2",
+      "years": "1.5 years",
+      "projects": "DAAD prep",
+      "focus": "Goethe"
+    },
+    "path": "Systematic study using Goethe Institut materials. Target: B2 certification for academic applications."
+  },
+  {
+    "name": "HTML",
+    "pct": 80,
+    "desc": "Semantic, accessible markup",
+    "category": "web",
+    "details": {
+      "level": "Advanced",
+      "years": "2 years",
+      "projects": "12 projects",
+      "focus": "Accessibility"
+    },
+    "path": "Deep understanding of semantic HTML, ARIA roles, and document structure for modern web development."
+  },
+  {
+    "name": "CSS",
+    "pct": 74,
+    "desc": "Layouts, animations, design systems",
+    "category": "web",
+    "details": {
+      "level": "Advanced",
+      "years": "2 years",
+      "projects": "10 projects",
+      "focus": "Design Systems"
+    },
+    "path": "Proficient in Grid, Flexbox, custom properties, and responsive design. Currently studying design tokens."
+  },
+  {
+    "name": "JavaScript",
+    "pct": 60,
+    "desc": "DOM, async, modern ES6+",
+    "category": "web",
+    "details": {
+      "level": "Intermediate",
+      "years": "1.5 years",
+      "projects": "6 projects",
+      "focus": "ES6+"
+    },
+    "path": "Solid foundations in core JS. Learning asynchronous patterns, APIs, and browser APIs."
+  },
+  {
+    "name": "Linux",
+    "pct": 65,
+    "desc": "CLI, shell scripting, system admin",
+    "category": "systems",
+    "details": {
+      "level": "Intermediate",
+      "years": "1.5 years",
+      "projects": "5 systems",
+      "focus": "Ubuntu/Debian"
+    },
+    "path": "Comfortable with command line, file systems, processes, and bash scripting. Using Linux as primary OS."
+  },
+  {
+    "name": "Git",
+    "pct": 70,
+    "desc": "Version control, branching, collaboration",
+    "category": "tools",
+    "details": {
+      "level": "Proficient",
+      "years": "2 years",
+      "projects": "Daily use",
+      "focus": "GitHub Flow"
+    },
+    "path": "Daily use for all projects. Understanding of branching strategies, rebasing, and open source contribution."
+  },
+  {
+    "name": "AI/ML",
+    "pct": 40,
+    "desc": "Foundations, concepts, Python libs",
+    "category": "ai",
+    "details": {
+      "level": "Learner",
+      "years": "1 year",
+      "projects": "2 experiments",
+      "focus": "Fundamentals"
+    },
+    "path": "Studying ML theory through MIT OpenCourseWare, Stanford ML courses, and hands-on Python experiments."
+  },
+  {
+    "name": "Problem Solving",
+    "pct": 78,
+    "desc": "Algorithmic thinking, debugging",
+    "category": "soft",
+    "details": {
+      "level": "Strong",
+      "years": "Ongoing",
+      "projects": "All projects",
+      "focus": "First Principles"
+    },
+    "path": "Developed through coding challenges, real project debugging, and systematic study of algorithms."
+  },
+  {
+    "name": "Self Discipline",
+    "pct": 88,
+    "desc": "Consistency, focus, long-term thinking",
+    "category": "soft",
+    "details": {
+      "level": "Core trait",
+      "years": "Lifelong",
+      "projects": "Everything",
+      "focus": "Systems"
+    },
+    "path": "The meta-skill that makes all others possible. Built through deliberate habit engineering and tracking."
+  },
+  {
+    "name": "Frontend Dev",
+    "pct": 66,
+    "desc": "Responsive design, UI implementation",
+    "category": "web",
+    "details": {
+      "level": "Developing",
+      "years": "2 years",
+      "projects": "8 projects",
+      "focus": "Modern Web"
+    },
+    "path": "Growing capability in translating design into code. Currently learning React ecosystem and component architecture."
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "slug": "goethe-zertifikat-b1",
+  "order": 1,
+  "featured": false,
+  "translations": {
+    "de": {
+      "emoji": "🇩🇪",
+      "name": "Goethe-Zertifikat B1",
+      "issuer": "Goethe Institut",
+      "date": "Aug. 2024",
+      "category": "goethe",
+      "description": "Deutschzertifikat auf mittlerem Niveau — tauglich für die alltägliche berufliche Kommunikation."
+    },
+    "fa": {
+      "emoji": "🇩🇪",
+      "name": "Goethe-Zertifikat B1",
+      "issuer": "Goethe Institut",
+      "date": "اوت ۲۰۲۴",
+      "category": "goethe",
+      "description": "مدرک آلمانی سطح متوسط — کاربردی برای ارتباطات حرفه‌ای روزمره."
+    }
+  },
+  "name": "Goethe-Zertifikat B1",
+  "issuer": "Goethe Institut",
+  "date": "Aug 2024",
+  "category": "goethe",
+  "description": "Intermediate German certification — functional for everyday professional communication.",
+  "emoji": "🇩🇪"
+}

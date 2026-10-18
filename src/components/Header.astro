@@ -1,0 +1,68 @@
+---
+import {languages, languageURL, siteLanguage} from '../data/sites';
+interface Props {page: string}
+const path = Astro.props.page === '404' ? '/' : Astro.url.pathname;
+const labels = {en: 'English', de: 'Deutsch', fa: 'فارسی'};
+---
+<svg aria-hidden="true" focusable="false" height="0" style="position:absolute" width="0">
+<defs>
+<lineargradient id="royalGold" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#F7E7CE"></stop>
+<stop offset="50%" stop-color="#D4AF37"></stop>
+<stop offset="100%" stop-color="#996515"></stop>
+</lineargradient>
+<symbol id="kian-logo" viewBox="0 0 512 512">
+<rect fill="#0A1128" height="512" rx="120" width="512"></rect>
+<g fill="url(#royalGold)">
+<rect height="272" rx="10" width="40" x="150" y="120"></rect>
+<path d="M 210 260 L 330 130 C 340 120, 360 130, 350 145 L 245 285 Z"></path>
+<path d="M 290 120 L 370 120 C 380 120, 385 130, 375 140 L 320 200 Z"></path>
+<path d="M 220 240 L 350 380 C 360 390, 345 400, 330 392 L 190 275 Z"></path>
+</g>
+</symbol>
+</defs>
+</svg>
+<nav aria-label="Main navigation" class="nav" role="navigation">
+<div class="container nav-inner">
+<a aria-label="Go to home" class="nav-logo" href="/">
+<svg aria-hidden="true" class="logo-mark" focusable="false"><use href="#kian-logo"></use></svg>
+      Kian
+    </a>
+<div class="nav-links" role="list">
+<a class="nav-link active" href="/" data-nav="home" role="listitem">Home</a>
+<a class="nav-link" href="/work/" data-nav="work" role="listitem">Work</a>
+<a class="nav-link" href="/articles/" data-nav="articles" role="listitem">Articles</a>
+<a class="nav-link" href="/contact/" data-nav="contact" role="listitem">Contact</a>
+</div>
+<div class="nav-right">
+<div class="lang-switch" id="lang-switch">
+<button aria-controls="lang-menu" aria-expanded="false" aria-haspopup="true" aria-label="Change language" class="lang-btn" id="lang-btn" data-action="language" title="Language">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+<span id="lang-current" data-no-translate>{siteLanguage.toUpperCase()}</span>
+</button>
+<div aria-label="Language" class="lang-menu" id="lang-menu" role="menu">
+{languages.map(lang => <a href={languageURL(lang, path)} hreflang={lang} data-lang={lang} data-no-translate dir={lang === 'fa' ? 'rtl' : 'ltr'} lang={lang} role="menuitemradio" aria-checked={lang === siteLanguage}>{labels[lang]}</a>)}
+</div>
+</div>
+<label class="theme-switch" title="Toggle theme">
+<input aria-label="Toggle theme" checked="" id="theme-checkbox" data-action="theme" type="checkbox"/>
+<span class="theme-slider">
+<span class="theme-star theme-star-1"></span>
+<span class="theme-star theme-star-2"></span>
+<span class="theme-star theme-star-3"></span>
+<svg aria-hidden="true" class="theme-cloud" viewBox="0 0 16 16"><path d="m391.84 540.91c-.421-.329-.949-.524-1.523-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925" fill="#fff" transform="matrix(.77976 0 0 .78395 -299.99 -418.63)"></path></svg>
+</span>
+</label>
+<button aria-expanded="false" aria-label="Toggle menu" class="ham-btn" id="ham-btn" data-action="menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</nav>
+<div aria-label="Mobile navigation" class="mobile-menu" id="mobile-menu" role="navigation">
+<a class="nav-link" href="/" data-nav="home">Home</a>
+<a class="nav-link" href="/work/" data-nav="work">Work</a>
+<a class="nav-link" href="/articles/" data-nav="articles">Articles</a>
+<a class="nav-link" href="/contact/" data-nav="contact">Contact</a>
+<a class="nav-link" href="/privacy/" data-nav="privacy">Privacy</a>
+</div>

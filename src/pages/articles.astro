@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Articles from "../components/Articles.astro";
+import {ui} from '../data/interface';
+import {siteLanguage} from '../data/sites';
+---
+<Layout page="articles">
+<main class="page active" id="page-articles">
+<div class="section" style="padding-top: 120px;">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow">Articles</div>
+<h1 class="section-title h1">Thinking Out Loud</h1>
+<p class="section-desc">Long-form essays exploring AI, language acquisition, software engineering, and discipline.</p>
+<a class="feed-link project-link" href="/rss.xml" data-no-translate>{ui('feed',siteLanguage)}</a>
+</div>
+<div class="articles-list stagger" id="articles-list"><Articles /></div>
+</div>
+</div>
+</main>
+</Layout>

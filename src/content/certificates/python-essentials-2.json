@@ -1,0 +1,29 @@
+{
+  "slug": "python-essentials-2",
+  "order": 3,
+  "featured": false,
+  "translations": {
+    "de": {
+      "emoji": "🐍",
+      "name": "Python Essentials 2",
+      "issuer": "Cisco NetAcad / PCAP",
+      "date": "Sep. 2023",
+      "category": "python",
+      "description": "Fortgeschrittenes Python: OOP, Ausnahmebehandlung, Datei-Ein-/Ausgabe und Standardbibliotheksmodule."
+    },
+    "fa": {
+      "emoji": "🐍",
+      "name": "Python Essentials 2",
+      "issuer": "Cisco NetAcad / PCAP",
+      "date": "سپتامبر ۲۰۲۳",
+      "category": "python",
+      "description": "پایتون سطح متوسط شامل برنامه‌نویسی شیءگرا، مدیریت خطا، ورودی/خروجی فایل و ماژول‌های کتابخانه‌ی استاندارد."
+    }
+  },
+  "name": "Python Essentials 2",
+  "issuer": "Cisco NetAcad / PCAP",
+  "date": "Sep 2023",
+  "category": "python",
+  "description": "Intermediate Python covering OOP, exception handling, file I/O, and standard library modules.",
+  "emoji": "🐍"
+}

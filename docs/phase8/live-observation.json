@@ -1,0 +1,18 @@
+{
+  "kiankhayat.me": {
+    "status": 200,
+    "finalURL": "https://kiankhayat.me",
+    "headers": {
+      "Server": "GitHub.com"
+    },
+    "note": "Current online site, not the un-deployed phase 8 build."
+  },
+  "fa.kiankhayat.me": {
+    "reachable": false,
+    "error": "HTTP Error 502: Bad Gateway"
+  },
+  "de.kiankhayat.me": {
+    "reachable": false,
+    "error": "HTTP Error 502: Bad Gateway"
+  }
+}

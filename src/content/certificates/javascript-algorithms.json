@@ -1,0 +1,29 @@
+{
+  "slug": "javascript-algorithms",
+  "order": 6,
+  "featured": false,
+  "translations": {
+    "de": {
+      "emoji": "🌐",
+      "name": "JavaScript Algorithms",
+      "issuer": "freeCodeCamp",
+      "date": "Feb. 2024",
+      "category": "web",
+      "description": "Zertifikat für Kern-JavaScript inklusive ES6+, Datenstrukturen und Algorithmus-Grundlagen."
+    },
+    "fa": {
+      "emoji": "🌐",
+      "name": "JavaScript Algorithms",
+      "issuer": "freeCodeCamp",
+      "date": "فوریه ۲۰۲۴",
+      "category": "web",
+      "description": "مدرک جاوااسکریپت شامل ES6+، ساختمان‌داده‌ها و مبانی الگوریتم."
+    }
+  },
+  "name": "JavaScript Algorithms",
+  "issuer": "freeCodeCamp",
+  "date": "Feb 2024",
+  "category": "web",
+  "description": "Core JavaScript certification including ES6+, data structures, and algorithm fundamentals.",
+  "emoji": "🌐"
+}

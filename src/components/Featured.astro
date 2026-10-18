@@ -1,0 +1,19 @@
+---
+import {getCollection} from 'astro:content';
+import {siteLanguage} from '../data/sites';
+import {displayName} from '../data/translate';
+import {ui} from '../data/interface';
+import ProjectCover from './ProjectCover.astro';
+const entries=(await getCollection('featured',({data})=>data.published)).sort((a,b)=>a.data.order-b.data.order);
+---
+{entries.length>0 && <section class="section featured-section" aria-labelledby="featured-title" data-no-translate>
+  <div class="container"><h2 id="featured-title" class="section-title h2">{ui('featured',siteLanguage)}</h2>
+    <div class="featured-strip">{entries.map(({data})=>{
+      const item={...data,...(siteLanguage==='en'?{}:data.translations?.[siteLanguage])};
+      return <article class="featured-card"><a class="featured-target" href={data.url} rel={data.url.startsWith('http')?'noopener noreferrer':undefined}>
+        <ProjectCover thumbnail={data.image} title={item.title} emoji={data.emoji}/>
+        <div class="featured-copy"><h3>{displayName(item.title,siteLanguage)}</h3><p>{displayName(item.summary,siteLanguage)}</p></div>
+      </a></article>
+    })}</div>
+  </div>
+</section>}

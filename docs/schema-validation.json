@@ -1,0 +1,5 @@
+{
+  "test": "Invalid project status rejects the build",
+  "passed": true,
+  "exitCode": 1
+}

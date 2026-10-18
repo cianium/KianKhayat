@@ -1,0 +1,19 @@
+{
+  "slug": "nightwalker-hub",
+  "order": 0,
+  "title": "Nightwalker Hub",
+  "summary": "A Persian-language hub site for a comedian, gamer and streamer: live status, latest video and all channel links in one fast, mobile-friendly page.",
+  "emoji": "🌙",
+  "url": "/work/nightwalker-hub/",
+  "published": true,
+  "translations": {
+    "fa": {
+      "title": "Nightwalker Hub",
+      "summary": "وب‌سایت مرکزی فارسی‌زبان برای یک کمدین، گیمر و استریمر: وضعیت زنده، جدیدترین ویدیو و همه‌ی لینک‌های کانال‌ها در یک صفحه‌ی سریع و سازگار با موبایل."
+    },
+    "de": {
+      "title": "Nightwalker Hub",
+      "summary": "Eine persischsprachige Hub-Seite für einen Comedian, Gamer und Streamer: Live-Status, neuestes Video und alle Kanal-Links auf einer schnellen, mobilfreundlichen Seite."
+    }
+  }
+}

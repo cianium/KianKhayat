@@ -1,0 +1,196 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> kian-khayat-portfolio@9.0.0-phase9 build
+> node scripts/check-media.mjs && node scripts/optimize-images.mjs && astro check && node scripts/clean-dist.mjs && npm run build:en && npm run build:de && npm run build:fa && node scripts/harden-output.mjs en de fa && npm run check:release && npm run check:editorial
+
+Verified 2 referenced media files.
+Optimized both hero portraits to AVIF/WebP at 360 and 720 pixels.
+17:23:57 [content] Syncing content
+17:23:57 [content] Astro config changed
+17:23:57 [content] Clearing content store
+17:23:57 [content] Synced content
+17:23:57 [types] Generated 710ms
+17:23:57 [check] Getting diagnostics for Astro files in /workspace/scratch/0bbb4abf617c/kian-astro...
+Result (79 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> kian-khayat-portfolio@9.0.0-phase9 build:en
+> node scripts/check-media.mjs && SITE_LANG=en astro build && node scripts/harden-output.mjs en
+
+Verified 2 referenced media files.
+17:24:03 [content] Syncing content
+17:24:03 [content] Synced content
+17:24:03 [types] Generated 628ms
+17:24:03 [build] output: "static"
+17:24:03 [build] mode: "static"
+17:24:03 [build] directory: /workspace/scratch/0bbb4abf617c/kian-astro/dist/en/
+17:24:03 [build] Collecting build info...
+17:24:03 [build] ✓ Completed in 675ms.
+17:24:03 [build] Building static entrypoints...
+17:24:03 [vite] ✓ built in 291ms
+17:24:03 [vite] ✓ built in 36ms
+17:24:03 [build] Rearranging server assets...
+
+ generating static routes 
+17:24:03   ├─ /404.html (+28ms) 
+17:24:03   ├─ /admin/index.html (+11ms) 
+17:24:03   ├─ /articles/learning-german-as-a-developer-a-systems-approach/index.html (+14ms) 
+17:24:03   ├─ /articles/python-is-not-just-a-language-it-s-a-philosophy/index.html (+8ms) 
+17:24:03   ├─ /articles/the-case-for-building-in-public-at-17/index.html (+7ms) 
+17:24:03   ├─ /articles/why-discipline-is-the-ultimate-ai-advantage/index.html (+6ms) 
+17:24:03   ├─ /articles/index.html (+7ms) 
+17:24:03   ├─ /CNAME (+2ms) 
+17:24:03   ├─ /contact/index.html (+23ms) 
+17:24:03   ├─ /privacy/index.html (+9ms) 
+17:24:03   ├─ /robots.txt (+2ms) 
+17:24:03   ├─ /rss.xml (+2ms) 
+17:24:03   ├─ /site.webmanifest (+2ms) 
+17:24:03   ├─ /sitemap.xml (+2ms) 
+17:24:03   ├─ /work/deutsch-tracker/index.html (+6ms) 
+17:24:03   ├─ /work/learning-dashboard/index.html (+11ms) 
+17:24:03   ├─ /work/linux-config-vault/index.html (+4ms) 
+17:24:03   ├─ /work/mini-llm-experiments/index.html (+4ms) 
+17:24:03   ├─ /work/nightwalker-hub/index.html (+4ms) 
+17:24:03   ├─ /work/personal-hq/index.html (+5ms) 
+17:24:03   ├─ /work/pymind-cli/index.html (+5ms) 
+17:24:03   ├─ /work/index.html (+16ms) 
+17:24:03   ├─ /index.html (+13ms) 
+17:24:03 ✓ Completed in 214ms.
+
+17:24:03 [build] ✓ Completed in 575ms.
+17:24:03 [build] 18 page(s) built in 1.25s
+17:24:03 [build] Complete!
+Hardened 18 en pages; script CSP uses hashes, without unsafe-inline or unsafe-eval.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> kian-khayat-portfolio@9.0.0-phase9 build:de
+> node scripts/check-media.mjs && SITE_LANG=de astro build && node scripts/harden-output.mjs de
+
+Verified 2 referenced media files.
+17:24:05 [content] Syncing content
+17:24:05 [content] Astro config changed
+17:24:05 [content] Clearing content store
+17:24:05 [content] Synced content
+17:24:05 [types] Generated 639ms
+17:24:05 [build] output: "static"
+17:24:05 [build] mode: "static"
+17:24:05 [build] directory: /workspace/scratch/0bbb4abf617c/kian-astro/dist/de/
+17:24:05 [build] Collecting build info...
+17:24:05 [build] ✓ Completed in 692ms.
+17:24:05 [build] Building static entrypoints...
+17:24:06 [vite] ✓ built in 280ms
+17:24:06 [vite] ✓ built in 37ms
+17:24:06 [build] Rearranging server assets...
+
+ generating static routes 
+17:24:06   ├─ /404.html (+25ms) 
+17:24:06   ├─ /admin/index.html (+10ms) 
+17:24:06   ├─ /articles/learning-german-as-a-developer-a-systems-approach/index.html (+9ms) 
+17:24:06   ├─ /articles/python-is-not-just-a-language-it-s-a-philosophy/index.html (+8ms) 
+17:24:06   ├─ /articles/the-case-for-building-in-public-at-17/index.html (+7ms) 
+17:24:06   ├─ /articles/why-discipline-is-the-ultimate-ai-advantage/index.html (+6ms) 
+17:24:06   ├─ /articles/index.html (+8ms) 
+17:24:06   ├─ /CNAME (+13ms) 
+17:24:06   ├─ /contact/index.html (+14ms) 
+17:24:06   ├─ /privacy/index.html (+7ms) 
+17:24:06   ├─ /robots.txt (+3ms) 
+17:24:06   ├─ /rss.xml (+8ms) 
+17:24:06   ├─ /site.webmanifest (+2ms) 
+17:24:06   ├─ /sitemap.xml (+2ms) 
+17:24:06   ├─ /work/deutsch-tracker/index.html (+5ms) 
+17:24:06   ├─ /work/learning-dashboard/index.html (+4ms) 
+17:24:06   ├─ /work/linux-config-vault/index.html (+4ms) 
+17:24:06   ├─ /work/mini-llm-experiments/index.html (+3ms) 
+17:24:06   ├─ /work/nightwalker-hub/index.html (+3ms) 
+17:24:06   ├─ /work/personal-hq/index.html (+5ms) 
+17:24:06   ├─ /work/pymind-cli/index.html (+5ms) 
+17:24:06   ├─ /work/index.html (+28ms) 
+17:24:06   ├─ /index.html (+12ms) 
+17:24:06 ✓ Completed in 215ms.
+
+17:24:06 [build] ✓ Completed in 568ms.
+17:24:06 [build] 18 page(s) built in 1.26s
+17:24:06 [build] Complete!
+Hardened 18 de pages; script CSP uses hashes, without unsafe-inline or unsafe-eval.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> kian-khayat-portfolio@9.0.0-phase9 build:fa
+> node scripts/check-media.mjs && SITE_LANG=fa astro build && node scripts/harden-output.mjs fa
+
+Verified 2 referenced media files.
+17:24:08 [content] Syncing content
+17:24:08 [content] Astro config changed
+17:24:08 [content] Clearing content store
+17:24:08 [content] Synced content
+17:24:08 [types] Generated 790ms
+17:24:08 [build] output: "static"
+17:24:08 [build] mode: "static"
+17:24:08 [build] directory: /workspace/scratch/0bbb4abf617c/kian-astro/dist/fa/
+17:24:08 [build] Collecting build info...
+17:24:08 [build] ✓ Completed in 836ms.
+17:24:08 [build] Building static entrypoints...
+17:24:09 [vite] ✓ built in 363ms
+17:24:09 [vite] ✓ built in 45ms
+17:24:09 [build] Rearranging server assets...
+
+ generating static routes 
+17:24:09   ├─ /404.html (+28ms) 
+17:24:09   ├─ /admin/index.html (+11ms) 
+17:24:09   ├─ /articles/learning-german-as-a-developer-a-systems-approach/index.html (+10ms) 
+17:24:09   ├─ /articles/python-is-not-just-a-language-it-s-a-philosophy/index.html (+13ms) 
+17:24:09   ├─ /articles/the-case-for-building-in-public-at-17/index.html (+7ms) 
+17:24:09   ├─ /articles/why-discipline-is-the-ultimate-ai-advantage/index.html (+6ms) 
+17:24:09   ├─ /articles/index.html (+26ms) 
+17:24:09   ├─ /CNAME (+2ms) 
+17:24:09   ├─ /contact/index.html (+10ms) 
+17:24:09   ├─ /privacy/index.html (+6ms) 
+17:24:09   ├─ /robots.txt (+1ms) 
+17:24:09   ├─ /rss.xml (+2ms) 
+17:24:09   ├─ /site.webmanifest (+1ms) 
+17:24:09   ├─ /sitemap.xml (+2ms) 
+17:24:09   ├─ /work/deutsch-tracker/index.html (+5ms) 
+17:24:09   ├─ /work/learning-dashboard/index.html (+5ms) 
+17:24:09   ├─ /work/linux-config-vault/index.html (+5ms) 
+17:24:09   ├─ /work/mini-llm-experiments/index.html (+3ms) 
+17:24:09   ├─ /work/nightwalker-hub/index.html (+3ms) 
+17:24:09   ├─ /work/personal-hq/index.html (+6ms) 
+17:24:09   ├─ /work/pymind-cli/index.html (+8ms) 
+17:24:09   ├─ /work/index.html (+13ms) 
+17:24:09   ├─ /index.html (+9ms) 
+17:24:09 ✓ Completed in 206ms.
+
+17:24:09 [build] ✓ Completed in 652ms.
+17:24:09 [build] 18 page(s) built in 1.49s
+17:24:09 [build] Complete!
+Hardened 18 fa pages; script CSP uses hashes, without unsafe-inline or unsafe-eval.
+Hardened 18 en pages; script CSP uses hashes, without unsafe-inline or unsafe-eval.
+Hardened 18 de pages; script CSP uses hashes, without unsafe-inline or unsafe-eval.
+Hardened 18 fa pages; script CSP uses hashes, without unsafe-inline or unsafe-eval.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> kian-khayat-portfolio@9.0.0-phase9 check:release
+> node scripts/check-release.mjs
+
+{
+  passed: true,
+  pages: 54,
+  localReferences: 1422,
+  checks: [
+    'script hash CSP',
+    'no inline event handlers',
+    'local link and asset existence',
+    'security headers',
+    'no packaged source maps, private keys or test files'
+  ],
+  liveDeploymentVerified: false
+}
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> kian-khayat-portfolio@9.0.0-phase9 check:editorial
+> node scripts/check-editorial.mjs
+
+Editorial feedback generated for 4 articles. See docs/phase9/editorial.md or the GitHub Actions summary.

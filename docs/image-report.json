@@ -1,0 +1,34 @@
+[
+  {
+    "file": "public/images/hero-light-360.avif",
+    "bytes": 13682
+  },
+  {
+    "file": "public/images/hero-light-360.webp",
+    "bytes": 20570
+  },
+  {
+    "file": "public/images/hero-light-720.avif",
+    "bytes": 31532
+  },
+  {
+    "file": "public/images/hero-light-720.webp",
+    "bytes": 41592
+  },
+  {
+    "file": "public/images/hero-dark-360.avif",
+    "bytes": 6734
+  },
+  {
+    "file": "public/images/hero-dark-360.webp",
+    "bytes": 9508
+  },
+  {
+    "file": "public/images/hero-dark-720.avif",
+    "bytes": 20574
+  },
+  {
+    "file": "public/images/hero-dark-720.webp",
+    "bytes": 30144
+  }
+]

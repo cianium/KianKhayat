@@ -1,0 +1,557 @@
+{
+  "scans": [
+    {
+      "theme": "light",
+      "path": "/",
+      "state": "page",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "state": "skill-dialog",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "state": "German home",
+      "language": "de",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "state": "mobile-menu",
+      "language": "de",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/work/",
+      "state": "page",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/work/",
+      "state": "certificates",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/work/",
+      "state": "certificate-lightbox",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/articles/",
+      "state": "page",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/articles/",
+      "state": "reader",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/contact/",
+      "state": "page",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/privacy/",
+      "state": "page",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value"
+      ]
+    },
+    {
+      "theme": "light",
+      "path": "/404.html",
+      "state": "page",
+      "language": "en",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "state": "page",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "state": "skill-dialog",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "state": "German home",
+      "language": "de",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "state": "mobile-menu",
+      "language": "de",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/work/",
+      "state": "page",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/work/",
+      "state": "certificates",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/work/",
+      "state": "certificate-lightbox",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-prohibited-attr",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/articles/",
+      "state": "page",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/articles/",
+      "state": "reader",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/contact/",
+      "state": "page",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value",
+        "color-contrast"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/privacy/",
+      "state": "page",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value"
+      ]
+    },
+    {
+      "theme": "dark",
+      "path": "/404.html",
+      "state": "page",
+      "language": "fa",
+      "violations": [],
+      "manualReviewItems": [
+        "aria-valid-attr-value"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/work/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/work/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/work/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/articles/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/articles/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/articles/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/contact/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/contact/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/contact/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/privacy/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/privacy/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/privacy/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/404.html",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/404.html",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "light",
+      "path": "/404.html",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/work/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/work/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/work/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/articles/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/articles/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/articles/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/contact/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/contact/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/contact/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/privacy/",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/privacy/",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/privacy/",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/404.html",
+      "width": 360,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/404.html",
+      "width": 768,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    },
+    {
+      "theme": "dark",
+      "path": "/404.html",
+      "width": 1440,
+      "overflow": false,
+      "smallTargets": [],
+      "animatedStoryHint": false
+    }
+  ],
+  "errors": [],
+  "requests": "External fonts blocked; GitHub activity mocked; no email sent.",
+  "passed": true
+}

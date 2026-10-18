@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "create original-language Persian article without translations or reading-time input",
+    "SEO overrides, RTL, auto reading time and table of contents",
+    "draft excluded",
+    "create project and certificate with real image/PDF fixture",
+    "create standalone Featured card",
+    "edit existing Featured card",
+    "delete Featured card without deleting project"
+  ],
+  "hostedCMSLoginTested": false
+}
