@@ -37,7 +37,10 @@
   "draft": false,
   "readTime": "9 min read",
   "language": "en",
-  "readingTimeMode": "manual",
+  "readingTimeMode": "auto",
   "toc": true,
-  "cover": "/media/articles/mvfrf9gq-q3pl0c36.jpg"
+  "cover": "/media/articles/mvfrf9gq-q3pl0c36.jpg",
+  "updatedAt": "2026-10-20",
+  "publishedAt": "2026-10-14",
+  "coverAlt": "Intelligence "
 }
