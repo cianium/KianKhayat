@@ -76,16 +76,3 @@ npm run test:e2e
 See `docs/phase-9-report.md` for current results. Previous phase reports are historical. Stop after this phase for owner review.
 
 © Kian Khayat. All rights reserved.
-
-## Debug audit toolkit (2026-10-18)
-
-Use Node.js 24 (the included `.node-version` pins the Cloudflare build). The source preflight works **without** installing npm dependencies:
-
-```sh
-node scripts/debug-preflight.mjs
-npm ci
-npm audit --audit-level=high
-npm run verify
-```
-
-For local HTTP checks, start `npm run preview` in one terminal, then `npm run debug:local` in another. Reports are written to `docs/debug/`. See `docs/debug/security-and-debug-audit-fa.md` and `docs/debug/hosting-deployment-fa.md` for the scoped evidence, known blockers and host setup. These checks are not a penetration test of the live site. No visible site content was changed.

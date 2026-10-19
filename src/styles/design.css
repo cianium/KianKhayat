@@ -99,6 +99,9 @@ h1, h2, h3, .hero-name { text-wrap: balance; }
 .avatar-ring { inset: -18px 20px 18px -20px; border-radius: 22px; border: 2px solid var(--line); background: var(--gold-wash); z-index: -1; }
 .avatar-status { right: auto; inset-inline-end: -12px; bottom: 22px; border: 2px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 10px 14px; transform: rotate(-3deg); color: var(--text); }
 .status-dot { background: var(--accent-ink); animation: none; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
+.hero-resume { min-height: 46px; padding-inline: 18px; text-decoration: none; white-space: nowrap; }
+.hero-resume svg { width: 18px; height: 18px; flex: none; }
 .hero-socials { gap: 12px; }
 .social-btn { width: 46px; height: 46px; border: 1.5px solid var(--line); color: var(--text); box-shadow: 2px 2px 0 var(--line); }
 .social-btn:hover { background: var(--wash); box-shadow: 3px 3px 0 var(--line); }
@@ -231,7 +234,7 @@ footer { border-top: 2px solid var(--line); margin-top: 24px; padding-block: 40p
 
 /* Logical spacing keeps the same visual hierarchy in Persian. */
 html[lang="fa"] { --font-tight: 'Vazirmatn', 'Inter Tight', sans-serif; --font-body: 'Vazirmatn', 'Inter', sans-serif; --font-mono: 'Vazirmatn', 'JetBrains Mono', monospace; }
-html[lang="fa"] .hero-name { font-family: 'Inter Tight', sans-serif; letter-spacing: -.055em; }
+html[lang="fa"] .hero-name { font-family: 'Vazirmatn', 'Inter Tight', sans-serif; letter-spacing: -.055em; }
 html[dir="rtl"] .hero-name { margin-left: auto; margin-right: 0; }
 html[dir="rtl"] .cert-timeline { padding-inline: 32px 0; }
 html[dir="rtl"] .cert-timeline::before { right: 9px; }
@@ -269,17 +272,25 @@ html[dir="rtl"] .avatar-status { transform: rotate(3deg); }
   .logo-mark { width: 30px; height: 30px; }
   .lang-btn { padding-inline: 8px; }
   .mobile-menu { top: 74px; }
-  .hero { padding-block: 120px 68px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 50px; }
-  .hero-name { font-size: clamp(4.5rem, 17vw, 6rem); max-width: 8ch; margin-block: 22px; }
-  .hero-avatar-wrap { justify-content: center; }
-  .hero-avatar { width: 72%; max-width: 300px; }
+  .hero { display: block; padding-block: 108px 34px; }
+  .hero-inner { grid-template-columns: minmax(0, 1.15fr) minmax(116px, .85fr); column-gap: 20px; row-gap: 26px; align-items: center; text-align: start; }
+  .hero-content { display: contents; }
+  .hero-eyebrow { grid-column: 1 / -1; grid-row: 1; justify-self: start; margin: 0; }
+  .hero-name { grid-column: 1; grid-row: 2; align-self: center; font-size: clamp(2.75rem, 12.5vw, 4.4rem); max-width: 7ch; margin: 0; }
+  .hero-avatar-wrap { grid-column: 2; grid-row: 2; justify-content: center; min-width: 0; }
+  .hero-avatar { width: 100%; max-width: 180px; }
+  .avatar-ring { inset: -10px 8px 8px -8px; }
+  .hero-bio { grid-column: 1 / -1; grid-row: 3; max-width: none; margin: 2px 0 0; }
+  .hero-location { grid-column: 1 / -1; grid-row: 4; max-width: none; margin: 0; }
+  .hero-actions { grid-column: 1 / -1; grid-row: 5; align-items: flex-start; }
+  .hero-socials { justify-content: flex-start; flex-wrap: wrap; }
   .hero-bio { font-size: .95rem; }
   .hero-location { font-size: .8rem; }
   .hero-eyebrow { font-size: .68rem; }
   .avatar-status { font-size: .73rem; }
-  .scroll-hint { bottom: 12px; }
+  .scroll-hint { position: relative; inset: auto; transform: none; width: max-content; margin: 28px auto 0; }
   .scroll-line { height: 10px; }
+  html[dir="rtl"] .hero-name { direction: rtl; text-align: right; margin: 0; }
   .readme-grid, .projects-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
   .readme-card.wide { grid-column: auto; }
   .readme-card, .contact-form { padding: 24px; }

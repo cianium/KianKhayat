@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.19.0"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
@@ -27,9 +27,7 @@
     "check:release": "node scripts/check-release.mjs",
     "check:live": "node scripts/check-live.mjs",
     "check:editorial": "node scripts/check-editorial.mjs",
-    "test:editorial": "node --test tests/editorial.test.mjs",
-    "debug:preflight": "node scripts/debug-preflight.mjs",
-    "debug:local": "node scripts/debug-local.mjs"
+    "test:editorial": "node --test tests/editorial.test.mjs"
   },
   "dependencies": {
     "astro": "7.3.8",

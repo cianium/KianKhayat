@@ -1,0 +1,67 @@
+{
+  "slug": "mini-llm-experiments",
+  "order": 5,
+  "featured": false,
+  "translations": {
+    "de": {
+      "emoji": "🧠",
+      "title": "Mini LLM Experiments",
+      "summary": "Eine Sammlung von Experimenten zum Verhalten von Sprachmodellen, Prompt Engineering und dem Bau von KI-Tools.",
+      "tags": [
+        "Python",
+        "KI",
+        "Forschung"
+      ],
+      "colorA": "#D7E7B5",
+      "colorB": "#A7C957",
+      "links": [
+        {
+          "label": "→ GitHub",
+          "url": "https://github.com/cianium",
+          "primary": true
+        }
+      ],
+      "status": "In Arbeit"
+    },
+    "fa": {
+      "seoTitle": "آزمایش‌های کوچک مدل‌های زبانی",
+      "emoji": "🧠",
+      "title": "Mini LLM Experiments",
+      "summary": "مجموعه‌ای از آزمایش‌ها درباره‌ی رفتار مدل‌های زبانی، مهندسی پرامپت و ساخت ابزارهای هوش مصنوعی.",
+      "tags": [
+        "پایتون",
+        "هوش مصنوعی",
+        "پژوهش"
+      ],
+      "colorA": "#D7E7B5",
+      "colorB": "#A7C957",
+      "links": [
+        {
+          "label": "← گیت‌هاب",
+          "url": "https://github.com/cianium",
+          "primary": true
+        }
+      ],
+      "status": "در حال انجام"
+    }
+  },
+  "title": "Mini LLM Experiments",
+  "summary": "A collection of explorations into language model behavior, prompt engineering, and AI tool building.",
+  "tags": [
+    "Python",
+    "AI",
+    "Research"
+  ],
+  "status": "In Progress",
+  "githubUrl": "https://github.com/cianium",
+  "emoji": "🧠",
+  "colorA": "#D7E7B5",
+  "colorB": "#A7C957",
+  "links": [
+    {
+      "label": "→ GitHub",
+      "url": "https://github.com/cianium",
+      "primary": true
+    }
+  ]
+}

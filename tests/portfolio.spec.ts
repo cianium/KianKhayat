@@ -27,15 +27,53 @@ test('theme persists across reload and switches actual portrait',async({page})=>
   await page.reload();await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
   await expect(page.locator('#hero-avatar-img')).toHaveAttribute('src',/hero-dark/);
 });
-test('all languages, approved Latin name and changing skill modal content',async({page})=>{
+test('all languages, localized Persian hero name and changing skill modal content',async({page})=>{
   await ready(page);await language(page,'fa');await expect(page.locator('html')).toHaveAttribute('dir','rtl');
-  await expect(page.locator('.hero-name')).toHaveText('Kian Khayat.');
+  await expect(page.locator('.hero-name')).toHaveText('کیان خیاط.');
   await page.locator('[data-skill="0"]').click();await expect(page.locator('#skill-modal-title')).toHaveText('پایتون');
   await page.keyboard.press('Escape');await expect(page.locator('[data-skill="0"]')).toBeFocused();
   await page.locator('[data-skill="1"]').click();await expect(page.locator('#skill-modal-title')).toHaveText('انگلیسی');
   await page.keyboard.press('Escape');await language(page,'de');
   await page.locator('[data-skill="1"]').click();await expect(page.locator('#skill-modal-title')).toHaveText('Englisch');
   await page.keyboard.press('Escape');await language(page,'en');await expect(page.locator('.hero-name')).toHaveText('Kian Khayat.');
+});
+test('mobile hero keeps the portrait opposite the name and the scroll cue inside its frame',async({page})=>{
+  await page.setViewportSize({width:390,height:844});
+  for(const {port,name,rtl} of [
+    {port:4322,name:'Kian Khayat.',rtl:false},
+    {port:4323,name:'Kian Khayat.',rtl:false},
+    {port:4324,name:'کیان خیاط.',rtl:true},
+  ]) {
+    await ready(page,`http://127.0.0.1:${port}/`);
+    const title=page.locator('.hero-name'),portrait=page.locator('.hero-avatar'),hero=page.locator('.hero'),socials=page.locator('.hero-socials'),scroll=page.locator('.scroll-hint');
+    await expect(title).toHaveText(name);
+    const [titleBox,portraitBox,heroBox,socialsBox,scrollBox]=await Promise.all([title.boundingBox(),portrait.boundingBox(),hero.boundingBox(),socials.boundingBox(),scroll.boundingBox()]);
+    expect(titleBox&&portraitBox&&heroBox&&socialsBox&&scrollBox).toBeTruthy();
+    expect(portraitBox!.width).toBeLessThanOrEqual(180);
+    expect(Math.abs((titleBox!.y+titleBox!.height/2)-(portraitBox!.y+portraitBox!.height/2))).toBeLessThan(36);
+    expect(rtl?portraitBox!.x<titleBox!.x:titleBox!.x<portraitBox!.x).toBe(true);
+    expect(scrollBox!.y).toBeGreaterThan(socialsBox!.y+socialsBox!.height);
+    expect(scrollBox!.y+scrollBox!.height).toBeLessThanOrEqual(heroBox!.y+heroBox!.height+1);
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  }
+});
+test('localized résumé control downloads the packaged PDF',async({page,request})=>{
+  for(const {port,label} of [
+    {port:4322,label:'Download résumé'},
+    {port:4323,label:'Lebenslauf herunterladen'},
+    {port:4324,label:'دانلود رزومه'},
+  ]) {
+    await ready(page,`http://127.0.0.1:${port}/`);
+    const link=page.locator('.hero-resume');
+    await expect(link).toBeVisible();
+    await expect(link).toHaveText(label);
+    await expect(link).toHaveAttribute('href','/Kian-Khayat-CV.pdf');
+    await expect(link).toHaveAttribute('download','Kian-Khayat-CV.pdf');
+  }
+  const response=await request.get('http://127.0.0.1:4322/Kian-Khayat-CV.pdf');
+  expect(response.ok()).toBe(true);
+  expect(response.headers()['content-type']).toContain('application/pdf');
+  expect((await response.body()).subarray(0,5).toString()).toBe('%PDF-');
 });
 test('certificate timeline, category search, disabled missing download and modal focus trap',async({page})=>{
   await ready(page,'/work/');await page.locator('[data-tab="certificates"]').click();
