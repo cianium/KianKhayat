@@ -33,10 +33,11 @@
     "AI",
     "Discipline"
   ],
-  "body": "<h3>Introduction</h3><p>The arrival of capable AI tools has created a paradox: the very systems designed to augment human productivity are making undisciplined people less productive. This essay explores why discipline — not intelligence or access to tools — is the defining variable in the AI era.</p><h3>Research Background</h3><p>Research from MIT's Computer Science and AI Laboratory (CSAIL) on human-AI collaboration suggests that individuals with strong self-regulation skills show 40–60% higher productivity gains from AI tools compared to those with weak self-regulation. The tool doesn't determine the outcome; the operator does.</p><blockquote>The productivity gains from AI tools scale with the operator's existing discipline, not their raw cognitive ability.</blockquote><h3>Conclusion</h3><p>In an era of unprecedented cognitive augmentation, the meta-skill of directed, consistent effort becomes the ultimate differentiator.</p><div class=\"article-ref\">References: MIT CSAIL Research Papers 2024 · Stanford HCI Group Studies</div>",
+  "body": "<h3>Introduction</h3><p>The arrival of capable AI tools has created a paradox: the very systems designed to augment human productivity are making undisciplined people less productive. This essay explores why discipline — not intelligence or access to tools — is the defining variable in the AI era.</p><h3>Research Background</h3><p>Research from MIT's Computer Science and AI Laboratory (CSAIL) on human-AI collaboration suggests that individuals with strong self-regulation skills show 40–60% higher productivity gains from AI tools compared to those with weak self-regulation. The tool doesn't determine the outcome; the operator does.</p><blockquote><p>The productivity gains from AI tools scale with the operator's existing discipline, not their raw cognitive ability.</p></blockquote><h3>Conclusion</h3><p>In an era of unprecedented cognitive augmentation, the meta-skill of directed, consistent effort becomes the ultimate differentiator.</p><p>References: MIT CSAIL Research Papers 2024 · Stanford HCI Group Studies</p>",
   "draft": false,
   "readTime": "9 min read",
   "language": "en",
   "readingTimeMode": "manual",
-  "toc": true
+  "toc": true,
+  "cover": "/media/articles/mvfrf9gq-q3pl0c36.jpg"
 }
