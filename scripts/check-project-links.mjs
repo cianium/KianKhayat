@@ -31,7 +31,7 @@ for(const item of items) {
     for(const entry of links) {
       const u = new URL(entry.url);
       assert(['https:','http:'].includes(u.protocol),`${item.slug}: invalid protocol`);
-      assert.notEqual(entry.url.replace(/\\/$/,''),'https://github.com/cianium',`${item.slug}: generic GitHub profile is not project source`);
+      assert.notEqual(entry.url.endsWith('/') ? entry.url.slice(0,-1) : entry.url, 'https://github.com/cianium', `${item.slug}: generic GitHub profile is not project source`);
       if(/github|گیت‌هاب/i.test(entry.label)) assert.equal(entry.url,item.githubUrl,`${item.slug}: GitHub CTA does not match repository`);
       if(/live|زنده/i.test(entry.label)) assert.equal(entry.url,item.liveUrl,`${item.slug}: demo URL inconsistent`);
     }
