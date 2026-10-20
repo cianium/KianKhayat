@@ -35,7 +35,7 @@ The project demonstrates an approach to accessible frontend engineering, content
 | Safety | Build-time HTML sanitization, media validation and CSP checks |
 | Quality | Astro type checks, content/schema checks, SEO/release checks, security unit tests and Playwright browser tests |
 
-**Content snapshot:** The checked-in catalog contains seven project entries, eight certificate records, and four articles. A record in the portfolio is not by itself verification of an external project deployment, certificate, or credential. Some images, PDFs, repository-specific links, and documentation still need owner-provided verification.
+**Content snapshot:** The checked-in catalog contains two source-linked project entries, eight certificate records, and four articles. A record in the portfolio is not by itself verification of an external project deployment, certificate, or credential. Some images, PDFs, repository-specific links, and documentation still need owner-provided verification.
 
 ## Technology
 
@@ -71,7 +71,7 @@ For development, run `npm run dev`, `npm run dev:de`, or `npm run dev:fa` for th
 
 ## Validation
 
-Project cards and links are checked against known repository sources. Unpublished concepts remain visible without misleading source links, and `Live` is not treated as proof of a current deployment.
+Project cards and links are checked against known repository sources. Unverified concepts are omitted from the public project grid, and each listed project has two distinct Source Code / Live Demo buttons; and `Live` is not treated as proof of a current deployment.
 
 
 ```bash

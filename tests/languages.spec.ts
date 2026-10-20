@@ -15,7 +15,7 @@ test('all language sites render content without JavaScript', async ({browser}) =
       await expect(page.locator('html')).toHaveAttribute('dir',lang==='fa'?'rtl':'ltr');
       await expect(page.locator('main h1')).toBeVisible();
       await expect(page.locator('#page-loader')).not.toBeVisible();
-      if(path==='/work/')await expect(page.locator('.project-card')).toHaveCount(7);
+      if(path==='/work/')await expect(page.locator('.project-card')).toHaveCount(2);
       if(path==='/articles/')await expect(page.locator('.article-card')).toHaveCount(4);
     }
   }

@@ -17,13 +17,13 @@
       "colorB": "#08080f",
       "links": [
         {
-          "label": "→ Live",
-          "url": "https://cianium.github.io/Nightwalker-/",
-          "primary": true
+          "label": "Quellcode",
+          "url": "https://github.com/cianium/Nightwalker-"
         },
         {
-          "label": "GitHub",
-          "url": "https://github.com/cianium/Nightwalker-"
+          "label": "Live-Demo",
+          "url": "https://cianium.github.io/Nightwalker-/",
+          "primary": true
         }
       ],
       "status": "Live"
@@ -43,13 +43,13 @@
       "colorB": "#08080f",
       "links": [
         {
-          "label": "← زنده",
-          "url": "https://cianium.github.io/Nightwalker-/",
-          "primary": true
+          "label": "کد منبع",
+          "url": "https://github.com/cianium/Nightwalker-"
         },
         {
-          "label": "گیت‌هاب",
-          "url": "https://github.com/cianium/Nightwalker-"
+          "label": "دموی زنده",
+          "url": "https://cianium.github.io/Nightwalker-/",
+          "primary": true
         }
       ],
       "status": "زنده"
@@ -71,13 +71,13 @@
   "thumbnail": "/media/projects/mvfr6zt8-r8zs3ef0.jpg",
   "links": [
     {
-      "label": "→ Live",
-      "url": "https://cianium.github.io/Nightwalker-/",
-      "primary": true
+      "label": "Source Code",
+      "url": "https://github.com/cianium/Nightwalker-"
     },
     {
-      "label": "GitHub",
-      "url": "https://github.com/cianium/Nightwalker-"
+      "label": "Live Demo",
+      "url": "https://cianium.github.io/Nightwalker-/",
+      "primary": true
     }
   ],
   "githubUrl": "https://github.com/cianium/Nightwalker-"

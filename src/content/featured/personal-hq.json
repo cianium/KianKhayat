@@ -2,18 +2,18 @@
   "slug": "personal-hq",
   "order": 2,
   "title": "Personal HQ",
-  "summary": "This website — a premium digital presence built from scratch with pure HTML, CSS and JS. No frameworks. Full discipline.",
+  "summary": "My multilingual Astro and TypeScript portfolio, featuring projects, articles, and Git-based content management.",
   "emoji": "🌐",
   "url": "/work/personal-hq/",
   "published": true,
   "translations": {
     "fa": {
       "title": "Personal HQ",
-      "summary": "همین وب‌سایت — یک حضور دیجیتال حرفه‌ای که از صفر با HTML، CSS و JS خالص ساخته شده. بدون فریم‌ورک. با نظم کامل."
+      "summary": "پورتفولیوی چندزبانهٔ من با Astro و TypeScript، همراه با پروژه‌ها، مقاله‌ها و مدیریت محتوا بر پایهٔ Git."
     },
     "de": {
       "title": "Personal HQ",
-      "summary": "Diese Website — ein hochwertiger digitaler Auftritt, von Grund auf mit purem HTML, CSS und JS gebaut. Keine Frameworks. Volle Disziplin."
+      "summary": "Mein mehrsprachiges Portfolio mit Astro und TypeScript: Projekte, Artikel und Git-basierte Inhaltsverwaltung."
     }
   },
   "image": "/media/featured/personal-hq.png"
