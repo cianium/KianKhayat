@@ -4,7 +4,6 @@ import { getCollection } from 'astro:content';
 import ProjectCover from './ProjectCover.astro';
 import ProjectActions from './ProjectActions.astro';
 import {siteLanguage} from '../data/sites';
-import {ui} from '../data/interface';
 const projects = (await getCollection('projects')).sort((a,b) => a.data.order-b.data.order);
 ---
 {projects.map(({data:p}) => <article class="project-card fade-up">
@@ -13,6 +12,6 @@ const projects = (await getCollection('projects')).sort((a,b) => a.data.order-b.
     <div class="project-tags">{p.tags.map((tag,i) => <span class="project-tag" data-localized={localized(tag,p.translations.de?.tags[i],p.translations.fa?.tags[i])}>{tag}</span>)} <span class="tag-primary" data-localized={localized(p.status,p.translations.de?.status,p.translations.fa?.status)}>{p.status}</span></div>
     <h2 class="project-title"><a href={`/work/${p.slug}/`} data-localized={localized(p.title,p.translations.de?.title,p.translations.fa?.title)}>{p.title}</a></h2>
     <div class="project-desc" data-localized={localized(p.summary,p.translations.de?.summary,p.translations.fa?.summary)}>{p.summary}</div>
-    <div class="project-footer"><ProjectActions liveUrl={p.liveUrl} githubUrl={p.githubUrl}/><a class="project-link detail-link" href={`/work/${p.slug}/`} data-no-translate>{ui('details',siteLanguage)} <span aria-hidden="true">{siteLanguage==='fa'?'←':'→'}</span></a></div>
+    <div class="project-footer"><ProjectActions liveUrl={p.liveUrl} githubUrl={p.githubUrl}/></div>
   </div>
 </article>)}
