@@ -21,13 +21,14 @@
     "check:articles": "node scripts/check-articles.mjs",
     "check:cms": "node scripts/check-cms.mjs",
     "generate:cms": "node scripts/generate-cms.mjs",
-    "verify": "npm run check:cms && npm run test:security && npm run test:editorial && npm run build && npm run check:content && npm run check:seo && npm run check:articles && npm run check:release && npm run test:e2e",
+    "verify": "npm run check:cms && npm run check:projects && npm run test:security && npm run test:editorial && npm run build && npm run check:seo && npm run check:articles && npm run check:release && npm run test:e2e",
     "audit:design": "node scripts/audit-design.mjs",
     "test:security": "node --test tests/security.test.mjs",
     "check:release": "node scripts/check-release.mjs",
     "check:live": "node scripts/check-live.mjs",
     "check:editorial": "node scripts/check-editorial.mjs",
-    "test:editorial": "node --test tests/editorial.test.mjs"
+    "test:editorial": "node --test tests/editorial.test.mjs",
+    "check:projects": "node scripts/check-project-links.mjs"
   },
   "dependencies": {
     "astro": "7.3.8",

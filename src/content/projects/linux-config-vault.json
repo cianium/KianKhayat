@@ -6,7 +6,7 @@
     "de": {
       "emoji": "🐧",
       "title": "Linux Config Vault",
-      "summary": "Ein persönliches Repository mit Dotfiles, Shell-Skripten und Systemkonfigurationen für reproduzierbare Linux-Umgebungen.",
+      "summary": "Eine geplante Sammlung von Linux-Dotfiles, Shell-Skripten und nachvollziehbaren Konfigurationsnotizen. Ein eigenes öffentliches Repository ist noch nicht verfügbar.",
       "tags": [
         "Linux",
         "Bash",
@@ -14,20 +14,14 @@
       ],
       "colorA": "#F4C27F",
       "colorB": "#DDB967",
-      "links": [
-        {
-          "label": "→ GitHub",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
-      "status": "Live"
+      "links": [],
+      "status": "Geplant"
     },
     "fa": {
       "seoTitle": "مخزن تنظیمات لینوکس",
       "emoji": "🐧",
       "title": "Linux Config Vault",
-      "summary": "مخزن شخصی dotfileها، اسکریپت‌های شل و پیکربندی‌های سیستم برای محیط‌های لینوکسی قابل بازتولید.",
+      "summary": "مجموعه‌ای برنامه‌ریزی‌شده از فایل‌های تنظیمات لینوکس، اسکریپت‌های شل و یادداشت‌های پیکربندی. هنوز مخزن عمومی مستقلی برای آن موجود نیست.",
       "tags": [
         "لینوکس",
         "Bash",
@@ -35,33 +29,20 @@
       ],
       "colorA": "#F4C27F",
       "colorB": "#DDB967",
-      "links": [
-        {
-          "label": "← گیت‌هاب",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
-      "status": "زنده"
+      "links": [],
+      "status": "برنامه‌ریزی‌شده"
     }
   },
   "title": "Linux Config Vault",
-  "summary": "A personal repository of dotfiles, shell scripts, and system configurations for reproducible Linux environments.",
+  "summary": "A planned collection of Linux dotfiles, shell scripts, and reproducible configuration notes. No dedicated public repository is available yet.",
   "tags": [
     "Linux",
     "Bash",
     "DevOps"
   ],
-  "status": "Live",
-  "githubUrl": "https://github.com/cianium",
+  "status": "Planned",
   "emoji": "🐧",
   "colorA": "#F4C27F",
   "colorB": "#DDB967",
-  "links": [
-    {
-      "label": "→ GitHub",
-      "url": "https://github.com/cianium",
-      "primary": true
-    }
-  ]
+  "links": []
 }

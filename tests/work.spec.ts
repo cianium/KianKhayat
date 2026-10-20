@@ -21,7 +21,8 @@ test('project detail links, optional actions and language navigation',async({pag
   await page.locator('.detail-link').first().click();
   await expect(page).toHaveURL(/\/work\/nightwalker-hub\/$/);
   await expect(page.locator('h1')).toHaveText('Nightwalker Hub');
-  await expect(page.locator('.project-detail>.project-actions a')).toHaveCount(1);
+  await expect(page.locator('.project-detail>.project-actions a')).toHaveCount(2);
+  await expect(page.locator('.project-detail>.project-actions a[href="https://github.com/cianium/Nightwalker-"]')).toHaveCount(1);
   await expect(page.locator('#page-loader')).toHaveCount(0);
   for(const [lang,port] of [['fa',4324],['de',4323],['en',4322]]) {
     await page.locator('#lang-btn').click();await page.locator(`[data-lang="${lang}"]`).click();
@@ -32,7 +33,8 @@ test('project detail links, optional actions and language navigation',async({pag
   }
   await ready(page,'/work/pymind-cli/');
   await expect(page.locator('.project-detail>.project-actions a.primary')).toHaveCount(0);
-  await expect(page.locator('.project-detail>.project-actions a')).toHaveAttribute('href','https://github.com/cianium');
+  await expect(page.locator('.project-detail>.project-actions a')).toHaveCount(0);
+  await expect(page.locator('.project-original-links a')).toHaveCount(0);
 });
 
 test('featured selection, thumbnails, detail layouts and accessibility',async({page})=>{
@@ -92,4 +94,22 @@ test('PDF-only preview and failed-image fallback keep the file reachable',async(
   await certificateFixture(page,{image:'/missing-test-image.png'});
   await expect(page.locator('#cert-modal-img')).toContainText('Preview unavailable');
   await expect(page.locator('#cert-file-actions a')).toHaveAttribute('href','/missing-test-image.png');
+});
+
+test('repository links resolve to actual project repositories, not a generic profile',async({page})=>{
+  await ready(page,'/work/personal-hq/');
+  await expect(page.locator('.project-detail>.project-actions a[href="https://github.com/cianium/KianKhayat"]')).toHaveCount(1);
+  await expect(page.locator('.project-original-links a[href="https://github.com/cianium/KianKhayat"]')).toHaveCount(1);
+  await ready(page,'/work/nightwalker-hub/');
+  await expect(page.locator('.project-detail>.project-actions a[href="https://github.com/cianium/Nightwalker-"]')).toHaveCount(1);
+
+  for(const slug of ['pymind-cli','deutsch-tracker','learning-dashboard','mini-llm-experiments','linux-config-vault']){
+    await ready(page,`/work/${slug}/`);
+    await expect(page.locator('.project-detail>.project-actions a')).toHaveCount(0);
+    await expect(page.locator('.project-original-links a')).toHaveCount(0);
+  }
+  await expect(page.locator('h1')).toHaveText('Linux Config Vault');
+  await expect(page.locator('.project-detail-heading .tag-primary')).toHaveText('Planned');
+  await ready(page,'http://127.0.0.1:4324/work/linux-config-vault/');
+  await expect(page.locator('.project-detail-heading .tag-primary')).toHaveText('برنامه‌ریزی‌شده');
 });

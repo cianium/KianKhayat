@@ -20,6 +20,10 @@
           "label": "→ Live",
           "url": "https://cianium.github.io/Nightwalker-/",
           "primary": true
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/cianium/Nightwalker-"
         }
       ],
       "status": "Live"
@@ -42,6 +46,10 @@
           "label": "← زنده",
           "url": "https://cianium.github.io/Nightwalker-/",
           "primary": true
+        },
+        {
+          "label": "گیت‌هاب",
+          "url": "https://github.com/cianium/Nightwalker-"
         }
       ],
       "status": "زنده"
@@ -66,6 +74,11 @@
       "label": "→ Live",
       "url": "https://cianium.github.io/Nightwalker-/",
       "primary": true
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/cianium/Nightwalker-"
     }
-  ]
+  ],
+  "githubUrl": "https://github.com/cianium/Nightwalker-"
 }

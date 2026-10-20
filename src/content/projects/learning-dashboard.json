@@ -6,7 +6,7 @@
     "de": {
       "emoji": "📊",
       "title": "Learning Dashboard",
-      "summary": "Ein Datenvisualisierungsprojekt, das tägliche Lernstunden, Kompetenzfortschritt und Lerngewohnheiten im Zeitverlauf erfasst.",
+      "summary": "Ein geplantes Dashboard-Konzept zur Visualisierung von Lernstunden, Kompetenzfortschritt und Lerngewohnheiten. Ein eigener öffentlicher Quellcode-Link ist noch nicht verfügbar.",
       "tags": [
         "Python",
         "Datenvisualisierung",
@@ -14,20 +14,14 @@
       ],
       "colorA": "#C9B8D8",
       "colorB": "#9678B6",
-      "links": [
-        {
-          "label": "→ GitHub",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
+      "links": [],
       "status": "Geplant"
     },
     "fa": {
       "seoTitle": "داشبورد یادگیری",
       "emoji": "📊",
       "title": "Learning Dashboard",
-      "summary": "پروژه‌ی مصورسازی داده برای پیگیری ساعت‌های مطالعه‌ی روزانه، پیشرفت مهارت‌ها و عادت‌های یادگیری در طول زمان.",
+      "summary": "طرح برنامه‌ریزی‌شدهٔ یک داشبورد برای نمایش ساعت‌های مطالعه، پیشرفت مهارت‌ها و عادت‌های یادگیری. هنوز لینک مخزن عمومی اختصاصی آن موجود نیست.",
       "tags": [
         "پایتون",
         "مصورسازی داده",
@@ -35,33 +29,20 @@
       ],
       "colorA": "#C9B8D8",
       "colorB": "#9678B6",
-      "links": [
-        {
-          "label": "← گیت‌هاب",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
+      "links": [],
       "status": "برنامه‌ریزی‌شده"
     }
   },
   "title": "Learning Dashboard",
-  "summary": "A data visualization project tracking daily study hours, skill progression, and learning habits over time.",
+  "summary": "A planned dashboard concept for visualizing study hours, skill progress, and learning habits. No project-specific public source repository is linked yet.",
   "tags": [
     "Python",
     "Data Viz",
     "Self-Improvement"
   ],
   "status": "Planned",
-  "githubUrl": "https://github.com/cianium",
   "emoji": "📊",
   "colorA": "#C9B8D8",
   "colorB": "#9678B6",
-  "links": [
-    {
-      "label": "→ GitHub",
-      "url": "https://github.com/cianium",
-      "primary": true
-    }
-  ]
+  "links": []
 }
