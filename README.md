@@ -71,8 +71,12 @@ For development, run `npm run dev`, `npm run dev:de`, or `npm run dev:fa` for th
 
 ## Validation
 
+Project cards and links are checked against known repository sources. Unpublished concepts remain visible without misleading source links, and `Live` is not treated as proof of a current deployment.
+
+
 ```bash
 npm run check:cms
+npm run check:projects
 npm run test:security
 npm run test:editorial
 npm run build
