@@ -23,6 +23,7 @@ jobs:
       - run: npm audit --audit-level=high
       - run: npm run check:cms
       - run: npm run check:projects
+      - run: npm run check:hosting
       - run: npm run test:security && npm run test:editorial
       - run: npm run build
       - run: npm run check:seo && npm run check:articles && npm run check:release

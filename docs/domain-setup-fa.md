@@ -1,41 +1,71 @@
-# اتصال دامنه‌ها هنگام انتشار
+# انتشار امن سه‌زبانه روی Vercel — بررسی اکتبر ۲۰۲۶
 
-این فاز فقط خروجی آماده کرده؛ هیچ تنظیمی در گیت‌هاب، DNS یا سایت زنده تغییر نکرده است. برای بازبینی محلی نیازی به انجام این مراحل نیست.
+> این سند بر اساس اطلاعات واقعی اتصال GitHub و Vercel تهیه شده است. تأیید دامنه در پنل به‌تنهایی تأیید عملکرد HTTPS، هدرهای واقعی یا انتشار جدیدترین Commit نیست. **هیچ رکورد DNS یا نسخه Production با تهیه این سند تغییر نکرده است.**
 
-## مسیر فعلی: گیت‌هاب پیجز
+## پروژه‌ها و دامنه‌های فعلی
 
-هر زبان باید سایت پیجز مستقل داشته باشد. کد منبع همچنان یک پروژه است؛ خروجی‌های انتشار جدا هستند.
-
-| خروجی | دامنه |
-| --- | --- |
-| `dist/en/` | `kiankhayat.me` |
-| `dist/fa/` | `fa.kiankhayat.me` |
-| `dist/de/` | `de.kiankhayat.me` |
-
-۱. هنگام انتشار، دو مخزن انتشار عمومی برای فارسی و آلمانی بساز. محتوای داخل خروجی هر زبان باید در ریشهٔ شاخهٔ انتشار همان مخزن قرار بگیرد، نه خود پوشهٔ `dist`.
-
-۲. در هر مخزن: `Settings → Pages`؛ منبع انتشار را همان شاخه و مسیر ریشه انتخاب کن. `Custom domain` را مطابق جدول وارد کن. برای انگلیسی از سایت پیجز فعلی استفاده می‌شود؛ تنظیم فعلی دامنهٔ اصلی را بی‌دلیل عوض نکن.
-
-۳. بعد از ثبت دامنه در پیجز، در پنل DNS این دو رکورد را اضافه کن:
-
-| نوع | نام | مقصد |
+| زبان | نام پروژه Vercel | دامنه سفارشی |
 | --- | --- | --- |
-| CNAME | fa | cianium.github.io |
-| CNAME | de | cianium.github.io |
+| انگلیسی | `kiankhayat-portfolio-en` | `kiankhayat.me` (+ `www.kiankhayat.me`) |
+| آلمانی | `kiankhayat-portfolio-de` | `de.kiankhayat.me` |
+| فارسی | `kiankhayat-portfolio-fa` | `fa.kiankhayat.me` |
 
-۴. پس از تأیید DNS و صدور گواهی، برای هر سایت `Enforce HTTPS` را فعال کن. آدرس مستقیم `/work/` و یک آدرس ناموجود را هم بررسی کن؛ دومی باید پاسخ ۴۰۴ واقعی بدهد.
+نام‌های `alpha9` فقط نام‌های قدیمی پروژه‌ها هستند. شناسه پروژه‌ها تغییر نکرده و دامنه‌ها بعد از Rename در Vercel دوباره تأیید شده‌اند.
 
-۵. در سرچ کنسول، نقشه‌های `https://kiankhayat.me/sitemap.xml`، `https://fa.kiankhayat.me/sitemap.xml` و `https://de.kiankhayat.me/sitemap.xml` را ثبت کن. عنوان فارسی پیشنهادی است؛ گوگل می‌تواند آن را بازنویسی کند.
+## تنظیمات لازم برای هر پروژه
 
-انتشار خودکار از یک مخزن منبع به این سه سایت، هنگام مرحلهٔ انتشار تنظیم می‌شود. هیچ توکن شخصی داخل پروژه قرار نگرفته است. فایل‌های `CNAME` و `.nojekyll` هر خروجی آماده‌اند؛ در انتشار از شاخه، `.nojekyll` را هم منتقل کن تا پوشهٔ `_astro` قابل سرو بماند.
+- **Repository**: `cianium/KianKhayat`.
+- **Production Branch**: `main`.
+- **Framework**: Astro؛ **Node.js**: 24.
+- **Build Command**: `npm run build` (سه نسخه را می‌سازد).
+- **Output Directory**: انگلیسی `dist/en`، آلمانی `dist/de`، فارسی `dist/fa`. مقدار *واقعی* این فیلد را در تنظیمات هر پروژه Vercel بررسی کن؛ صحت آن از پاسخ خلاصه‌شدهٔ API قابل‌استخراج نبود.
+- **Deployment Protection**: در هر سه پروژه Vercel Authentication برای Preview/آدرس‌های غیرسفارشی برقرار بوده است (`all_except_custom_domains`). این تنظیم نباید برای دیدن Preview عمومی خاموش شود.
 
-## فرم تماس
+## Cloudflare و دامنه
 
-ایمیل روی سایت `cian@kiankhayat.me` می‌ماند. دریافت فرم از سرویس EmailJS فعلی انجام می‌شود. قالب باید چهار متغیر `name`، `email`، `subject` و `message` داشته باشد. برای پاسخ مستقیم، `Reply To` همان `{{email}}` باشد.
+DNS این دامنه‌ها در Cloudflare مدیریت می‌شود. ابزار Vercel دامنه‌ها را `verified: true` و `misconfigured: false` گزارش می‌کند، هرچند در اطلاعات DNS پیشنهاد بررسی آدرس IP وجود دارد. **از راهنمای قدیمی GitHub Pages برای ساخت CNAMEهای جدید استفاده نکن.** پیش از هر ویرایش رکورد، پروکسی Cloudflare، وضعیت TLS، رکوردهای موجود و ایمیل MX/TXT بررسی شوند. هیچ‌کدام از آن‌ها در این ممیزی تغییر نکرده‌اند.
 
-اگر محدودیت دامنه در EmailJS فعال است، هر سه مبدأ HTTPS را مجاز کن. بعد از انتشار یک پیام آزمایشی از فرم بفرست و رسیدن آن را بررسی کن. وجود یا فوروارد شدن صندوق `cian@kiankhayat.me` مستقل از EmailJS است.
+## انتشار و تطبیق نسخه
 
-منابع رسمی:
-- https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
-- https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages
-- https://developers.google.com/search/docs/specialty/international/localized-versions
+1. در GitHub موفقیت **Validate and build content** و **Browser E2E** را برای Commit موردنظر بررسی کن.
+2. در هر سه پروژه Vercel، آخرین Deployment با `target: production` و `state: READY` را پیدا کن.
+3. `githubCommitSha` همان Deployment را با Commit فعلی شاخه `main` مقایسه کن. اگر متفاوت‌اند، خروجی سایت هنوز آخرین نسخه را اثبات نمی‌کند.
+4. بدون تغییر DNS، از آدرس دامنه هر زبان مسیرهای `/`، `/work/`، `/articles/`، `/privacy/` و یک مسیر ناموجود را بررسی کن. زبان HTML باید متناسب با دامنه باشد و مسیر ناموجود باید 404 واقعی برگرداند.
+5. بعد از تأیید پایداربودن نسخه جدید و درصورت نیاز، انتشار Production را از Vercel انجام بده؛ تغییر Production خارج از مرحله صرفاً ممیزی است.
+6. در صورت استفاده از `www`، مطمئن شو Canonical به `https://kiankhayat.me` اشاره می‌کند و برای جلوگیری از صفحات تکراری دربارهٔ Redirect مناسب تصمیم بگیر.
+
+## بررسی امنیت
+
+`scripts/harden-output.mjs` یک CSP با Hash اسکریپت و فایل `_headers` تولید می‌کند. فایل `_headers` برای همهٔ میزبان‌ها معتبر نیست و روی Vercel **به‌تنهایی کافی نیست**. به همین دلیل `vercel.json` برای هر سه پروژه هدرهای زیر را در پاسخ HTTP تعریف می‌کند:
+
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: SAMEORIGIN`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+- `X-Robots-Tag` برای مسیرهای Admin و فایل‌های Media
+
+**CSP** را به‌صورت ثابت در `vercel.json` ننوشته‌ایم، زیرا سیاست فعلی با Hashهای تولیدشده در زمان Build سازگار است. سیاست **HSTS** هم بدون تأیید TLS و پیکربندی واقعی Cloudflare تشدید نشده است.
+
+پس از انتشار، با درخواست‌هایی فقط خواندنی، هدرهای زنده را کنترل کن:
+
+```bash
+curl -I https://kiankhayat.me/
+curl -I https://de.kiankhayat.me/
+curl -I https://fa.kiankhayat.me/
+curl -I https://kiankhayat.me/admin/
+```
+
+موفقیت تست محلی به معنی تأیید اعمال هدر در CDN، WAF یا Cloudflare نیست. باید پاسخ HTTP نهایی هر دامنه بررسی شود.
+
+## حریم خصوصی و اطلاعات محرمانه
+
+- شناسه‌های عمومی مرورگر EmailJS با توکن محرمانهٔ سرور فرق دارند و به‌خودی‌خود رمز خصوصی محسوب نمی‌شوند.
+- متن Privacy قدیمی دربارهٔ سرویس ارسال پیام و درخواست‌های بیرونی نیازمند بررسی و تأیید مالک سایت است؛ Issue #11.
+- اطلاعات تماس و فایل رزومه که به‌صورت عمومی در سورس/سایت دیده می‌شوند باید از منظر حریم خصوصی توسط مالک بررسی شوند؛ این سند آن اطلاعات را بازنشر نمی‌کند.
+- هیچ توکن، کلید خصوصی، دامنهٔ DNS یا اطلاعات فرم واقعی در GitHub Actions ثبت نکن.
+
+پیگیری کارهای مانده: [Security issue #14](https://github.com/cianium/KianKhayat/issues/14).
+
+## یادداشت درباره نسخه‌ها
+
+در زمان ممیزی، آخرین Production Deploy تأییدشده برای سه پروژه از Commit `3876c28` بود؛ Commitهای جدیدتر در GitHub الزاماً بدون مشاهدهٔ Deployment Production جدید روی دامنه‌ها منتشر نشده‌اند. این عدد تاریخی است و باید در هر بررسی جدید از نو خوانده شود.
