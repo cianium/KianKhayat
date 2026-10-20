@@ -6,7 +6,7 @@
     "de": {
       "emoji": "🇩🇪",
       "title": "Deutsch Tracker",
-      "summary": "Eine Python-App, um täglichen Wortschatz, Grammatiknotizen und den Fortschritt der Goethe-Prüfungsvorbereitung zu verfolgen.",
+      "summary": "Ein Python-Projekt in einer frühen Entwicklungsphase zum Nachverfolgen von Wortschatz, Grammatiknotizen und der Goethe-Prüfungsvorbereitung. Der projektbezogene Quellcode ist noch nicht öffentlich verlinkt.",
       "tags": [
         "Python",
         "SQLite",
@@ -14,20 +14,14 @@
       ],
       "colorA": "#B5C8E2",
       "colorB": "#7A9DBD",
-      "links": [
-        {
-          "label": "→ GitHub",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
+      "links": [],
       "status": "Im Bau"
     },
     "fa": {
       "seoTitle": "پیگیری یادگیری آلمانی",
       "emoji": "🇩🇪",
       "title": "Deutsch Tracker",
-      "summary": "اپلیکیشن پایتونی برای پیگیری روزانه‌ی واژگان آلمانی، نکات گرامر و پیشرفت آمادگی برای آزمون گوته.",
+      "summary": "یک پروژهٔ پایتونی در مراحل اولیه برای پیگیری واژگان آلمانی، یادداشت‌های گرامر و آمادگی آزمون گوته. هنوز مخزن عمومی اختصاصی برای کد آن معرفی نشده است.",
       "tags": [
         "پایتون",
         "SQLite",
@@ -35,33 +29,20 @@
       ],
       "colorA": "#B5C8E2",
       "colorB": "#7A9DBD",
-      "links": [
-        {
-          "label": "← گیت‌هاب",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
+      "links": [],
       "status": "در حال ساخت"
     }
   },
   "title": "Deutsch Tracker",
-  "summary": "A Python app to track daily German vocabulary, grammar notes, and Goethe exam preparation progress.",
+  "summary": "An early-stage Python project for tracking German vocabulary, grammar notes, and Goethe exam preparation. A project-specific public code repository is not available yet.",
   "tags": [
     "Python",
     "SQLite",
     "Education"
   ],
   "status": "Building",
-  "githubUrl": "https://github.com/cianium",
   "emoji": "🇩🇪",
   "colorA": "#B5C8E2",
   "colorB": "#7A9DBD",
-  "links": [
-    {
-      "label": "→ GitHub",
-      "url": "https://github.com/cianium",
-      "primary": true
-    }
-  ]
+  "links": []
 }
