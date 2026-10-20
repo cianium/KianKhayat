@@ -36,7 +36,7 @@ const documentation=translation?.documentation ?? source.documentation;
         <h2>{ui('technologies',siteLanguage)}</h2>
         <ul class="project-tech-list">{project.tags.map(tag=><li class="project-tag">{tag}</li>)}</ul>
         {documentation?.trim() && <div class="project-prose"><h2>{ui('documentation',siteLanguage)}</h2>{documentation.split(/\n\s*\n/).filter(Boolean).map(paragraph=><p>{paragraph}</p>)}</div>}
-        <div class="project-original-links">{project.links.map(link=><a class="project-link" href={link.url} target="_blank" rel="noopener">{link.label}</a>)}</div>
+        
       </section>
     </article>
   </main>
