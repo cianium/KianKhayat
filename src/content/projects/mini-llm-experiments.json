@@ -6,7 +6,7 @@
     "de": {
       "emoji": "🧠",
       "title": "Mini LLM Experiments",
-      "summary": "Eine Sammlung von Experimenten zum Verhalten von Sprachmodellen, Prompt Engineering und dem Bau von KI-Tools.",
+      "summary": "Ein exploratives Projekt über Sprachmodelle, Prompt-Design und KI-Werkzeuge mit Python. Der projektbezogene Quellcode ist noch nicht öffentlich verlinkt.",
       "tags": [
         "Python",
         "KI",
@@ -14,20 +14,14 @@
       ],
       "colorA": "#D7E7B5",
       "colorB": "#A7C957",
-      "links": [
-        {
-          "label": "→ GitHub",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
+      "links": [],
       "status": "In Arbeit"
     },
     "fa": {
       "seoTitle": "آزمایش‌های کوچک مدل‌های زبانی",
       "emoji": "🧠",
       "title": "Mini LLM Experiments",
-      "summary": "مجموعه‌ای از آزمایش‌ها درباره‌ی رفتار مدل‌های زبانی، مهندسی پرامپت و ساخت ابزارهای هوش مصنوعی.",
+      "summary": "پروژه‌ای آزمایشی دربارهٔ رفتار مدل‌های زبانی، طراحی پرامپت و ابزارهای هوش مصنوعی با پایتون. هنوز لینک عمومی اختصاصی کد پروژه موجود نیست.",
       "tags": [
         "پایتون",
         "هوش مصنوعی",
@@ -35,33 +29,20 @@
       ],
       "colorA": "#D7E7B5",
       "colorB": "#A7C957",
-      "links": [
-        {
-          "label": "← گیت‌هاب",
-          "url": "https://github.com/cianium",
-          "primary": true
-        }
-      ],
+      "links": [],
       "status": "در حال انجام"
     }
   },
   "title": "Mini LLM Experiments",
-  "summary": "A collection of explorations into language model behavior, prompt engineering, and AI tool building.",
+  "summary": "An exploratory project about language-model behavior, prompt design, and Python AI tools. The project-specific source is not yet publicly linked.",
   "tags": [
     "Python",
     "AI",
     "Research"
   ],
   "status": "In Progress",
-  "githubUrl": "https://github.com/cianium",
   "emoji": "🧠",
   "colorA": "#D7E7B5",
   "colorB": "#A7C957",
-  "links": [
-    {
-      "label": "→ GitHub",
-      "url": "https://github.com/cianium",
-      "primary": true
-    }
-  ]
+  "links": []
 }
