@@ -49,29 +49,29 @@ The project demonstrates an approach to accessible frontend engineering, content
 
 **Requirements:** Node.js 22.12+ (Node 24 recommended) and npm.
 
-\`\`\`bash
+```bash
 git clone https://github.com/cianium/KianKhayat.git
 cd KianKhayat
 npm ci
 npm run build
 npm run preview
-\`\`\`
+```
 
 The local preview serves:
 
 | Language | Built folder | Local URL | Configured domain |
 | --- | --- | --- | --- |
-| English | \`dist/en\` | \`http://127.0.0.1:4322\` | \`https://kiankhayat.me\` |
-| German | \`dist/de\` | \`http://127.0.0.1:4323\` | \`https://de.kiankhayat.me\` |
-| Persian | \`dist/fa\` | \`http://127.0.0.1:4324\` | \`https://fa.kiankhayat.me\` |
+| English | `dist/en` | `http://127.0.0.1:4322` | `https://kiankhayat.me` |
+| German | `dist/de` | `http://127.0.0.1:4323` | `https://de.kiankhayat.me` |
+| Persian | `dist/fa` | `http://127.0.0.1:4324` | `https://fa.kiankhayat.me` |
 
-Use \`PORT=8080 npm run preview\` to serve the language previews on 8080–8082. The local preview rewrites navigation links to the matching local port but retains production canonical metadata. Do not open built HTML directly with \`file://\`.
+Use `PORT=8080 npm run preview` to serve the language previews on 8080–8082. The local preview rewrites navigation links to the matching local port but retains production canonical metadata. Do not open built HTML directly with `file://`.
 
-For development, run \`npm run dev\`, \`npm run dev:de\`, or \`npm run dev:fa\` for the corresponding locale.
+For development, run `npm run dev`, `npm run dev:de`, or `npm run dev:fa` for the corresponding locale.
 
 ## Validation
 
-\`\`\`bash
+```bash
 npm run check:cms
 npm run test:security
 npm run test:editorial
@@ -79,14 +79,14 @@ npm run build
 npm run check:seo
 npm run check:articles
 npm run check:release
-\`\`\`
+```
 
 To run browser integration and accessibility checks:
 
-\`\`\`bash
+```bash
 npx playwright install chromium
 npm run test:e2e
-\`\`\`
+```
 
 The repository has two separate GitHub Actions quality gates:
 
@@ -95,11 +95,11 @@ The repository has two separate GitHub Actions quality gates:
 
 These checks verify the **repository and local build**, not the login of a hosted CMS, actual email delivery, live DNS, or the configuration of public web servers.
 
-**Note:** \`npm run check:content\` compares source data to a frozen historical migration snapshot, so it may fail after intentional editorial changes and is not automatically part of content-authoring CI. The standalone \`node tests/cms-lifecycle.mjs\` test uses temporary test content; it is not a hosted authentication test.
+**Note:** `npm run check:content` compares source data to a frozen historical migration snapshot, so it may fail after intentional editorial changes and is not automatically part of content-authoring CI. The standalone `node tests/cms-lifecycle.mjs` test uses temporary test content; it is not a hosted authentication test.
 
 ## Repository layout
 
-\`\`\`text
+```text
 src/
   components/         Astro components and UI
   content/            Articles, projects, certificates, featured content
@@ -112,7 +112,7 @@ scripts/              Build, content, media, SEO, security and release checks
 tests/                Playwright E2E and Node test suites
 docs/                 Historical QA reports and owner/deployment guides
 .github/workflows/     Source validation and browser quality gates
-\`\`\`
+```
 
 ## Content editing
 
@@ -127,9 +127,9 @@ Draft content committed to a **public repository is not private**. Do not upload
 
 ## Deployment and known limitations
 
-- The current build creates separate \`dist/en\`, \`dist/de\` and \`dist/fa\` trees. Hosting must serve each tree at the root of its intended domain.
+- The current build creates separate `dist/en`, `dist/de` and `dist/fa` trees. Hosting must serve each tree at the root of its intended domain.
 - The included GitHub Actions workflows **test and package**, but do not publish the website automatically.
-- Security headers included in build output require a host that actually honors them; GitHub Pages does not apply \`_headers\`. Verify live CSP, HTTPS and caching independently.
+- Security headers included in build output require a host that actually honors them; GitHub Pages does not apply `_headers`. Verify live CSP, HTTPS and caching independently.
 - CMS login, EmailJS delivery, and final live-domain checks require the site owner's external account setup and review.
 - The existing privacy page is **awaiting owner approval and accuracy review**; see [proposed policy](docs/privacy-proposed-en-de-fa.md). Do not consider this repo a legal-compliance certification.
 - Project-specific proofs, licenses, actual credential links and media should be verified before being presented as completed or professionally certified work.
