@@ -1,78 +1,143 @@
-# Kian Khayat portfolio — phase 9
+<div align="center">
 
-Static Astro portfolio with separate EN/DE/FA sites, original-language articles and Git-based content management. This is a tested local review build. Hosted CMS login, real email delivery and final production deployment still require owner setup.
+# Kian Khayat — Developer Portfolio
 
-## Run
+**A multilingual developer portfolio built with Astro, TypeScript, and Git-based content management.**
 
-Requires Node.js >=22.12 (Node 24 used for verification).
+[![Validate and build content](https://github.com/cianium/KianKhayat/actions/workflows/content-build.yml/badge.svg)](https://github.com/cianium/KianKhayat/actions/workflows/content-build.yml)
+[![Browser E2E](https://github.com/cianium/KianKhayat/actions/workflows/browser-e2e.yml/badge.svg)](https://github.com/cianium/KianKhayat/actions/workflows/browser-e2e.yml)
+![Astro](https://img.shields.io/badge/Astro-7.3.8-BC52EE?logo=astro&logoColor=white)
+![Project](https://img.shields.io/badge/Status-Active%20development-2188FF)
 
-```sh
+**English · Deutsch · فارسی**
+
+[English website](https://kiankhayat.me/) · [German website](https://de.kiankhayat.me/) · [Persian website](https://fa.kiankhayat.me/)
+
+</div>
+
+> **Deployment note:** These are the *configured domains*. Passing GitHub build checks does not establish that all three domains serve the latest source or implement the required HTTP security headers. See [Deployment and verification](docs/release-steps-fa.md).
+
+## Overview
+
+This repository contains my personal developer portfolio: project showcases, articles, selected work, certificates, and a contact interface. It is a **static Astro website**, with separate production build outputs for three languages and a Git-backed content workflow.
+
+The project demonstrates an approach to accessible frontend engineering, content modeling, static site generation, internationalization, SEO, automated quality checks, and safe publication of rich-text content.
+
+## Highlights
+
+| Area | Implemented in the repository |
+| --- | --- |
+| Multilingual experience | Independently built EN, DE and FA sites; right-to-left Persian layout |
+| Portfolio content | Project pages, featured work, certificates, and articles stored as validated JSON collections |
+| Article publishing | Original-language articles, reading time, table of contents, SEO metadata and RSS |
+| Git-based content management | Pages CMS configuration and workflows for editing JSON content |
+| Accessibility and theming | Keyboard-accessible UI patterns, responsive layouts and light/dark themes |
+| Safety | Build-time HTML sanitization, media validation and CSP checks |
+| Quality | Astro type checks, content/schema checks, SEO/release checks, security unit tests and Playwright browser tests |
+
+**Content snapshot:** The checked-in catalog contains seven project entries, eight certificate records, and four articles. A record in the portfolio is not by itself verification of an external project deployment, certificate, or credential. Some images, PDFs, repository-specific links, and documentation still need owner-provided verification.
+
+## Technology
+
+- **Frontend:** Astro 7, TypeScript, JavaScript, HTML and CSS.
+- **Content:** Astro Content Collections, JSON schemas and Pages CMS integration.
+- **Testing:** Node.js tests, Playwright and axe-core accessibility checks.
+- **Build and CI:** Node.js 24, GitHub Actions and npm.
+- **Contact:** EmailJS browser integration. Delivery depends on external account and domain configuration.
+
+## Getting started
+
+**Requirements:** Node.js 22.12+ (Node 24 recommended) and npm.
+
+```bash
+git clone https://github.com/cianium/KianKhayat.git
+cd KianKhayat
 npm ci
 npm run build
 npm run preview
 ```
 
-| Language | Output | Production domain | Local preview |
+The local preview serves:
+
+| Language | Built folder | Local URL | Configured domain |
 | --- | --- | --- | --- |
-| English | dist/en | kiankhayat.me | http://127.0.0.1:4322 |
-| German | dist/de | de.kiankhayat.me | http://127.0.0.1:4323 |
-| Persian | dist/fa | fa.kiankhayat.me | http://127.0.0.1:4324 |
+| English | `dist/en` | `http://127.0.0.1:4322` | `https://kiankhayat.me` |
+| German | `dist/de` | `http://127.0.0.1:4323` | `https://de.kiankhayat.me` |
+| Persian | `dist/fa` | `http://127.0.0.1:4324` | `https://fa.kiankhayat.me` |
 
-The ZIP includes generated outputs. In Termux, install Node with `pkg install nodejs-lts`, enter the extracted folder and run `node scripts/test-server.mjs`. Preview needs no npm dependencies. Rebuilding requires dependencies including native image support. Open the URLs above, not HTML with file://. `PORT=8080 npm run preview` uses ports 8080–8082. Canonical metadata always uses production URLs; preview rewrites navigation links only.
+Use `PORT=8080 npm run preview` to serve the language previews on 8080–8082. The local preview rewrites navigation links to the matching local port but retains production canonical metadata. Do not open built HTML directly with `file://`.
 
-## Content and admin
+For development, run `npm run dev`, `npm run dev:de`, or `npm run dev:fa` for the corresponding locale.
 
-Open `/admin/`, then Pages CMS. Upload the source to a repository branch, install the Pages CMS GitHub App for that repository and select the branch. No tokens or passwords belong in this source. See `docs/admin-setup-fa.md`.
+## Validation
 
-Four independently editable collections:
-
-- **Featured:** create/edit/delete standalone cards with title, description, image, link, visibility and order. Translations optional. Deleting a card does not delete its target. Existing selected cards were migrated; old `featured` flags remain in source for preservation but do not control the strip.
-- **Projects:** title, description, technologies, status, thumbnail, plain-text documentation, demo/repository links and translations.
-- **Certificates:** title, issuer, date, category, description, image, PDF, verification URL and translations.
-- **Articles:** visual rich-text body, original language, title, summary, categories, cover/alt, draft, dates, automatic reading time, optional manual label, table of contents, SEO title/description and focus phrase. No translation inputs are required.
-
-Pages CMS supplies the hosted WYSIWYG editor. It is not a custom Word clone. Its toolbar is controlled by the service; no DOCX import, AI writing, collaborative editing, or custom live SEO sidebar is claimed. The editorial report runs after saving/building, appears in the GitHub Actions summary, and is included in the build artifact. The local report is `docs/phase9/editorial.md`.
-
-Articles keep their original title/body/language across all three site interfaces, including quick reading and RSS. Existing translated data remains preserved but is not displayed. New articles default to automatic reading time, estimated at 200 words/minute; the four legacy labels remain in explicit manual mode. H2/H3 headings generate a table of contents without changing their wording.
-
-Article canonical URLs use the language's domain (EN and other languages use the main domain; FA and DE use their subdomains). Identical copies do not claim to be translations via hreflang. Only the canonical article URL enters its domain's sitemap; general pages and project pages retain reciprocal hreflang and English x-default. Article SEO text follows the original article language, even within a different interface language. Search engines can rewrite titles and descriptions.
-
-All 12 skills, 7 projects, 8 certificates, 4 original articles and translation dictionaries are retained. One project has a supplied thumbnail, project documentation is currently empty, and eight legacy certificates have no real image/PDF. The owner must supply these assets and project-specific repository links. No work samples or credentials are fabricated.
-
-## Structure
-
-`src/components`, `src/styles`, `src/scripts`, `src/data`, `src/assets` contain modular UI and behavior. `src/content/{featured,projects,certificates,articles}` contains JSON records; `src/content.config.ts` validates them. `src/pages` generates routes and feeds. `public/media` stores uploads. `.pages.yml` is generated by `npm run generate:cms`. Tests, release checks and guides are in `tests`, `scripts` and `docs`.
-
-## Security and deployment
-
-Article HTML is sanitized at build time for every renderer. Scripts, embeds, event attributes and unsupported markup fail validation. Uploaded files are checked for path containment, actual type and size (20 MiB; images 40 million pixels). PDF signature checks are not a malware scan. Rich formatting unsupported by the site's safety policy must be simplified before publishing.
-
-Each output includes `_headers` plus CSP meta fallback. JavaScript uses hashes without unsafe-inline/eval; inline CSS remains allowed. Complete HTTP controls require a compatible host; GitHub Pages ignores `_headers`. The preview applies these headers, but live hosting must be verified separately.
-
-The EmailJS browser IDs are public identifiers. The visible mailbox stays cian@kiankhayat.me. Template fields are name, email, subject, message; keep the recipient fixed and Reply-To as the submitted email. Enable origin restrictions and test real delivery after deployment. Browser tests mock email; they do not send mail.
-
-The GitHub workflow validates and builds, reports editorial feedback, and uploads artifacts. It does not deploy by itself. Connecting a host to the source branch is a separate owner setup step. Serve each language output at its domain root. See `docs/release-steps-fa.md`.
-
-The original privacy page remains unchanged pending approval of `docs/privacy-proposed-en-de-fa.md`. It must be corrected before final public release. Do not treat this build as confirmation of legal compliance or complete absence of bugs.
-
-## Verification
-
-```sh
+```bash
 npm run check:cms
 npm run test:security
 npm run test:editorial
 npm run build
-npm run check:content
 npm run check:seo
 npm run check:articles
+npm run check:release
+```
+
+To run browser integration and accessibility checks:
+
+```bash
 npx playwright install chromium
 npm run test:e2e
 ```
 
-`node tests/cms-lifecycle.mjs` creates content/media in an isolated temporary project, verifies a Persian article without translations, draft exclusion, and Featured creation/editing/deletion, then tests deletion and removes the temporary project. Run it when no build/preview test is using the same output. It tests file/build behavior, not authenticated hosted CMS actions.
+The repository has two separate GitHub Actions quality gates:
 
-`check:content` compares against a frozen migration snapshot and intentionally fails after legitimate future editorial changes; it is not part of the CMS workflow. `npm run check:live` checks the three real domains read-only; `-- --local` checks a running local preview. Neither verifies CMS authentication or email delivery.
+- **Validate and build content:** dependency audit, schema/content checks, unit security and editorial checks, all three site builds, and SEO/release validation.
+- **Browser E2E:** Chromium tests of navigation, language behavior, content, security, accessibility, and responsive UI on the generated local previews. Network-backed actions such as email are mocked.
 
-See `docs/phase-9-report.md` for current results. Previous phase reports are historical. Stop after this phase for owner review.
+These checks verify the **repository and local build**, not the login of a hosted CMS, actual email delivery, live DNS, or the configuration of public web servers.
 
-© Kian Khayat. All rights reserved.
+**Note:** `npm run check:content` compares source data to a frozen historical migration snapshot, so it may fail after intentional editorial changes and is not automatically part of content-authoring CI. The standalone `node tests/cms-lifecycle.mjs` test uses temporary test content; it is not a hosted authentication test.
+
+## Repository layout
+
+```text
+src/
+  components/         Astro components and UI
+  content/            Articles, projects, certificates, featured content
+  data/               Localization, site configuration, SEO and content helpers
+  pages/              Static routes, feeds and sitemap
+  security/           Article HTML safety utilities
+  styles/             Component and global styles
+public/               Public static media, icons and resume file
+scripts/              Build, content, media, SEO, security and release checks
+tests/                Playwright E2E and Node test suites
+docs/                 Historical QA reports and owner/deployment guides
+.github/workflows/     Source validation and browser quality gates
+```
+
+## Content editing
+
+Content is stored in version-controlled JSON. The optional hosted editing workflow is based on **Pages CMS**, not a custom CMS with proprietary authentication.
+
+1. Review [CMS setup instructions (FA)](docs/admin-setup-fa.md).
+2. Connect the appropriate GitHub repository/branch through Pages CMS with an authorized GitHub account.
+3. Edit articles, projects, certificates or featured cards.
+4. Review the resulting commit and GitHub Actions reports.
+
+Draft content committed to a **public repository is not private**. Do not upload private manuscripts, unapproved certificates, tokens, or other secrets.
+
+## Deployment and known limitations
+
+- The current build creates separate `dist/en`, `dist/de` and `dist/fa` trees. Hosting must serve each tree at the root of its intended domain.
+- The included GitHub Actions workflows **test and package**, but do not publish the website automatically.
+- Security headers included in build output require a host that actually honors them; GitHub Pages does not apply `_headers`. Verify live CSP, HTTPS and caching independently.
+- CMS login, EmailJS delivery, and final live-domain checks require the site owner's external account setup and review.
+- The existing privacy page is **awaiting owner approval and accuracy review**; see [proposed policy](docs/privacy-proposed-en-de-fa.md). Do not consider this repo a legal-compliance certification.
+- Project-specific proofs, licenses, actual credential links and media should be verified before being presented as completed or professionally certified work.
+
+See [release steps (FA)](docs/release-steps-fa.md), [phase 9 QA report (FA)](docs/phase-9-report.md), and [deployment/domain setup](docs/domain-setup-fa.md).
+
+## Contributing
+
+Bug reports with reproducible steps, accessibility issues, and suggestions are welcome via [GitHub Issues](https://github.com/cianium/KianKhayat/issues). For changes to personal information, project claims, certificates or legal policies, please open an issue before editing public data.
+
+**© Kian Khayat. All rights reserved.** No open-source reuse license is implied by public repository visibility.
