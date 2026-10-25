@@ -145,3 +145,7 @@ See [release steps (FA)](docs/release-steps-fa.md), [phase 9 QA report (FA)](doc
 Bug reports with reproducible steps, accessibility issues, and suggestions are welcome via [GitHub Issues](https://github.com/cianium/KianKhayat/issues). For changes to personal information, project claims, certificates or legal policies, please open an issue before editing public data.
 
 **© Kian Khayat. All rights reserved.** No open-source reuse license is implied by public repository visibility.
+
+## Repository maintenance status
+
+See [repository health — 2026-10-25](docs/REPOSITORY_HEALTH_2026-10-25.md) for pending dependency PRs, deployment checks and release criteria.
