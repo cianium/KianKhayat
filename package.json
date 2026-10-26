@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@axe-core/playwright": "4.10.2",
+    "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.56.1",
     "@types/sanitize-html": "2.16.2",
     "linkedom": "0.18.12",
