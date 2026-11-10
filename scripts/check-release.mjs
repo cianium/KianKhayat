@@ -39,5 +39,22 @@ for(const lang of locales) {
     assert(!secret.test(html),'Recognizable secret pattern in output');
   }
 }
+// Every project detail page must also be discoverable from Work.
+// Featured projects must reuse the same cover as Work and their detail page.
+const projectRecords=fs.readdirSync('src/content/projects').filter(file=>file.endsWith('.json')).map(file=>JSON.parse(fs.readFileSync(path.join('src/content/projects',file),'utf8')));
+for(const lang of locales) {
+  const home=fs.readFileSync(path.join('dist',lang,'index.html'),'utf8');
+  const listing=fs.readFileSync(path.join('dist',lang,'work/index.html'),'utf8');
+  for(const project of projectRecords) {
+    const route=`/work/${project.slug}/`;
+    assert(listing.includes(route),`${lang}: project ${project.slug} missing from Work listing`);
+    const detail=fs.readFileSync(path.join('dist',lang,'work',project.slug,'index.html'),'utf8');
+    if(project.thumbnail) {
+      assert(listing.includes(project.thumbnail),`${lang}: Work cover mismatch for ${project.slug}`);
+      assert(detail.includes(project.thumbnail),`${lang}: detail cover mismatch for ${project.slug}`);
+      if(project.featured)assert(home.includes(project.thumbnail),`${lang}: featured cover mismatch for ${project.slug}`);
+    }
+  }
+}
 const report={passed:true,pages,localReferences:links,checks:['script hash CSP','no inline event handlers','local link and asset existence','security headers','no packaged source maps, private keys or test files'],liveDeploymentVerified:false};
 fs.mkdirSync('docs/phase9',{recursive:true});fs.writeFileSync('docs/phase9/release.json',JSON.stringify(report,null,2)+'\n');console.log(report);
