@@ -7,6 +7,7 @@ import {siteLanguage} from '../../data/sites';
 import {displayName} from '../../data/translate';
 import {ui} from '../../data/interface';
 import {seo} from '../../data/seo';
+import {localizedProjectStatus} from '../../data/project-status';
 export async function getStaticPaths() {
   return (await getCollection('projects')).map(project=>({params:{slug:project.data.slug},props:{project}}));
 }
@@ -28,13 +29,13 @@ const documentation=translation?.documentation ?? source.documentation;
         <span class="section-eyebrow">{ui('project',siteLanguage)}</span>
         <h1>{title}</h1>
         <p class="project-intro">{displayName(project.summary,siteLanguage)}</p>
-        <span class="tag-primary">{project.status}</span>
+        <span class="tag-primary">{localizedProjectStatus(source.status,siteLanguage)}</span>
       </header>
       {source.thumbnail && <ProjectCover thumbnail={source.thumbnail} title={title} emoji={source.emoji} eager/>}
       <ProjectActions liveUrl={source.liveUrl} githubUrl={source.githubUrl}/>
       <section class="project-documentation" aria-label={ui('documentation',siteLanguage)}>
         <h2>{ui('technologies',siteLanguage)}</h2>
-        <ul class="project-tech-list">{project.tags.map(tag=><li class="project-tag">{tag}</li>)}</ul>
+        <ul class="project-tech-list">{source.tags.map(tag=><li class="project-tag">{tag}</li>)}</ul>
         {documentation?.trim() && <div class="project-prose"><h2>{ui('documentation',siteLanguage)}</h2>{documentation.split(/\n\s*\n/).filter(Boolean).map(paragraph=><p>{paragraph}</p>)}</div>}
         
       </section>
