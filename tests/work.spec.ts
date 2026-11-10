@@ -1,18 +1,5 @@
 import {test,expect} from '@playwright/test';
-import {readdirSync,readFileSync} from 'node:fs';
-
-const projectDir = new URL('../src/content/projects/',import.meta.url);
-const featuredDir = new URL('../src/content/featured/',import.meta.url);
-const entries = (dir:URL) => readdirSync(dir).filter(name=>name.endsWith('.json'))
-  .map(name=>JSON.parse(readFileSync(new URL(name,dir),'utf8')));
-const projectRecords = entries(projectDir);
-const projectSlugs = new Set(projectRecords.map(project=>project.slug));
-const expectedProjectCount = projectRecords.length;
-const expectedFeaturedCount = projectRecords.filter(project=>project.featured).length
-  + entries(featuredDir).filter(entry=>entry.published !== false && !projectSlugs.has(entry.slug)).length;
-const expectedActionCount = projectRecords.reduce((total,project)=>total+Number(Boolean(project.githubUrl))+Number(Boolean(project.liveUrl)),0);
-const expectedPrimaryCount = projectRecords.filter(project=>Boolean(project.liveUrl)).length;
-
+import {expectedProjectCount,expectedFeaturedCount,expectedActionCount,expectedPrimaryCount} from './fixtures/project-catalog.mjs';
 import {AxeBuilder} from '@axe-core/playwright';
 import {parseHTML} from 'linkedom';
 import {testPDF} from './fixtures/certificate.mjs';
