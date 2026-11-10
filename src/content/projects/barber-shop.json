@@ -1,0 +1,83 @@
+{
+  "slug": "barber-shop",
+  "order": 1,
+  "title": "Barbershop Cloud — Smart Barbershop Management Platform",
+  "summary": "Barbershop Cloud is a comprehensive full-stack SaaS platform designed to modernize barbershop operations through an integrated digital ecosystem.\n\nGoing beyond traditional appointment booking, the platform combines online scheduling, customer management, service administration, payment processing, product management, business analytics, and software licensing into a unified solution.\n\nThe system provides dedicated interfaces for customers, barbershop owners, and platform administrators, enabling efficient business operations while maintaining clearly defined access boundaries.\n\nBuilt using React, TypeScript, Node.js, and PostgreSQL, the application follows a modern architecture focused on scalability, maintainability, secure authentication, tenant data isolation, and transaction integrity.\n\nThe platform features a mobile-first, responsive user experience with Progressive Web App (PWA) capabilities, supporting convenient access across desktop and mobile devices.\n\nBarbershop Cloud is currently in the release candidate stage, with final production integration testing and commercial deployment preparation in progress.",
+  "tags": [
+    "React 19",
+    "TypeScript",
+    "Vite 8",
+    "Progressive Web App (PWA)",
+    "REST API",
+    "Tailwind CSS 4",
+    "Supabase",
+    "PostgreSQL",
+    "Node.js"
+  ],
+  "status": "Building",
+  "links": [
+    {
+      "label": "Live Preview",
+      "url": "https://bar.kiankhayat.me/",
+      "primary": true
+    }
+  ],
+  "documentation": "Barbershop Cloud — Technical Overview\n\nArchitecture\n\nBarbershop Cloud is a full-stack web application developed using React 19, TypeScript, Vite 8, Tailwind CSS 4, Node.js, and PostgreSQL.\n\nThe platform uses a PostgreSQL-backed API architecture with dedicated interfaces for customers, barbershop owners, and platform administrators.\n\nCore Capabilities\n\n- Online appointment scheduling and availability management\n- Customer registration and authentication\n- Service, pricing, and business schedule management\n- Payment processing and SMS notification integrations\n- Product catalog and portfolio management\n- Subscription and software license administration\n- Business analytics and operational reporting\n- Mobile-first responsive design with PWA support\n\nSecurity\n\nThe architecture incorporates secure session management, role-based authorization, tenant data isolation, server-side validation, and transactional booking workflows.\n\nInfrastructure\n\n- Version Control: GitHub\n- CI/CD: GitHub Actions\n- Cloud Deployment: Vercel\n- Database Infrastructure: Supabase PostgreSQL\n- Testing: Automated unit, integration, security, and Playwright end-to-end tests\n\nDevelopment Status\n\nRelease Candidate — Production readiness is pending final verification of external integrations and operational deployment requirements.",
+  "emoji": "💈",
+  "colorA": "#DDB967",
+  "colorB": "#B08940",
+  "thumbnail": "/media/projects/mw9ybp1f-2way4os6.png",
+  "liveUrl": "https://bar.kiankhayat.me/",
+  "githubUrl": "https://github.com/cianium/Barber-Shop",
+  "translations": {
+    "fa": {
+      "title": "Barbershop Cloud | پلتفرم هوشمند مدیریت آرایشگاه",
+      "summary": "Barbershop Cloud یک پلتفرم جامع مدیریت آرایشگاه است که با هدف دیجیتالی‌سازی فرآیندهای کسب‌وکار، بهینه‌سازی عملیات روزمره و ارائه تجربه‌ای مدرن برای مشتریان و صاحبان آرایشگاه توسعه یافته است.\n\nاین سامانه فراتر از یک سیستم رزرو نوبت ساده عمل می‌کند و مجموعه‌ای از قابلیت‌های کاربردی شامل نوبت‌دهی آنلاین، مدیریت مشتریان، خدمات و ساعات کاری، پرداخت الکترونیکی، فروشگاه محصولات، نمایش نمونه‌کارها و گزارش‌های مدیریتی را در محیطی یکپارچه ارائه می‌دهد.\n\nپلتفرم دارای سه محیط کاربری مستقل برای مشتریان، صاحبان آرایشگاه و مدیر مرکزی است. ساختار نرم‌افزار به‌گونه‌ای طراحی شده که هر کسب‌وکار بتواند اطلاعات، خدمات و عملیات خود را با سطوح دسترسی مشخص مدیریت کند.\n\nدر توسعه این پروژه از معماری Full-Stack مبتنی بر React، TypeScript، Node.js و PostgreSQL استفاده شده است. امنیت اطلاعات، مقیاس‌پذیری، جداسازی داده‌ها، قابلیت نگهداری و تجربه کاربری موبایل‌محور از اولویت‌های اصلی طراحی و توسعه آن هستند.\n\nهمچنین زیرساخت مدیریت اشتراک‌ها و لایسنس‌های نرم‌افزاری برای ارائه تجاری پلتفرم در نظر گرفته شده است.\n\nاین پروژه در مرحله نسخه کاندید انتشار (Release Candidate) قرار دارد و آزمایش‌های نهایی یکپارچه‌سازی و آماده‌سازی محیط عملیاتی آن در حال انجام است.",
+      "tags": [
+        "Progressive Web App (PWA)",
+        "REST API",
+        "Tailwind CSS 4",
+        "Supabase",
+        "PostgreSQL",
+        "Node.js",
+        "Vite 8",
+        "TypeScript",
+        "React 19"
+      ],
+      "status": "در حال توسعه و آماده‌سازی برای انتشار",
+      "links": [
+        {
+          "label": "مشاهده نسخه آزمایشی",
+          "url": "https://bar.kiankhayat.me",
+          "primary": true
+        }
+      ],
+      "documentation": "معماری و فناوری‌ها\n\nپروژه Barbershop Cloud با استفاده از React 19، TypeScript، Vite 8 و Tailwind CSS 4 برای رابط کاربری و Node.js همراه با PostgreSQL برای پردازش سمت سرور توسعه یافته است.\n\nقابلیت‌های اصلی\n\n- رزرو آنلاین نوبت و مدیریت زمان‌بندی\n- پنل اختصاصی مشتری، آرایشگر و مدیر پلتفرم\n- مدیریت خدمات، قیمت‌ها و ساعات کاری\n- احراز هویت و مدیریت نشست‌های کاربری\n- یکپارچه‌سازی سرویس‌های پرداخت و پیامک\n- فروشگاه محصولات و مدیریت نمونه‌کارها\n- مدیریت اشتراک‌ها و لایسنس‌های نرم‌افزاری\n- گزارش‌های مدیریتی و آمار کسب‌وکار\n\nامنیت و پایگاه داده\n\nسیستم از مدیریت نشست‌های امن، کنترل دسترسی مبتنی بر نقش، جداسازی داده‌ها، اعتبارسنجی سمت سرور و فرآیندهای تراکنشی برای مدیریت رزروها استفاده می‌کند.\n\nزیرساخت و استقرار\n\n- GitHub برای مدیریت نسخه‌ها\n- GitHub Actions برای اجرای فرآیندهای خودکار\n- Vercel برای استقرار آزمایشی\n- Supabase PostgreSQL برای پایگاه داده\n- Playwright برای آزمون‌های مرورگر\n\nوضعیت توسعه\n\nپروژه در مرحله Release Candidate قرار دارد. اعتبارسنجی نهایی سرویس‌های خارجی و آزمون‌های عملیاتی پیش از عرضه تجاری ادامه دارد.",
+      "seoTitle": "پلتفرم جامع آرایشگاه"
+    },
+    "de": {
+      "title": "Barbershop Cloud | Intelligente Verwaltungsplattform für Barbershops",
+      "summary": "Barbershop Cloud ist eine moderne Full-Stack-Webplattform zur Digitalisierung und Optimierung der Geschäftsprozesse von Barbershops.\n\nDie Anwendung geht weit über ein herkömmliches Online-Terminbuchungssystem hinaus. Sie vereint Terminplanung, Kundenverwaltung, Dienstleistungsmanagement, elektronische Zahlungsabwicklung, Produktverwaltung, Portfolio-Präsentation und betriebliche Auswertungen in einer zentralen Lösung.\n\nDie Plattform bietet separate Benutzeroberflächen für Kunden, Barbershop-Betreiber und Plattformadministratoren. Durch rollenbasierte Zugriffskontrollen und eine mandantenfähige Architektur können Geschäftsbereiche und Daten voneinander getrennt verwaltet werden.\n\nDie technische Umsetzung basiert auf modernen Full-Stack-Technologien wie React, TypeScript, Node.js und PostgreSQL. Besondere Schwerpunkte liegen auf IT-Sicherheit, Skalierbarkeit, Wartbarkeit, Datenintegrität und einer responsiven, für mobile Endgeräte optimierten Benutzeroberfläche.\n\nDarüber hinaus verfügt die Plattform über eine technische Grundlage für die Verwaltung von Softwarelizenzen, Abonnements und unterschiedlichen Servicemodellen.\n\nDas Projekt befindet sich derzeit in der Release-Candidate-Phase. Vor der kommerziellen Einführung stehen noch abschließende Integrationstests und die Validierung externer Dienste aus.",
+      "tags": [
+        "Progressive Web App (PWA)",
+        "REST API",
+        "Tailwind CSS 4",
+        "Supabase",
+        "PostgreSQL",
+        "Node.js",
+        "Vite 8",
+        "TypeScript",
+        "React 19"
+      ],
+      "status": "In Entwicklung – Release Candidate",
+      "links": [
+        {
+          "label": "Live-Demo ansehen",
+          "url": "https://bar.kiankhayat.me",
+          "primary": true
+        }
+      ],
+      "documentation": "Technische Architektur\n\nBarbershop Cloud ist eine Full-Stack-Webanwendung, die mit React 19, TypeScript, Vite 8 und Tailwind CSS 4 im Frontend sowie Node.js und PostgreSQL im Backend entwickelt wurde.\n\nDie Plattform verfügt über eine API-basierte Architektur mit getrennten Benutzeroberflächen für Kunden, Barbershop-Betreiber und Plattformadministratoren.\n\nKernfunktionen\n\n- Online-Terminbuchung und Terminverwaltung\n- Separate Dashboards für Kunden, Betreiber und Administratoren\n- Kundenregistrierung und sichere Authentifizierung\n- Verwaltung von Dienstleistungen, Preisen und Öffnungszeiten\n- Integration von Zahlungs- und SMS-Diensten\n- Produktkatalog und Präsentation von Referenzarbeiten\n- Abonnement- und Softwarelizenzverwaltung\n- Geschäftsauswertungen und Berichterstattung\n- Responsive Webdesign und PWA-Unterstützung\n\nSicherheit und Datenmanagement\n\nDie Anwendung berücksichtigt rollenbasierte Zugriffskontrollen (RBAC), sichere Sitzungsverwaltung, serverseitige Validierung und die Trennung mandantenbezogener Daten.\n\nTransaktionsbasierte Buchungsprozesse dienen der Sicherstellung der Datenintegrität und der Vermeidung von Terminüberschneidungen.\n\nInfrastruktur und Deployment\n\n- Versionsverwaltung: GitHub\n- Continuous Integration: GitHub Actions\n- Cloud-Hosting: Vercel\n- Datenbankinfrastruktur: Supabase PostgreSQL\n- Qualitätssicherung: Unit-, Integrations-, Sicherheits- und End-to-End-Tests mit Playwright\n\nEntwicklungsstand\n\nDas Projekt befindet sich in der Release-Candidate-Phase.\n\nDie grundlegende technische Implementierung ist vorhanden. Vor dem produktiven Einsatz müssen externe Integrationen, darunter SMS-Versand, Zahlungsabwicklung und Medienspeicherung, abschließend überprüft werden."
+    }
+  }
+}
