@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+import {expectedProjectCount,expectedFeaturedCount,expectedActionCount,expectedPrimaryCount} from './fixtures/project-catalog.mjs';
 import {AxeBuilder} from '@axe-core/playwright';
 import {parseHTML} from 'linkedom';
 import {testPDF} from './fixtures/certificate.mjs';
@@ -16,8 +17,8 @@ async function ready(page:any,url:string) {
 
 test('project detail links, optional actions and language navigation',async({page})=>{
   await ready(page,'/work/');
-  await expect(page.locator('.project-card')).toHaveCount(2);
-  await expect(page.locator('.project-card .project-actions a.primary')).toHaveCount(2);
+  await expect(page.locator('.project-card')).toHaveCount(expectedProjectCount);
+  await expect(page.locator('.project-card .project-actions a.primary')).toHaveCount(expectedPrimaryCount);
   await page.locator('.project-title a').first().click();
   await expect(page).toHaveURL(/\/work\/nightwalker-hub\/$/);
   await expect(page.locator('h1')).toHaveText('Nightwalker Hub');
@@ -41,7 +42,7 @@ test('featured selection, thumbnails, detail layouts and accessibility',async({p
   test.setTimeout(90000);
   for(const [lang,port] of [['en',4322],['fa',4324],['de',4323]]) {
     await ready(page,`http://127.0.0.1:${port}/`);
-    await expect(page.locator('.featured-card')).toHaveCount(2);
+    await expect(page.locator('.featured-card')).toHaveCount(expectedFeaturedCount);
     await page.locator('.featured-target[href="/work/personal-hq/"]').click();
     await expect(page.locator('#page-loader')).toHaveCount(0);
     await expect(page.locator('.project-detail>.project-cover img')).toHaveJSProperty('naturalWidth',1440);
@@ -96,7 +97,7 @@ test('PDF-only preview and failed-image fallback keep the file reachable',async(
   await expect(page.locator('#cert-file-actions a')).toHaveAttribute('href','/missing-test-image.png');
 });
 
-test('source and demo buttons link to the two verified projects in all three languages',async({page})=>{
+test('verified source and demo buttons remain correct as the project catalog grows',async({page})=>{
   const expected=[
     ['personal-hq','https://github.com/cianium/KianKhayat','https://kiankhayat.me'],
     ['nightwalker-hub','https://github.com/cianium/Nightwalker-','https://cianium.github.io/Nightwalker-/'],
@@ -108,8 +109,8 @@ test('source and demo buttons link to the two verified projects in all three lan
   ] as const;
   for(const [port,sourceLabel,demoLabel] of languages){
     await ready(page,'http://127.0.0.1:'+port+'/work/');
-    await expect(page.locator('.project-card')).toHaveCount(2);
-    await expect(page.locator('.project-card .project-actions a')).toHaveCount(4);
+    await expect(page.locator('.project-card')).toHaveCount(expectedProjectCount);
+    await expect(page.locator('.project-card .project-actions a')).toHaveCount(expectedActionCount);
     await expect(page.locator('.project-card .detail-link')).toHaveCount(0);
     for(const [slug,source,demo] of expected){
       await ready(page,'http://127.0.0.1:'+port+'/work/'+slug+'/');
@@ -121,5 +122,8 @@ test('source and demo buttons link to the two verified projects in all three lan
       await expect(buttons.nth(1)).toContainText(demoLabel);
       await expect(page.locator('.project-original-links a')).toHaveCount(0);
     }
+    await ready(page,'http://127.0.0.1:'+port+'/work/barber-shop/');
+    await expect(page.locator('h1')).toContainText('Barbershop Cloud');
+    await expect(page.locator('.project-detail>.project-cover img')).toHaveAttribute('src',/mw9ybp1f-2way4os6\.png/);
   }
 });

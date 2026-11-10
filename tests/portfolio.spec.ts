@@ -1,3 +1,4 @@
+import {expectedProjectCount} from './fixtures/project-catalog.mjs';
 import {test,expect} from '@playwright/test';
 const heatmapURL='**/github-contributions-api.jogruber.de/**';
 test.beforeEach(async({page})=>{
@@ -14,7 +15,7 @@ async function language(page:any,lang:string){
 }
 
 test('real routes, static content, navigation and browser history',async({page})=>{
-  await ready(page,'/work/');await expect(page.locator('.project-card')).toHaveCount(2);
+  await ready(page,'/work/');await expect(page.locator('.project-card')).toHaveCount(expectedProjectCount);
   await page.reload();await expect(page.locator('#page-work')).toBeVisible();
   await page.locator('#page-loader').waitFor({state:'detached'});
   await page.locator('footer a[href="/articles/"]').click();await expect(page.locator('.article-card')).toHaveCount(4);

@@ -1,3 +1,4 @@
+import {expectedProjectCount} from './fixtures/project-catalog.mjs';
 import {test, expect} from '@playwright/test';
 import {AxeBuilder} from '@axe-core/playwright';
 test.use({locale:'fa-IR'});
@@ -15,7 +16,7 @@ test('all language sites render content without JavaScript', async ({browser}) =
       await expect(page.locator('html')).toHaveAttribute('dir',lang==='fa'?'rtl':'ltr');
       await expect(page.locator('main h1')).toBeVisible();
       await expect(page.locator('#page-loader')).not.toBeVisible();
-      if(path==='/work/')await expect(page.locator('.project-card')).toHaveCount(2);
+      if(path==='/work/')await expect(page.locator('.project-card')).toHaveCount(expectedProjectCount);
       if(path==='/articles/')await expect(page.locator('.article-card')).toHaveCount(4);
     }
   }
