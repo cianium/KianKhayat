@@ -5,7 +5,8 @@ import {displayName} from '../data/translate';
 import {ui} from '../data/interface';
 import ProjectCover from './ProjectCover.astro';
 import {buildFeaturedEntries} from '../data/featured-projects.mjs';
-const entries = buildFeaturedEntries(
+type FeaturedCard = { slug: string; order: number; title: string; summary: string; url: string; image?: string; emoji: string; translations?: Partial<Record<'fa' | 'de', { title: string; summary: string }>> };
+const entries: FeaturedCard[] = buildFeaturedEntries(
   (await getCollection('featured')).map(({data}) => data),
   (await getCollection('projects')).map(({data}) => data),
 );
