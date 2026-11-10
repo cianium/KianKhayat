@@ -37,6 +37,29 @@ for(const collection of config.content) {
     checkFields(collection.fields,JSON.parse(fs.readFileSync(`${collection.path}/${name}`,'utf8')),`${collection.name}/${name}`);records++;
   }
 }
+// Prevent silent CMS edits that save a valid entry under the wrong route.
+const projectPaths=new Set();
+for(const collection of config.content) {
+  const seen=new Set();
+  for(const filename of fs.readdirSync(collection.path).filter(name=>name.endsWith('.json'))) {
+    const entry=JSON.parse(fs.readFileSync(`${collection.path}/${filename}`,'utf8'));
+    assert.equal(filename,`${entry.slug}.json`,`${collection.name}/${filename}: filename must match slug`);
+    assert(!seen.has(entry.slug),`${collection.name}: duplicate slug ${entry.slug}`);
+    seen.add(entry.slug);
+  }
+  if(collection.name==='projects')for(const slug of seen)projectPaths.add(slug);
+}
+// Legacy Featured entries for a project are ignored by the new renderer.
+// Flag them so editors can eventually remove the redundant records safely.
+const redundantFeatured=fs.readdirSync('src/content/featured').filter(name=>name.endsWith('.json')).filter(name=>{
+  const entry=JSON.parse(fs.readFileSync('src/content/featured/'+name,'utf8'));
+  return projectPaths.has(entry.slug);
+});
+if(redundantFeatured.length)console.warn('CMS notice: legacy Featured cards shadowed by Projects:',redundantFeatured.join(', '));
+const projectsForm=config.content.find(item=>item.name==='projects').fields;
+assert(projectsForm.find(field=>field.name==='thumbnail'),'Projects CMS must expose a cover image');
+assert(projectsForm.find(field=>field.name==='featured'),'Projects CMS must expose a featured switch');
+assert(projectsForm.findIndex(field=>field.name==='thumbnail')<projectsForm.findIndex(field=>field.name==='translations'),'Project cover should be visible before translations');
 for(const item of media.values()) {
   assert.equal(item.input,'public'+item.output);assert.equal(item.rename,'random');
   assert(item.extensions.every(ext=>['png','jpg','jpeg','webp','avif','gif','pdf'].includes(ext)));

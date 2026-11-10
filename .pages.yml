@@ -57,7 +57,7 @@ media:
       - gif
 content:
   - name: featured
-    label: برگزیده‌ها
+    label: برگزیده‌ها (موارد مستقل)
     type: collection
     path: src/content/featured
     format: json
@@ -117,6 +117,7 @@ content:
       - name: image
         label: تصویر کارت
         type: image
+        description: برای پروژه‌ها از این بخش استفاده نکن؛ تصویر پروژه را در «پروژه‌ها» ویرایش کن. این بخش برای موارد مستقل است.
         options:
           media: featured_images
           rename: random
@@ -197,15 +198,31 @@ content:
         label: نمایش در برگزیده‌های صفحه اصلی
         type: boolean
         default: false
-        description: با فعال‌کردن، پروژه به‌طور خودکار در برگزیده‌های صفحه اصلی نمایش داده می‌شود.
+        description: این گزینه فقط پس از ذخیره و انتشار موفق سایت اثر می‌کند؛ نیازی به ایجاد کارت جداگانه در برگزیده‌ها نیست.
+      - name: thumbnail
+        label: تصویر اصلی پروژه
+        type: image
+        description: این تصویر در صفحه اصلی (در صورت برگزیده‌بودن)، فهرست Work و صفحه اختصاصی پروژه استفاده می‌شود. ابتدا Upload، سپس دکمه سبز ذخیره را بزن.
+        options:
+          media: project_images
+          rename: random
+          extensions:
+            - png
+            - jpg
+            - jpeg
+            - webp
+            - avif
+            - gif
       - name: title
         label: نام پروژه
         type: string
         required: true
+        description: عنوان قابل نمایش؛ برای زبان اصلی سایت به انگلیسی وارد کن.
       - name: summary
         label: شرح پروژه
         type: text
         required: true
+        description: متن معرفی پروژه؛ پاراگراف اول در کارت‌های سایت نیز استفاده می‌شود.
       - name: tags
         label: فناوری‌ها
         type: string
@@ -269,19 +286,6 @@ content:
         type: string
         hidden: true
         default: "#B08940"
-      - name: thumbnail
-        label: تصویر پروژه
-        type: image
-        options:
-          media: project_images
-          rename: random
-          extensions:
-            - png
-            - jpg
-            - jpeg
-            - webp
-            - avif
-            - gif
       - name: liveUrl
         label: نشانی نمایش زنده
         type: string
@@ -298,6 +302,7 @@ content:
         label: ترجمه‌ها
         type: object
         required: true
+        description: متن‌های فارسی و آلمانی را در همین بخش تکمیل کن. فناوری‌ها در هر زبان جداگانه ثبت می‌شوند.
         fields:
           - name: fa
             label: فارسی
