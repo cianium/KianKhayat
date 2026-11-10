@@ -1,5 +1,4 @@
-import {readdirSync} from 'node:fs';
-const expectedProjectCount=readdirSync(new URL('../src/content/projects/',import.meta.url)).filter(name=>name.endsWith('.json')).length;
+import {expectedProjectCount} from './fixtures/project-catalog.mjs';
 import {test, expect} from '@playwright/test';
 import {AxeBuilder} from '@axe-core/playwright';
 test.use({locale:'fa-IR'});
