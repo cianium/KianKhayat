@@ -22,7 +22,7 @@ const links=z.preprocess(value=>value===null?[]:value,z.array(link).default([]))
 const color=text.regex(/^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i,'Use a hexadecimal color.');
 const project = {title: text, summary: text, tags: z.array(text), status: z.enum(['Live','In Progress','Building','Planned']), emoji: text, colorA: color, colorB: color, links};
 // Translated status and link labels are display strings, not workflow enum values.
-const projectTranslation = {...project, emoji:optional(text),colorA:optional(color),colorB:optional(color),status: text, documentation:optional(z.string()), seoTitle:optional(text)};
+const projectTranslation = {title: text, summary: text, tags:optional(z.array(text)), status:optional(text), links:z.array(link).optional(), emoji:optional(text),colorA:optional(color),colorB:optional(color),documentation:optional(z.string()),seoTitle:optional(text)};
 const certificate = {name: text, issuer: text, date: text, category: text, description: text, emoji: text};
 const certificateTranslation={...certificate,category:optional(text),emoji:optional(text)};
 const articleBody=text.transform((value,ctx)=>{
