@@ -180,6 +180,8 @@ content:
       primary: title
       fields:
         - title
+        - status
+        - featured
         - order
       sort:
         - order
@@ -199,15 +201,29 @@ content:
         default: false
         description: با فعال‌کردن، پروژه به‌طور خودکار در برگزیده‌های صفحه اصلی نمایش داده می‌شود.
       - name: title
-        label: نام پروژه
+        label: نام پروژه (English)
         type: string
         required: true
       - name: summary
-        label: شرح پروژه
+        label: شرح پروژه (English)
         type: text
         required: true
+      - name: thumbnail
+        label: تصویر اصلی پروژه
+        type: image
+        options:
+          media: project_images
+          rename: random
+          extensions:
+            - png
+            - jpg
+            - jpeg
+            - webp
+            - avif
+            - gif
+        description: "فقط یک‌بار آپلود کن؛ همین تصویر در Home، Work و جزئیات پروژه استفاده می‌شود. پیشنهاد: نسبت 16:9، حداقل 1280×720، کمتر از 20MB."
       - name: tags
-        label: فناوری‌ها
+        label: فناوری‌ها (مشترک بین تمام زبان‌ها)
         type: string
         required: true
         list:
@@ -228,8 +244,24 @@ content:
               label: در حال ساخت
             - name: Planned
               label: برنامه‌ریزی‌شده
-      - &a3
-        name: links
+      - name: emoji
+        label: نماد پروژه
+        type: string
+        required: true
+        default: 🌐
+      - name: liveUrl
+        label: نشانی نمایش زنده
+        type: string
+        pattern:
+          regex: ^https?://[^\s]+$
+          message: نشانی کامل با https:// وارد کن؛ یا فیلد را خالی بگذار.
+      - name: githubUrl
+        label: نشانی گیت‌هاب
+        type: string
+        pattern:
+          regex: ^https?://[^\s]+$
+          message: نشانی کامل با https:// وارد کن؛ یا فیلد را خالی بگذار.
+      - name: links
         label: پیوندها
         type: object
         list:
@@ -254,11 +286,6 @@ content:
         label: مستندات
         type: text
         description: متن ساده؛ بین پاراگراف‌ها یک خط خالی بگذار.
-      - name: emoji
-        label: نماد پروژه
-        type: string
-        required: true
-        default: 🌐
       - name: colorA
         label: رنگ اول
         type: string
@@ -269,31 +296,6 @@ content:
         type: string
         hidden: true
         default: "#B08940"
-      - name: thumbnail
-        label: تصویر پروژه
-        type: image
-        options:
-          media: project_images
-          rename: random
-          extensions:
-            - png
-            - jpg
-            - jpeg
-            - webp
-            - avif
-            - gif
-      - name: liveUrl
-        label: نشانی نمایش زنده
-        type: string
-        pattern:
-          regex: ^https?://[^\s]+$
-          message: نشانی کامل با https:// وارد کن؛ یا فیلد را خالی بگذار.
-      - name: githubUrl
-        label: نشانی گیت‌هاب
-        type: string
-        pattern:
-          regex: ^https?://[^\s]+$
-          message: نشانی کامل با https:// وارد کن؛ یا فیلد را خالی بگذار.
       - name: translations
         label: ترجمه‌ها
         type: object
@@ -304,39 +306,21 @@ content:
             type: object
             required: true
             fields:
-              - &a4
-                name: title
+              - name: title
                 label: نام پروژه
                 type: string
                 required: true
-              - &a5
-                name: summary
+              - name: summary
                 label: شرح پروژه
                 type: text
                 required: true
-              - &a6
-                name: tags
-                label: فناوری‌ها
-                type: string
-                required: true
-                list:
-                  min: 1
-                  collapsible: false
-              - &a7
-                name: status
-                label: وضعیت به زبان همین بخش
-                type: string
-                required: true
-              - *a3
-              - &a8
-                name: documentation
-                label: مستندات
+              - name: documentation
+                label: مستندات ترجمه‌شده
                 type: text
-                description: متن ساده؛ بین پاراگراف‌ها یک خط خالی بگذار.
+                description: اختیاری؛ اگر خالی باشد مستندات اصلی نمایش داده می‌شود.
               - name: seoTitle
-                label: نام کاملاً فارسی برای جست‌وجو
+                label: نام کاملاً فارسی برای جست‌وجو (اختیاری)
                 type: string
-                required: true
                 pattern:
                   regex: ^[^A-Za-z]+$
                   message: در این فیلد فقط نام فارسی بنویس.
@@ -345,12 +329,28 @@ content:
             type: object
             required: true
             fields:
-              - *a4
-              - *a5
-              - *a6
-              - *a7
-              - *a3
-              - *a8
+              - name: title
+                label: نام پروژه
+                type: string
+                required: true
+              - name: summary
+                label: شرح پروژه
+                type: text
+                required: true
+              - name: documentation
+                label: مستندات ترجمه‌شده
+                type: text
+                description: اختیاری؛ اگر خالی باشد مستندات اصلی نمایش داده می‌شود.
+    actions:
+      - name: validate-projects
+        label: بررسی محتوا و ساخت سه نسخه
+        scope: collection
+        workflow: content-build.yml
+        ref: current
+        confirm:
+          title: بررسی سایت
+          message: پس از ذخیره، اعتبارسنجی و ساخت نسخه‌های فارسی، انگلیسی و آلمانی اجرا می‌شود. این دکمه انتشار مستقیم نیست.
+          button: شروع بررسی
   - name: certificates
     label: مدارک
     type: collection

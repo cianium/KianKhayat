@@ -4,6 +4,25 @@ import {parse} from 'yaml';
 const config=parse(fs.readFileSync('.pages.yml','utf8'));
 assert.equal(config.settings.content.merge,true,'Preserve existing unmanaged content fields.');
 assert.deepEqual(config.content.map(c=>c.name),['featured','projects','certificates','articles']);
+// Editing projects should not require copying technology lists, links, or
+// workflow statuses into every translation, and the shared cover must be clear.
+const projectEditor=config.content.find(entry=>entry.name==='projects');
+assert(projectEditor,'Projects editor is missing from Pages CMS.');
+assert.deepEqual(projectEditor.view.fields,['title','status','featured','order']);
+const projectField=key=>projectEditor.fields.find(field=>field.name===key);
+const translationFields=projectField('translations').fields;
+assert.equal(projectField('featured').type,'boolean');
+assert.equal(projectField('thumbnail').options.media,'project_images');
+assert.match(projectField('thumbnail').description,/Home.*Work/);
+assert.deepEqual(translationFields.map(field=>field.name),['fa','de']);
+for(const language of translationFields) {
+  const keys=language.fields.map(field=>field.name);
+  assert(keys.includes('title')&&keys.includes('summary'),language.name+': missing localized fields');
+  assert(['tags','links','status','thumbnail'].every(key=>!keys.includes(key)),language.name+': avoid duplicate shared fields');
+  assert(language.fields.find(field=>field.name==='title').required);
+  assert(language.fields.find(field=>field.name==='summary').required);
+}
+assert(projectEditor.actions?.some(action=>action.workflow==='content-build.yml'&&action.scope==='collection'),'Pages CMS validation action is missing.');
 const collectionNameFrom=value=>value.split('/')[0];
 const media=new Map(config.media.map(item=>[item.name,item]));
 let records=0,fields=0;

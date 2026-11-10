@@ -50,8 +50,10 @@ for (const project of projects) {
   for(const locale of ['en', 'de', 'fa']) {
     const data = locale === 'en' ? project : project.translations?.[locale];
     assert(data?.title?.trim() && data?.summary?.trim(), project.slug + ': missing ' + locale + ' content');
-    assert(Array.isArray(data.tags) && data.tags.length, project.slug + ': missing ' + locale + ' technologies');
-    assert(data.status?.trim(), project.slug + ': missing ' + locale + ' status');
+    // Translated technologies and status are legacy optional fields.
+    // The single source of truth is the English project metadata.
+    if(data.tags !== undefined)assert(Array.isArray(data.tags) && data.tags.length, project.slug + ': malformed legacy technologies in ' + locale);
+    if(data.status !== undefined)assert(typeof data.status === 'string', project.slug + ': malformed legacy status in ' + locale);
     const links = data.links ?? [];
     assert(Array.isArray(links), project.slug + ': malformed links in ' + locale);
     assert(links.filter(link => link.primary === true).length <= 1, project.slug + ': multiple primary links in ' + locale);
