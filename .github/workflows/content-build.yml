@@ -3,6 +3,11 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      payload:
+        description: 'Optional Pages CMS context payload'
+        type: string
+        required: false
 permissions:
   contents: read
 concurrency:
