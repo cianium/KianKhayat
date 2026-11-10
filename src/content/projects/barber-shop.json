@@ -1,6 +1,7 @@
 {
   "slug": "barber-shop",
   "order": 1,
+  "featured": true,
   "title": "Barbershop Cloud — Smart Barbershop Management Platform",
   "summary": "Barbershop Cloud is a comprehensive full-stack SaaS platform designed to modernize barbershop operations through an integrated digital ecosystem.\n\nGoing beyond traditional appointment booking, the platform combines online scheduling, customer management, service administration, payment processing, product management, business analytics, and software licensing into a unified solution.\n\nThe system provides dedicated interfaces for customers, barbershop owners, and platform administrators, enabling efficient business operations while maintaining clearly defined access boundaries.\n\nBuilt using React, TypeScript, Node.js, and PostgreSQL, the application follows a modern architecture focused on scalability, maintainability, secure authentication, tenant data isolation, and transaction integrity.\n\nThe platform features a mobile-first, responsive user experience with Progressive Web App (PWA) capabilities, supporting convenient access across desktop and mobile devices.\n\nBarbershop Cloud is currently in the release candidate stage, with final production integration testing and commercial deployment preparation in progress.",
   "tags": [

@@ -193,6 +193,11 @@ content:
     fields:
       - *a1
       - *a2
+      - name: featured
+        label: نمایش در برگزیده‌های صفحه اصلی
+        type: boolean
+        default: false
+        description: با فعال‌کردن، پروژه به‌طور خودکار در برگزیده‌های صفحه اصلی نمایش داده می‌شود.
       - name: title
         label: نام پروژه
         type: string

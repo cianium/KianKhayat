@@ -4,11 +4,16 @@ import {siteLanguage} from '../data/sites';
 import {displayName} from '../data/translate';
 import {ui} from '../data/interface';
 import ProjectCover from './ProjectCover.astro';
-const entries=(await getCollection('featured',({data})=>data.published)).sort((a,b)=>a.data.order-b.data.order);
+import {buildFeaturedEntries} from '../data/featured-projects.mjs';
+type FeaturedCard = { slug: string; order: number; title: string; summary: string; url: string; image?: string; emoji: string; translations?: Partial<Record<'fa' | 'de', { title: string; summary: string }>> };
+const entries: FeaturedCard[] = buildFeaturedEntries(
+  (await getCollection('featured')).map(({data}) => data),
+  (await getCollection('projects')).map(({data}) => data),
+);
 ---
 {entries.length>0 && <section class="section featured-section" aria-labelledby="featured-title" data-no-translate>
   <div class="container"><h2 id="featured-title" class="section-title h2">{ui('featured',siteLanguage)}</h2>
-    <div class="featured-strip">{entries.map(({data})=>{
+    <div class="featured-strip">{entries.map((data)=>{
       const item={...data,...(siteLanguage==='en'?{}:data.translations?.[siteLanguage])};
       return <article class="featured-card"><a class="featured-target" href={data.url} rel={data.url.startsWith('http')?'noopener noreferrer':undefined}>
         <ProjectCover thumbnail={data.image} title={item.title} emoji={data.emoji}/>
