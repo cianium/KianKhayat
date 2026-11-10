@@ -27,7 +27,7 @@
     "check:release": "node scripts/check-release.mjs",
     "check:live": "node scripts/check-live.mjs",
     "check:editorial": "node scripts/check-editorial.mjs",
-    "test:editorial": "node --test tests/editorial.test.mjs",
+    "test:editorial": "node --test tests/editorial.test.mjs tests/featured-projects.test.mjs",
     "check:projects": "node scripts/check-project-links.mjs",
     "check:hosting": "node scripts/check-host-headers.mjs"
   },
