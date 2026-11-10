@@ -27,12 +27,13 @@ test('disabled projects do not appear even if a legacy curated card exists', () 
   assert.deepEqual(buildFeaturedEntries([legacy], [{...project, featured: false}]), []);
 });
 
-test('curated cards preserve custom cover and copy and never duplicate project entries', () => {
-  const legacy = {slug: 'barber-shop', order: 2, published: true, url: '/work/barber-shop/', title: 'Curated', image: '/media/featured/special.png'};
+test('project thumbnail is the single source of truth for cards even when legacy featured data exists', () => {
+  const legacy = {slug: 'barber-shop', order: 2, published: true, url: '/work/barber-shop/', title: 'Curated', image: '/media/featured/old.png'};
   const cards = buildFeaturedEntries([legacy], [project]);
   assert.equal(cards.length, 1);
-  assert.equal(cards[0].title, 'Curated');
-  assert.equal(cards[0].image, '/media/featured/special.png');
+  assert.equal(cards[0].title, project.title);
+  assert.equal(cards[0].image, project.thumbnail);
+  assert.equal(cards[0].translations.fa.title, project.translations.fa.title);
 });
 
 test('independent featured items remain visible, unpublished items remain hidden, and cards are ordered', () => {
