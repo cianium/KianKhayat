@@ -3,10 +3,14 @@ on:
   push:
     paths:
       - 'studio/**'
+      - 'src/**'
+      - 'public/**'
       - '.github/workflows/studio-ci.yml'
   pull_request:
     paths:
       - 'studio/**'
+      - 'src/**'
+      - 'public/**'
       - '.github/workflows/studio-ci.yml'
 permissions:
   contents: read
@@ -20,6 +24,6 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
-      - run: node --test studio/core.test.mjs
+      - run: node --test studio/*.test.mjs
       - run: cp studio/.env.example studio/.env && docker compose -f studio/compose.yaml config --quiet
       - run: docker build -t studio-ci studio

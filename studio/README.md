@@ -9,8 +9,18 @@ Independent Node 24 service; the existing Astro portfolio stays unchanged. First
 - Copy `studio/.env.example` to `studio/.env` on the server, populate it securely, chmod 600.
 - In studio, run `docker compose up -d --build`. It binds only 127.0.0.1:8085; mount /data persistently. Configure the existing reverse proxy with exact Host preservation for the two domains and valid HTTPS certificates. Caddy example is provided, do not overwrite an existing proxy or bind ports already in use.
 - Configure Cloudflare DNS for manage and blog only after staging checks. Do not change existing DNS for the three portfolio domains. Use TLS Full (strict) when proxied. Keep staging private until authorization is tested.
-- No articles are imported yet; the blog initially shows an empty state. Article text is escaped and rendered as plaintext paragraphs, not legacy HTML. Old article URLs and data remain untouched.
+- Legacy records can now be imported into the private catalog (see below); no old articles are automatically published. The blog initially shows an empty state. Article text is escaped and rendered as plaintext paragraphs, not legacy HTML. Old article URLs and data remain untouched.
 
 ## Required before launch
 
 Real Google OAuth integration (allowed and rejected accounts), verify cookie/TLS behavior, restart persistence, database backup and tested restore, rate limit at reverse proxy, review OAuth implementation, test supported languages and mobile accessibility, migrate original articles with sanitizer and preserve dates/URLs, add canonical/redirect/RSS/sitemap, integrate portfolio data, establish release gates. SQLite backups must use the SQLite backup mechanism or coordinated service stop; do not copy just a live WAL database file. Keep DB and backups private and persistent.
+
+## V10.2 private legacy import
+
+Run from the repository root after taking a database backup. On a VPS with the Studio container configured, use:
+```sh
+cd studio
+docker compose run --rm --no-deps -v "$(cd .. && pwd):/legacy:ro" studio node /app/import-legacy.mjs /legacy
+```
+For a disposable local database: `STUDIO_DB=/tmp/studio-preview.sqlite node studio/import-legacy.mjs .`.
+The importer is transactional and idempotent. It stages original JSON (including old HTML, translations and dates), derived hero profile, skills, translation dictionary and original media in the private SQLite catalog. It never overwrites edited catalog entries or silently accepts changed source data. It does not publish or modify Astro files. Visit /inventory on manage after owner login. Media BLOBs are private; signature/size checks are not full decoding or malware scanning. No public media/upload endpoint is enabled yet. Backups include the media and revisions; use a consistent SQLite backup or a coordinated service stop.

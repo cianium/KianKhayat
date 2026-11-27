@@ -77,6 +77,7 @@ export function createStudio(config,store){
    const authorized=session&&session.subject===store.owner()&&(!config.subject||session.subject===config.subject);
    if(!authorized)return get?send(res,401,view.login()):plain(res,401,'Authentication required');
    if(get&&path==='/')return send(res,200,view.dashboard(store.list(),session));
+   if(get&&path==='/inventory')return send(res,200,view.inventory(store.catalog.list(),store.catalog.mediaList(),session));
    if(get&&path==='/articles')return send(res,200,view.listing(store.list(),session));
    const match=path.match(/^\/articles\/([1-9][0-9]{0,11})$/);
    const id=match?Number(match[1]):null;

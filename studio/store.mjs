@@ -1,10 +1,13 @@
 import {DatabaseSync} from 'node:sqlite';
 import {hash,token} from './core.mjs';
+import {initCatalog} from './catalog.mjs';
 export function openStore(path){
  const db=new DatabaseSync(path);
  db.exec('PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000; PRAGMA foreign_keys=ON;');
  db.exec('CREATE TABLE IF NOT EXISTS owner (id INTEGER PRIMARY KEY CHECK(id=1), subject TEXT NOT NULL); CREATE TABLE IF NOT EXISTS sessions (id TEXT PRIMARY KEY, subject TEXT NOT NULL, csrf TEXT NOT NULL, expires INTEGER NOT NULL); CREATE TABLE IF NOT EXISTS oauth (id TEXT PRIMARY KEY, state TEXT NOT NULL, verifier TEXT NOT NULL, expires INTEGER NOT NULL); CREATE TABLE IF NOT EXISTS articles (id INTEGER PRIMARY KEY, language TEXT NOT NULL, slug TEXT NOT NULL, title TEXT NOT NULL, summary TEXT NOT NULL, body TEXT NOT NULL, status TEXT NOT NULL CHECK(status IN (\'draft\',\'published\')), published_at TEXT, updated_at TEXT NOT NULL, UNIQUE(language,slug));');
+ const catalog=initCatalog(db);
  return {
+  catalog,
   close:()=>db.close(),
   owner:()=>db.prepare('SELECT subject FROM owner WHERE id=1').get()?.subject,
   pin:sub=>{db.prepare('INSERT OR IGNORE INTO owner VALUES(1,?)').run(sub);return db.prepare('SELECT subject FROM owner WHERE id=1').get()?.subject===sub},
