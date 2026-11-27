@@ -28,3 +28,9 @@ The importer is transactional and idempotent. It stages original JSON (including
 ## V10.3 dashboard UI
 
 Responsive Persian RTL workspace, theme switch, private catalog pages, article search/filter and editor feedback. Profile/project/certificate/media pages are explicitly read-only until CRUD and upload milestones. Browser tests use a loopback-only test proxy and ephemeral seeded owner session; they do not constitute real Google login or production TLS verification. No public portfolio design changed.
+
+## V10.4 profile editor
+
+After legacy import, the private profile page supports EN/DE/FA text, existing social links, separate light/dark portrait replacement, 5 fixed crop positions with local preview, and PDF resume replacement. Image uploads are decoded and re-encoded with the existing locked Sharp dependency, limited to 10 MiB/40 megapixels, with a 720px square WebP output. PDF uploads are limited to 20 MiB and signature/end-marker checked; they are unscanned and served only as an authenticated attachment, never inline. Revision checks and a transaction protect the media/profile update; no public media endpoint is enabled. The portfolio still uses its existing content until integration.
+
+Docker build context is now the repo root (Compose resolves it automatically). No OAuth secrets are included in the build context. Studio browser CI uses Ubuntu 24.04, matching the existing portfolio browser workflow.

@@ -1,6 +1,8 @@
 services:
   studio:
-    build: .
+    build:
+      context: ..
+      dockerfile: studio/Dockerfile
     restart: unless-stopped
     env_file: .env
     ports:

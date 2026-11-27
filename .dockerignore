@@ -1,0 +1,8 @@
+*
+!package.json
+!package-lock.json
+!studio/
+studio/*
+!studio/*.mjs
+!studio/studio.css
+!studio/studio-ui.js

@@ -59,6 +59,21 @@ export function initCatalog(db){
   list:()=>db.prepare('SELECT kind,key,status,revision,updated_at FROM catalog ORDER BY kind,key').all(),
   history:(kind,key)=>db.prepare('SELECT revision,status,actor,at FROM catalog_revisions WHERE kind=? AND key=? ORDER BY revision DESC').all(kind,key),
   save:(kind,key,data,status,expected,actor)=>transact(()=>saveInternal(kind,key,data,status,expected,actor)),
+  mediaBySource:source=>db.prepare('SELECT m.bytes,m.mime,m.size FROM media_sources s JOIN media_objects m ON s.sha=m.sha WHERE s.source=?').get(source),
+  replaceProfileMedia:(slot,bytes,expected,actor)=>transact(()=>{
+   const old=get('profile','owner');
+   if(!old||old.revision!==expected)throw Error('Revision conflict');
+   if(!['light','dark','resume'].includes(slot))throw Error('Invalid slot');
+   const mime=mediaType(bytes);
+   if(mime!==(slot==='resume'?'application/pdf':'image/webp'))throw Error('Invalid processed media');
+   const sha=digest(bytes),source='uploads/'+sha+(slot==='resume'?'.pdf':'.webp');
+   db.prepare('INSERT OR IGNORE INTO media_objects VALUES(?,?,?,?)').run(sha,mime,bytes.length,bytes);
+   db.prepare('INSERT OR IGNORE INTO media_sources VALUES(?,?)').run(source,sha);
+   const data=JSON.parse(old.payload);
+   if(slot==='resume')data.resume=source;
+   else data.portraits={...data.portraits,[slot]:source};
+   return saveInternal('profile','owner',data,'draft',expected,actor);
+  }),
   mediaList:()=>db.prepare('SELECT s.source,m.sha,m.mime,m.size FROM media_sources s JOIN media_objects m ON s.sha=m.sha ORDER BY s.source').all(),
   mediaBytes:sha=>db.prepare('SELECT bytes,mime,size FROM media_objects WHERE sha=?').get(sha),
   importBatch:(records,media)=>transact(()=>{

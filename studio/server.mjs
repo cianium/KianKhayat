@@ -5,6 +5,7 @@ import {configuration,MANAGE,BLOG} from './config.mjs';
 import {openStore} from './store.mjs';
 import {cookie,readCookie,equal,challenge,ownerAllowed,articleInput,formBody} from './core.mjs';
 import * as view from './views.mjs';
+import {profileInput,revision,preparePortrait,prepareResume,readUpload} from './profile.mjs';
 
 const SESSION='__Host-studio-session', OAUTH='__Host-studio-oauth';
 const callback=MANAGE+'/auth/callback';
@@ -15,7 +16,7 @@ const headers=(res,admin)=>{
  res.setHeader('X-Frame-Options','DENY');
  res.setHeader('Referrer-Policy','no-referrer');
  res.setHeader('Permissions-Policy','camera=(), microphone=(), geolocation=()');
- res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
+ res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
  res.setHeader('Cache-Control',admin?'private, no-store':'no-cache');
  if(admin)res.setHeader('X-Robots-Tag','noindex, nofollow');
 };
@@ -28,7 +29,7 @@ async function googleJSON(url,options={}){
  return response.json();
 }
 export function createStudio(config,store){
- let attempts=[];
+ let attempts=[],uploadBusy=false;
  return http.createServer({requestTimeout:15000,headersTimeout:10000,maxHeaderSize:16384},async(req,res)=>{
   try{
    const host=req.headers.host;
@@ -81,7 +82,39 @@ export function createStudio(config,store){
    if(get&&path==='/')return send(res,200,view.dashboard(store.list(),session,store.catalog.list(),store.catalog.mediaList()));
    if(get&&path==='/inventory')return send(res,200,view.inventory(store.catalog.list(),store.catalog.mediaList(),session));
    if(get&&path==='/media')return send(res,200,view.mediaPage(store.catalog.mediaList(),session));
-   const catalogKind=({'/profile':'profile','/projects':'project','/certificates':'certificate'})[path];
+   if(get&&path==='/profile')return send(res,200,view.profilePage(store.catalog.get('profile','owner'),session,{saved:url.searchParams.get('saved')==='1'}));
+   const mediaMatch=path.match(/^\/profile\/media\/(light|dark|resume)$/);
+   if(mediaMatch){
+    const slot=mediaMatch[1],record=store.catalog.get('profile','owner');
+    if(!record)return plain(res,404,'Profile not found');
+    if(get){
+     const source=slot==='resume'?record.data.resume:record.data.portraits?.[slot];
+     const file=source&&store.catalog.mediaBySource(source);
+     if(!file)return plain(res,404,'Media not found');
+     if(slot==='resume'){
+      if(file.mime!=='application/pdf')return plain(res,404,'Not found');
+      res.setHeader('Content-Disposition','attachment; filename="resume.pdf"');
+      return send(res,200,Buffer.from(file.bytes),'application/pdf');
+     }
+     try{return send(res,200,await preparePortrait(Buffer.from(file.bytes)),'image/webp')}catch{return plain(res,422,'Invalid image')}
+    }
+    if(post){
+     if(req.headers.origin!==MANAGE||!equal(req.headers['x-studio-csrf'],session.csrf))return plain(res,403,'Invalid origin or CSRF token');
+     let expected;try{expected=revision(req.headers['x-studio-revision'])}catch{return plain(res,400,'Invalid revision')}
+     if(expected!==record.revision)return plain(res,409,'Revision conflict');
+     if(uploadBusy)return plain(res,429,'Upload already running');
+     uploadBusy=true;
+     try{
+      const bytes=await readUpload(req,slot==='resume'?20*1024*1024:10*1024*1024);
+      const processed=slot==='resume'?prepareResume(bytes):await preparePortrait(bytes,url.searchParams.get('crop')||'centre');
+      const next=store.catalog.replaceProfileMedia(slot,processed,expected,session.subject);
+      return send(res,200,JSON.stringify({revision:next}),'application/json; charset=utf-8');
+     }catch(error){return plain(res,error.message==='Revision conflict'?409:400,'Upload rejected')}
+     finally{uploadBusy=false}
+    }
+    return plain(res,405,'Method not allowed');
+   }
+   const catalogKind=({'/projects':'project','/certificates':'certificate'})[path];
    if(get&&typeof catalogKind==='string')return send(res,200,view.catalogPage(catalogKind,store.catalog.list().filter(r=>r.kind===catalogKind).map(r=>store.catalog.get(r.kind,r.key)),session));
    if(get&&path==='/articles'){
     const q=(url.searchParams.get('q')||'').slice(0,120).trim(),status=url.searchParams.get('status');
@@ -95,6 +128,19 @@ export function createStudio(config,store){
     if(req.headers.origin!==MANAGE)return plain(res,403,'Invalid origin');
     let form;try{form=await formBody(req)}catch{return plain(res,400,'Invalid request')}
     if(!equal(form.get('csrf'),session.csrf))return plain(res,403,'Invalid CSRF token');
+    if(path==='/profile'){
+     const old=store.catalog.get('profile','owner');
+     if(!old)return plain(res,404,'Profile not found');
+     let data;
+     try{
+      data=profileInput(form,old.data);
+      store.catalog.save('profile','owner',data,'draft',revision(form.get('revision')),session.subject);
+      return redirect(res,'/profile?saved=1');
+     }catch(error){
+      const conflict=error.message==='Revision conflict';
+      return send(res,conflict?409:400,view.profilePage(old,session,{error:conflict?'نسخه جدیدتری ذخیره شده است. صفحه را تازه‌سازی کن و تغییرات را دوباره اعمال کن.':'اطلاعات معتبر نیست؛ مقادیر را بررسی کن.',input:conflict?null:data||Object.fromEntries(form)}));
+     }
+    }
     if(path==='/logout'){store.logout(sessionId);res.setHeader('Set-Cookie',cookie(SESSION,'',0));return redirect(res,'/')}
     if(path==='/articles/new'||id){
      if(id&&!store.find(id))return plain(res,404,'Not found');

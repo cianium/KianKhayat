@@ -3,6 +3,7 @@ import http from 'node:http';
 import assert from 'node:assert/strict';
 import {mkdirSync} from 'node:fs';
 import {chromium} from '@playwright/test';
+import sharp from 'sharp';
 import {AxeBuilder} from '@axe-core/playwright';
 import {openStore} from './store.mjs';
 import {createStudio} from './server.mjs';
@@ -73,9 +74,24 @@ try{
  await page.getByRole('status').waitFor();
  assert.equal(db.list().find(r=>r.slug==='browser-test').status,'draft');
  await page.screenshot({path:'studio-test-results/editor-mobile.png',fullPage:true});
+ await page.goto(origin+'/profile');
+ const portrait=page.locator('form[data-slot=light]');
+ await portrait.waitFor();
+ const png=await sharp({create:{width:80,height:120,channels:3,background:'#247650'}}).png().toBuffer();
+ await portrait.locator('input[type=file]').setInputFiles({name:'portrait.png',mimeType:'image/png',buffer:png});
+ await page.locator('canvas[data-crop-preview]').first().waitFor({state:'visible'});
+ await portrait.locator('select').selectOption('north');
+ await portrait.getByRole('button',{name:'ذخیره تصویر'}).click();
+ await portrait.getByText('فایل ذخیره شد.',{exact:true}).waitFor();
+ assert.match(db.catalog.get('profile','owner').data.portraits.light,/^uploads\//);
+ await page.locator('textarea[name=bio_fa]').fill('متن جدید آزمایشی');
+ await page.getByRole('button',{name:'ذخیره اطلاعات پروفایل'}).click();
+ await page.getByText('اطلاعات پروفایل ذخیره شد.',{exact:true}).waitFor();
+ assert.equal(db.catalog.get('profile','owner').data.bio.fa,'متن جدید آزمایشی');
+ await page.screenshot({path:'studio-test-results/profile-mobile.png',fullPage:true});
  for(const mode of ['dark','light']){
   if(await page.locator('html').getAttribute('data-theme')!==mode)await page.locator('[data-theme-toggle]').click();
-  for(const path of ['/','/articles/new','/projects']){
+  for(const path of ['/','/articles/new','/projects','/profile']){
    await page.goto(origin+path);
    const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
    assert.deepEqual(result.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],mode+' '+path);
