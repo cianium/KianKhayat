@@ -9,12 +9,13 @@ import * as view from './views.mjs';
 const SESSION='__Host-studio-session', OAUTH='__Host-studio-oauth';
 const callback=MANAGE+'/auth/callback';
 const css=readFileSync(new URL('./studio.css',import.meta.url));
+const uiScript=readFileSync(new URL('./studio-ui.js',import.meta.url));
 const headers=(res,admin)=>{
  res.setHeader('X-Content-Type-Options','nosniff');
  res.setHeader('X-Frame-Options','DENY');
  res.setHeader('Referrer-Policy','no-referrer');
  res.setHeader('Permissions-Policy','camera=(), microphone=(), geolocation=()');
- res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'self'; img-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
+ res.setHeader('Content-Security-Policy',"default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
  res.setHeader('Cache-Control',admin?'private, no-store':'no-cache');
  if(admin)res.setHeader('X-Robots-Tag','noindex, nofollow');
 };
@@ -38,6 +39,7 @@ export function createStudio(config,store){
    const url=new URL(req.url,admin?MANAGE:BLOG), path=url.pathname;
    const get=req.method==='GET',post=req.method==='POST';
    if(get&&path==='/studio.css')return send(res,200,css,'text/css; charset=utf-8');
+   if(admin&&get&&path==='/studio-ui.js')return send(res,200,uiScript,'text/javascript; charset=utf-8');
    if(get&&path==='/healthz')return plain(res,200,'ok');
    if(!admin){
     if(!get)return plain(res,405,'Method not allowed');
@@ -76,13 +78,19 @@ export function createStudio(config,store){
    }
    const authorized=session&&session.subject===store.owner()&&(!config.subject||session.subject===config.subject);
    if(!authorized)return get?send(res,401,view.login()):plain(res,401,'Authentication required');
-   if(get&&path==='/')return send(res,200,view.dashboard(store.list(),session));
+   if(get&&path==='/')return send(res,200,view.dashboard(store.list(),session,store.catalog.list(),store.catalog.mediaList()));
    if(get&&path==='/inventory')return send(res,200,view.inventory(store.catalog.list(),store.catalog.mediaList(),session));
-   if(get&&path==='/articles')return send(res,200,view.listing(store.list(),session));
+   if(get&&path==='/media')return send(res,200,view.mediaPage(store.catalog.mediaList(),session));
+   const catalogKind=({'/profile':'profile','/projects':'project','/certificates':'certificate'})[path];
+   if(get&&typeof catalogKind==='string')return send(res,200,view.catalogPage(catalogKind,store.catalog.list().filter(r=>r.kind===catalogKind).map(r=>store.catalog.get(r.kind,r.key)),session));
+   if(get&&path==='/articles'){
+    const q=(url.searchParams.get('q')||'').slice(0,120).trim(),status=url.searchParams.get('status');
+    return send(res,200,view.listing(store.list(),session,{q,status:['draft','published'].includes(status)?status:'all'}));
+   }
    const match=path.match(/^\/articles\/([1-9][0-9]{0,11})$/);
    const id=match?Number(match[1]):null;
    if(get&&path==='/articles/new')return send(res,200,view.editor({},session));
-   if(get&&id){const a=store.find(id);return a?send(res,200,view.editor(a,session)):plain(res,404,'Not found')}
+   if(get&&id){const a=store.find(id);return a?send(res,200,view.editor(a,session,'',url.searchParams.get('saved')==='1')):plain(res,404,'Not found')}
    if(post){
     if(req.headers.origin!==MANAGE)return plain(res,403,'Invalid origin');
     let form;try{form=await formBody(req)}catch{return plain(res,400,'Invalid request')}
@@ -90,8 +98,8 @@ export function createStudio(config,store){
     if(path==='/logout'){store.logout(sessionId);res.setHeader('Set-Cookie',cookie(SESSION,'',0));return redirect(res,'/')}
     if(path==='/articles/new'||id){
      if(id&&!store.find(id))return plain(res,404,'Not found');
-     try{const saved=store.save(articleInput(form),id);return redirect(res,'/articles/'+saved)}
-     catch{return send(res,400,view.editor({...Object.fromEntries(form),id},session,'ذخیره انجام نشد؛ اطلاعات را بررسی کنید. شناسه تکراری یا تغییر آدرس منتشرشده مجاز نیست.'))}
+     try{const saved=store.save(articleInput(form),id);return redirect(res,'/articles/'+saved+'?saved=1')}
+     catch{return send(res,400,view.editor({...Object.fromEntries(form),id,published_at:id?store.find(id)?.published_at:null},session,'ذخیره انجام نشد؛ اطلاعات را بررسی کنید. شناسه تکراری یا تغییر آدرس منتشرشده مجاز نیست.'))}
     }
    }
    return plain(res,404,'Not found');

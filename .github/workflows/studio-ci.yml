@@ -27,3 +27,13 @@ jobs:
       - run: node --test studio/*.test.mjs
       - run: cp studio/.env.example studio/.env && docker compose -f studio/compose.yaml config --quiet
       - run: docker build -t studio-ci studio
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node studio/browser-check.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: studio-browser-screenshots
+          path: studio-test-results/
+          if-no-files-found: ignore
+          retention-days: 7

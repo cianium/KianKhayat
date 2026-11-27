@@ -24,3 +24,7 @@ docker compose run --rm --no-deps -v "$(cd .. && pwd):/legacy:ro" studio node /a
 ```
 For a disposable local database: `STUDIO_DB=/tmp/studio-preview.sqlite node studio/import-legacy.mjs .`.
 The importer is transactional and idempotent. It stages original JSON (including old HTML, translations and dates), derived hero profile, skills, translation dictionary and original media in the private SQLite catalog. It never overwrites edited catalog entries or silently accepts changed source data. It does not publish or modify Astro files. Visit /inventory on manage after owner login. Media BLOBs are private; signature/size checks are not full decoding or malware scanning. No public media/upload endpoint is enabled yet. Backups include the media and revisions; use a consistent SQLite backup or a coordinated service stop.
+
+## V10.3 dashboard UI
+
+Responsive Persian RTL workspace, theme switch, private catalog pages, article search/filter and editor feedback. Profile/project/certificate/media pages are explicitly read-only until CRUD and upload milestones. Browser tests use a loopback-only test proxy and ephemeral seeded owner session; they do not constitute real Google login or production TLS verification. No public portfolio design changed.
